@@ -96,3 +96,4 @@ fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local user bin to PATH
 PATH=$PATH:$HOME/typesafe-stack/bin
+PATH=$PATH:/Applications/MAMP/bin/php/php5.3.6/bin/
