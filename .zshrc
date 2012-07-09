@@ -31,9 +31,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # Directory Alias
 # alias ls='ls --color=auto'
-# alias work='cd ~/D_Drive/Work/workspace'
+alias work='cd ~/SkyDrive/workspace'
 # alias course='cd ~/D_Drive/Work/Courses'
-# alias site='cd ~/D_Drive/Work/Sites'
+alias site='cd ~/SkyDrive/Sites'
+alias project='cd ~/SkyDrive/Projects'
 
 # Personal configuration
 export EDITOR="vim"
@@ -95,5 +96,5 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local user bin to PATH
-PATH=$PATH:$HOME/typesafe-stack/bin
-PATH=$PATH:/Applications/MAMP/bin/php/php5.3.6/bin/
+PATH=/Applications/MAMP/bin/php/php5.4.3/bin:$PATH
+PATH=$PATH:/usr/local/share/python3

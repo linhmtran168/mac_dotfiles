@@ -208,7 +208,7 @@ syntax enable "Enable syntax hl
 
 " Set font according to system
 " if MySys() == "mac"
-"   set gfn=Menlo:h14
+"   set gfn=:h14
 "   set shell=/bin/zsh
 " elseif MySys() == "windows"
 "   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
@@ -217,7 +217,7 @@ syntax enable "Enable syntax hl
 "   set shell=/bin/zsh
 " endif
 
-set gfn=Menlo:h14
+set gfn=Monaco:h12
 set shell=/bin/zsh
 
 if has('gui_running')
