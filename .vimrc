@@ -98,11 +98,13 @@ Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-user'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'jpalardy/vim-slime'
 
 " Javascript
 Bundle 'pangloss/vim-javascript'
@@ -153,6 +155,7 @@ Bundle 'mru.vim'
 Bundle 'matchit.zip'
 Bundle 'FencView.vim'
 Bundle 'sudo.vim'
+Bundle 'scratch.vim'
 
 " Vim themes
 Bundle 'altercation/vim-colors-solarized'
@@ -835,3 +838,6 @@ au BufRead,BufNewFile *.jade set ft=jade syntax=jaGjo
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+"" Slime
+let g:slime_target = "tmux"
