@@ -99,3 +99,4 @@ PATH=$PATH:$HOME/bin # Add local user bin to PATH
 PATH=/Applications/MAMP/bin/php/php5.4.3/bin:$PATH
 PATH=$PATH:/usr/local/share/python3
 PATH=$PATH:/Users/mb985/Documents/arcanist/bin
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
