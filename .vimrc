@@ -98,12 +98,10 @@ Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-user'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'jpalardy/vim-slime'
 
 " Javascript
@@ -117,6 +115,8 @@ Bundle 'hallison/vim-markdown'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-haml'
 Bundle 'skammer/vim-css-color'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'wavded/vim-stylus'
@@ -124,7 +124,6 @@ Bundle 'JSON.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'linhmtran168/xmledit'
 Bundle 'indenthtml.vim'
-
 
 " Indent
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -156,6 +155,7 @@ Bundle 'matchit.zip'
 Bundle 'FencView.vim'
 Bundle 'sudo.vim'
 Bundle 'scratch.vim'
+Bundle 'vimwiki'
 
 " Vim themes
 Bundle 'altercation/vim-colors-solarized'
@@ -220,7 +220,7 @@ syntax enable "Enable syntax hl
 "   set shell=/bin/zsh
 " endif
 
-set gfn=Monaco:h12
+set gfn=Menlo:h11
 set shell=/bin/zsh
 
 if has('gui_running')
@@ -708,6 +708,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
+
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
@@ -811,7 +812,7 @@ augroup json_autocmd
 augroup END
 
 "" delimitMate
-au FileType html,xml,php let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType xhtml,html,xml,php let b:delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_balance_matchpairs = 1
@@ -845,3 +846,6 @@ let g:slime_target = "tmux"
 "" Indent guides
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+"" Vimwiki
+let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md' }]

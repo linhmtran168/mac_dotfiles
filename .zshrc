@@ -29,6 +29,9 @@ plugins=(django python pip rails rails3 gem ruby rvm git git-flow github mecuria
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+# Zsh completion
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Directory Alias
 # alias ls='ls --color=auto'
 alias work='cd ~/SkyDrive/workspace'
@@ -96,7 +99,8 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local user bin to PATH
-PATH=/Applications/MAMP/bin/php/php5.4.3/bin:$PATH
 PATH=$PATH:/usr/local/share/python3
-PATH=$PATH:/Users/mb985/Documents/arcanist/bin
-PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+PATH=$HOME/Applications/arcanist/bin:$PATH
+PATH=$PATH:Applications/Postgres.app/Contents/MacOS/bin
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
