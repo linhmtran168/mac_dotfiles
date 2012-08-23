@@ -274,10 +274,10 @@ endtry
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
-set shiftwidth=4
-set tabstop=4
 set smarttab
-set softtabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 
 set lbr
 set tw=500
@@ -600,7 +600,7 @@ au FileType python map <buffer> <leader>D ?def
 " au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
-au FileType javascript setl foldmethod=syntax
+au FileType javascript setl foldmethod=manual
 au FileType javascript setl foldlevelstart=1
 
 au FileType javascript imap <c-t> AJS.log();<esc>hi
@@ -833,7 +833,10 @@ if &term =~ "xterm\\|rxvt"
 endif
 
 "" Jade template syntax
-au BufRead,BufNewFile *.jade set ft=jade syntax=jaGjo
+au BufRead,BufNewFile *.jade set ft=jade syntax=jade
+
+"" Less template syntax
+au BufRead,BufNewFile *.less set ft=less syntax=less
 
 "" Indent html
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -849,3 +852,8 @@ let g:indent_guides_guide_size = 1
 
 "" Vimwiki
 let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md' }]
+
+"" Indent for python, java, c, cpp
+autocmd FileType python,java,c,cpp,markdown set softtabstop=4
+autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
+autocmd FileType python,java,c,cpp,markdown set tabstop=4
