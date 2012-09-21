@@ -159,9 +159,7 @@ Bundle 'vimwiki'
 
 " Vim themes
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'peaksea'
-Bundle 'Zenburn'
-Bundle 'Lucius'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " Non github repos
 
@@ -220,21 +218,21 @@ syntax enable "Enable syntax hl
 "   set shell=/bin/zsh
 " endif
 
-set gfn=Menlo:h11
+set gfn=Menlo\ for\ Powerline:h11
 set shell=/bin/zsh
 
 if has('gui_running')
   set guioptions-=T
   set lines=36
   set background=dark
-  colorscheme solarized 
+  colorscheme Tomorrow-Night
   set nonu
 else
   " set t_Co=256
   " let g:solarized_termcolors=256
   let g:solarized_termtrans=1
   set background=dark
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set nonu
 endif
 
@@ -597,11 +595,19 @@ au FileType python map <buffer> <leader>D ?def
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-" au FileType javascript call JavaScriptFold()
-au FileType javascript setl fen
+au BufRead,BufNewFile *.js call JavaScriptFold()
+au BufRead,BufNewFile *.js setl foldlevelstart=20
+au BufRead,BufNewFile *.js normal zR
+au BufRead,BufNewFile *.js setl fen
 au FileType javascript setl nocindent
-au FileType javascript setl foldmethod=manual
-au FileType javascript setl foldlevelstart=1
+
+" au BufRead,BufNewFile *.js setl fen
+" au FileType javascript call JavaScriptFold()
+" au FileType javascript setl fen
+" au FileType javascript setl nocindent
+" au FileType javascript setl foldmethod=syntax
+" au FileType javascript setl foldlevelstart=20
+" au FileType javascript normal zR
 
 au FileType javascript imap <c-t> AJS.log();<esc>hi
 au FileType javascript imap <c-a> alert();<esc>hi
@@ -611,7 +617,6 @@ au FileType javascript inoremap <buffer> $f //--- PH ---------------------------
 
 function! JavaScriptFold()
     setl foldmethod=syntax
-    setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
     function! FoldText()
@@ -805,8 +810,7 @@ augroup json_autocmd
     autocmd! 
     autocmd FileType json set autoindent 
     autocmd FileType json set formatoptions=tcq2l 
-    autocmd FileType json set textwidth=78 shiftwidth=4 
-    autocmd FileType json set softtabstop=4 tabstop=4 
+    autocmd FileType json set textwidth=78 
     autocmd FileType json set expandtab 
     autocmd FileType json set foldmethod=syntax 
 augroup END
@@ -847,8 +851,8 @@ let g:html_indent_style1 = "inc"
 let g:slime_target = "tmux"
 
 "" Indent guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
 
 "" Vimwiki
 let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md' }]
@@ -857,3 +861,9 @@ let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markd
 autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
 autocmd FileType python,java,c,cpp,markdown set tabstop=4
+
+"" Indent for javascript
+au BufRead,BufNewFile *.js set softtabstop=2 shiftwidth=2 tabstop=2
+
+"" Vim powerline
+let g:Powerline_symbols = 'fancy'

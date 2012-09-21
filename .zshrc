@@ -35,7 +35,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Directory Alias
 # alias ls='ls --color=auto'
 alias work='cd ~/SkyDrive/workspace'
-# alias course='cd ~/D_Drive/Work/Courses'
+alias course='cd ~/SkyDrive/Courses'
 alias site='cd ~/SkyDrive/Sites'
 alias project='cd ~/SkyDrive/Projects'
 
@@ -97,6 +97,9 @@ elif compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
+# Variable for tmux-powerline
+export PLATFORM="mac"
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/bin # Add local user bin to PATH
 PATH=$PATH:/usr/local/share/python3
@@ -104,3 +107,5 @@ PATH=$HOME/Applications/arcanist/bin:$PATH
 PATH=$PATH:Applications/Postgres.app/Contents/MacOS/bin
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
+PATH=$PATH:$HOME/Documents/vert.x-1.2.3.final/bin
+PATH=/usr/local/share/npm/bin:$PATH
