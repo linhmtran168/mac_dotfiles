@@ -84,16 +84,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'xolox/vim-shell'
-Bundle 'xolox/vim-session'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'Raimondi/delimitMate'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
@@ -101,14 +92,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'godlygeek/tabular'
-Bundle 'kana/vim-textobj-user'
 Bundle 'jpalardy/vim-slime'
+Bundle 'Townk/vim-autoclose'
+Bundle 'ervandew/supertab'
 
 " Javascript
-Bundle 'pangloss/vim-javascript'
+Bundle 'linhmtran168/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jQuery'
-Bundle 'jelera/vim-javascript-syntax'
 
 " Markup
 Bundle 'hallison/vim-markdown'
@@ -130,6 +121,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'michaeljsmith/vim-indent-object'
 
 " Ruby & Rails
+Bundle 'kana/vim-textobj-user'
 Bundle 'tpope/vim-rails'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'ecomba/vim-ruby-refactoring'
@@ -148,17 +140,12 @@ Bundle 'c.vim'
 
 " Vim scripts repos
 Bundle 'ZoomWin'
-Bundle 'YankRing.vim'
 Bundle 'minibufexpl.vim'
 Bundle 'mru.vim'
-Bundle 'matchit.zip'
-Bundle 'FencView.vim'
 Bundle 'sudo.vim'
-Bundle 'scratch.vim'
 Bundle 'vimwiki'
 
 " Vim themes
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " Non github repos
@@ -201,6 +188,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
+"" Complete option
+set complete-=i
+"" Fold option
+set nofoldenable
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -595,10 +586,6 @@ au FileType python map <buffer> <leader>D ?def
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.js call JavaScriptFold()
-au BufRead,BufNewFile *.js setl foldlevelstart=20
-au BufRead,BufNewFile *.js normal zR
-au BufRead,BufNewFile *.js setl fen
 au FileType javascript setl nocindent
 
 " au BufRead,BufNewFile *.js setl fen
@@ -615,15 +602,15 @@ au FileType javascript imap <c-a> alert();<esc>hi
 au FileType javascript inoremap <buffer> $r return
 au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
 
-function! JavaScriptFold()
-    setl foldmethod=syntax
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-    return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
+" function! JavaScriptFold()
+"     setl foldmethod=syntax
+"     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+" 
+"     function! FoldText()
+"     return substitute(getline(v:foldstart), '{.*', '{...}', '')
+"     endfunction
+"     setl foldtext=FoldText()
+" endfunction
 
 
 """"""""""""""""""""""""""""""
@@ -658,78 +645,6 @@ map <leader>bb :cd ..<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"" Neocomplcache configuration
-" Use neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" superTab like snippets behavior
-" imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Recommended key-mappings for neocomplcache
-" <CR>: close popup and save indent. 
-inoremap <expr><CR>  neocomplcache#smart_close_popup()
-" <TAB>: completion. 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
-" <C-h>, <BS>: close popup and delete backword char. 
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><C-y>  neocomplcache#close_popup() 
-inoremap <expr><C-e>  neocomplcache#cancel_popup() 
-
-" Enable heavy omni completion for neocomplcache
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-" Complete Functions
-let g:neocomplcache_omni_functions = {
-    \ 'python' : 'pythoncomplete#Complete',
-    \ 'ruby' : 'rubycomplete#Complete',
-    \}
-let g:neocomplcache_vim_completefuncs = {
-    \ 'VimShellExecute' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-    \ 'VimShellInteractive' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-    \ 'VimShellTerminal' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-    \}
-
 "" NERDTree Configuration
 let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
@@ -815,15 +730,6 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax 
 augroup END
 
-"" delimitMate
-au FileType xhtml,html,xml,php let b:delimitMate_matchpairs = "(:),[:],{:}"
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-let delimitMate_balance_matchpairs = 1
-
-"" Solarized
-call togglebg#map("<F5>")
-
 "" Change cursor color between mode in terminal
 if &term =~ "xterm\\|rxvt"
   " use an orange cursor in insert mode
@@ -850,10 +756,6 @@ let g:html_indent_style1 = "inc"
 "" Slime
 let g:slime_target = "tmux"
 
-"" Indent guides
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
-
 "" Vimwiki
 let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md' }]
 
@@ -862,8 +764,8 @@ autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
 autocmd FileType python,java,c,cpp,markdown set tabstop=4
 
-"" Indent for javascript
-au BufRead,BufNewFile *.js set softtabstop=2 shiftwidth=2 tabstop=2
-
 "" Vim powerline
 let g:Powerline_symbols = 'fancy'
+
+"" SuperTab configuration
+let g:SuperTabDefaultCompletionType = "context"
