@@ -24,7 +24,9 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(django python pip rails rails3 gem ruby rvm git git-flow github mecurial lein node npm gnu-utils osx redis-cli grails history-substring-search)
+plugins=(rbenv brew python pip virtualenvwrapper rails3 rails capistrano pow bundler rake gem ruby jruby git composer laravel lein node npm osx redis-cli cp history history-substring-search last-working-dir)
+
+# plugins=(rbenv osx cp history history-substring-search last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,8 +34,17 @@ source $ZSH/oh-my-zsh.sh
 # Zsh completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# Directory Alias
+# Alias
 # alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias gc='git commit'
+alias gco='git checkout'
+alias ge='git merge'
+alias gp='git push'
+alias gd='git diff'
+alias gl='git log'
+
+# Directory Alias
 alias work='cd ~/SkyDrive/workspace'
 alias course='cd ~/SkyDrive/Courses'
 alias site='cd ~/SkyDrive/Sites'
@@ -46,66 +57,18 @@ export EDITOR="vim"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Ibus configuration
-# export GTK_IM_MODULE=ibus
-# export XMODIFIERS=@im=ibus
-# export QT_IM_MODULE=ibus
-
-# Rvm loading
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if complete &>/dev/null; then
-  _npm_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -F _npm_completion npm
-elif compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
+# Rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Variable for tmux-powerline
 export PLATFORM="mac"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/.rbenv/bin:$PATH
 PATH=$PATH:$HOME/bin # Add local user bin to PATH
 PATH=$PATH:/usr/local/share/python3
-PATH=$HOME/Applications/arcanist/bin:$PATH
-PATH=$PATH:Applications/Postgres.app/Contents/MacOS/bin
+PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
-PATH=$PATH:$HOME/Documents/vert.x-1.2.3.final/bin
+PATH=$PATH:$HOME/Documents/vert.x-1.3.0.final/bin
 PATH=/usr/local/share/npm/bin:$PATH
+PATH=$HOME/.cabal/bin:$PATH
