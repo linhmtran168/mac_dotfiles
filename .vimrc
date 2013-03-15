@@ -75,8 +75,6 @@ Bundle 'gmarik/vundle'
 " My Bundles:
 "
 " Original repos on github
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-repeat'
@@ -93,8 +91,15 @@ Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'godlygeek/tabular'
 Bundle 'jpalardy/vim-slime'
-Bundle 'Townk/vim-autoclose'
+" Bundle 'Townk/vim-autoclose'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'jiangmiao/auto-pairs'
+
+" Git
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+
 
 " Javascript
 Bundle 'linhmtran168/vim-javascript'
@@ -143,7 +148,6 @@ Bundle 'ZoomWin'
 Bundle 'minibufexpl.vim'
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
-Bundle 'vimwiki'
 
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -673,6 +677,9 @@ let g:use_zen_complete_tag = 1
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
+nmap ; :CtrlPBuffer<CR>
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -741,9 +748,6 @@ let g:html_indent_style1 = "inc"
 "" Slime
 let g:slime_target = "tmux"
 
-"" Vimwiki
-let g:vimwiki_list = [{ 'path': '~/SkyDrive/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md' }]
-
 "" Indent for python, java, c, cpp
 autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
@@ -753,4 +757,4 @@ autocmd FileType python,java,c,cpp,markdown set tabstop=4
 let g:Powerline_symbols = 'fancy'
 
 "" Autoclose 
-let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+" let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}

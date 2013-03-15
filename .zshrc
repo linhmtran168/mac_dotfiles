@@ -1,3 +1,20 @@
+# PATH references
+PATH=$HOME/.rbenv/bin:$PATH
+PATH=$HOME/bin:$PATH # Add local user bin to PATH
+PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+PATH=/usr/local/share/npm/bin:$PATH
+PATH=$HOME/.cabal/bin:$PATH
+PATH=/usr/local/share/python:$PATH
+PATH=/usr/local/share/python3:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Python virtualenv configuration
+export WORKON_HOME=$HOME/.virtualenvs
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -24,7 +41,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv brew python pip virtualenvwrapper rails3 rails capistrano pow bundler rake gem ruby jruby git composer laravel lein node npm osx redis-cli cp history history-substring-search last-working-dir)
+plugins=(heroku rbenv brew python pip virtualenvwrapper rails3 rails capistrano pow bundler rake gem ruby jruby git composer laravel lein node npm osx redis-cli cp history history-substring-search)
 
 # plugins=(rbenv osx cp history history-substring-search last-working-dir)
 
@@ -53,22 +70,9 @@ alias project='cd ~/SkyDrive/Projects'
 # Personal configuration
 export EDITOR="vim"
 
-# Python virtualenv configuration
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Variable for tmux-powerline
 export PLATFORM="mac"
-
-PATH=$HOME/.rbenv/bin:$PATH
-PATH=$PATH:$HOME/bin # Add local user bin to PATH
-PATH=$PATH:/usr/local/share/python3
-PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
-PATH=/usr/local/bin:$PATH
-PATH=/usr/local/sbin:$PATH
-PATH=$PATH:$HOME/Documents/vert.x-1.3.0.final/bin
-PATH=/usr/local/share/npm/bin:$PATH
-PATH=$HOME/.cabal/bin:$PATH
