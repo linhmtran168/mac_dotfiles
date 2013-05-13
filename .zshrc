@@ -1,7 +1,17 @@
+# Python virtualenv configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+# Personal configuration
+export EDITOR="vim"
+
+# Variable for tmux-powerline
+export PLATFORM="mac"
+
 # PATH references
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/bin:$PATH # Add local user bin to PATH
-PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+# PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/usr/local/share/python:$PATH
@@ -12,9 +22,6 @@ PATH=/usr/local/sbin:$PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Python virtualenv configuration
-export WORKON_HOME=$HOME/.virtualenvs
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -22,7 +29,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="murilasso"
+ZSH_THEME="suvash"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -41,7 +48,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(heroku rbenv brew python pip virtualenvwrapper rails3 rails capistrano pow bundler rake gem ruby jruby git composer laravel lein node npm osx redis-cli cp history history-substring-search)
+plugins=(heroku rbenv brew python pip virtualenv virtualenvwrapper rails4 rails3 rails capistrano pow bundler rake gem ruby jruby composer laravel lein node npm osx tmux redis-cli cp history last-working-dir history-substring-search command-not-found sbt scala go golang git git-extras)
 
 # plugins=(rbenv osx cp history history-substring-search last-working-dir)
 
@@ -60,6 +67,7 @@ alias ge='git merge'
 alias gp='git push'
 alias gd='git diff'
 alias gl='git log'
+alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
 # Directory Alias
 alias work='cd ~/SkyDrive/workspace'
@@ -67,12 +75,8 @@ alias course='cd ~/SkyDrive/Courses'
 alias site='cd ~/SkyDrive/Sites'
 alias project='cd ~/SkyDrive/Projects'
 
-# Personal configuration
-export EDITOR="vim"
-
-
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Variable for tmux-powerline
-export PLATFORM="mac"
+# liquidprompt
+# source ~/Documents/liquidprompt/liquidprompt

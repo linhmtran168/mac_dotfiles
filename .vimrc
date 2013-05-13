@@ -14,26 +14,18 @@
 "    -> Command mode related
 "    -> Moving around, tabs and buffers
 "    -> Statusline
-"    -> Parenthesis/bracket expanding
 "    -> General Abbrevs
 "    -> Editing mappings
 "
-"    -> Cope
 "    -> Minibuffer plugin
 "    -> Omni complete functions
 "    -> Python section
 "    -> JavaScript section
+"    -> Personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remove vi old behavior
 set nocompatible 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Check system configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-fun! MySys()
-   return "$1"
-endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -53,12 +45,6 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" Fast editing of the .vimrc
-map <leader>e :e! ~/.vimrc<cr>
-
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
@@ -76,12 +62,12 @@ Bundle 'gmarik/vundle'
 "
 " Original repos on github
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
+" Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-unimpaired'
+" Bundle 'tpope/vim-unimpaired'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
@@ -89,14 +75,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'godlygeek/tabular'
-Bundle 'jpalardy/vim-slime'
-" Bundle 'Townk/vim-autoclose'
+" Bundle 'godlygeek/tabular'
+" Bundle 'jpalardy/vim-slime'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'jiangmiao/auto-pairs'
+Bundle 'Raimondi/delimitMate'
 
 " Git
-Bundle 'tpope/vim-git'
+" Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
@@ -123,14 +108,14 @@ Bundle 'indenthtml.vim'
 
 " Indent
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'michaeljsmith/vim-indent-object'
+" Bundle 'michaeljsmith/vim-indent-object'
 
 " Ruby & Rails
-Bundle 'kana/vim-textobj-user'
 Bundle 'tpope/vim-rails'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'skalnik/vim-vroom'
+" Bundle 'kana/vim-textobj-user'
+" Bundle 'nelstrom/vim-textobj-rubyblock'
+" Bundle 'ecomba/vim-ruby-refactoring'
+" Bundle 'skalnik/vim-vroom'
 
 " Haskell
 Bundle 'Twinside/vim-syntax-haskell-cabal'
@@ -139,12 +124,12 @@ Bundle 'lukerandall/haskellmode-vim'
 " Other languages
 Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
-Bundle 'python.vim'
+Bundle 'nsf/gocode', { 'rtp': 'vim/' }
 Bundle 'VimClojure'
 Bundle 'c.vim'
 
 " Vim scripts repos
-Bundle 'ZoomWin'
+" Bundle 'ZoomWin'
 Bundle 'minibufexpl.vim'
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
@@ -189,7 +174,6 @@ set mat=2 "How many tenths of a second to blink
 " No sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
 set tm=500
 
 "" Complete option
@@ -200,34 +184,25 @@ set nofoldenable
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable "Enable syntax hl
+"Enable syntax hl
+syntax enable 
 
-" Set font according to system
-" if MySys() == "mac"
-"   set gfn=:h14
-"   set shell=/bin/zsh
-" elseif MySys() == "windows"
-"   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
-" elseif MySys() == "linux"
-"   set gfn=DejaVu\ Sans\ Mono\ 11
-"   set shell=/bin/zsh
-" endif
-
-set gfn=Menlo\ for\ Powerline:h11
+"Set font
+set gfn=Meslo\ LG\ M\ DZ\ for\ Powerline:h11
 set shell=/bin/zsh
 
 if has('gui_running')
   set guioptions-=T
   set lines=36
   set background=dark
-  colorscheme Tomorrow-Night
+  colorscheme Tomorrow-Night-Eighties
   set nonu
 else
   " set t_Co=256
   " let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
+  " let g:solarized_termtrans=1
   set background=dark
-  colorscheme Tomorrow-Night
+  colorscheme Tomorrow-Night-Eighties
   set nonu
 endif
 
@@ -250,12 +225,6 @@ set noswapfile
 
 "Persistent undo
 try
-    " if MySys() == "windows"
-    "   set undodir=C:\Windows\Temp
-    " else
-    "   set undodir=~/.vim/undodir
-    " endif
-
     set undodir=~/.vim/undodir
 
     set undofile
@@ -359,18 +328,6 @@ endfunc
 
 func! DeleteTillSlash()
   let g:cmd = getcmdline()
-  " if MySys() == "linux" || MySys() == "mac"
-  "   let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-  " else
-  "   let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-  " endif
-  " if g:cmd == g:cmd_edited
-  "   if MySys() == "linux" || MySys() == "mac"
-  "     let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-  "   else
-  "     let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-  "   endif
-  " endif
   let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
   if g:cmd == g:cmd_edited
     let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
@@ -396,6 +353,10 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Split 
+set splitbelow
+set splitright
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -450,35 +411,7 @@ endtry
 """"""""""""""""""""""""""""""
 " Always hide the statusline
 set laststatus=2
-
-" Format the statusline
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
-
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
-endfunction
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
+set noshowmode
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Abbrevs
@@ -498,12 +431,11 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-if MySys() == "mac"
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
+"For mac
+nmap <D-j> <M-j>
+nmap <D-k> <M-k>
+vmap <D-j> <M-j>
+vmap <D-k> <M-k>
 
 "Delete trailing white space, useful for Python ;)
 func! DeleteTrailingWS()
@@ -511,19 +443,10 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
+
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
 set guitablabel=%t
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Cope
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do :help cope if you are unsure what cope is. It's super useful!
-map <leader>cc :botright cope<cr>
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
-
 
 
 """"""""""""""""""""""""""""""
@@ -592,30 +515,6 @@ au FileType python map <buffer> <leader>D ?def
 """""""""""""""""""""""""""""""
 au FileType javascript setl nocindent
 
-" au BufRead,BufNewFile *.js setl fen
-" au FileType javascript call JavaScriptFold()
-" au FileType javascript setl fen
-" au FileType javascript setl nocindent
-" au FileType javascript setl foldmethod=syntax
-" au FileType javascript setl foldlevelstart=20
-" au FileType javascript normal zR
-
-au FileType javascript imap <c-t> AJS.log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r return
-au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-" function! JavaScriptFold()
-"     setl foldmethod=syntax
-"     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-" 
-"     function! FoldText()
-"     return substitute(getline(v:foldstart), '{.*', '{...}', '')
-"     endfunction
-"     setl foldtext=FoldText()
-" endfunction
-
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
@@ -629,7 +528,6 @@ map <leader>f :MRU<CR>
 """"""""""""""""""""""""""""""
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
 set grepprg=/bin/grep\ -nH
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -745,16 +643,22 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-"" Slime
-let g:slime_target = "tmux"
 
 "" Indent for python, java, c, cpp
 autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
 autocmd FileType python,java,c,cpp,markdown set tabstop=4
 
-"" Vim powerline
-let g:Powerline_symbols = 'fancy'
+"" Powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
-"" Autoclose 
-" let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+"" Go
+filetype off
+filetype plugin indent off
+set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
+filetype plugin indent on
+syntax on
+
+"" DelimitMate
+let delimitMate_expand_space = 1
+let delimitMate_matchpairs = "(:),[:],{:}"
