@@ -79,6 +79,7 @@ Bundle 'jeetsukumaran/vim-buffergator'
 " Bundle 'jpalardy/vim-slime'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Git
 " Bundle 'tpope/vim-git'

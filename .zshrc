@@ -8,7 +8,12 @@ export EDITOR="vim"
 # Variable for tmux-powerline
 export PLATFORM="mac"
 
+# GO
+export GOPATH=$HOME/SkyDrive/go
+typeset -U GOPATH
+
 # PATH references
+PATH=$PATH:$GOPATH/bin
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/bin:$PATH # Add local user bin to PATH
 # PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
@@ -29,7 +34,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="suvash"
+ZSH_THEME="murilasso"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -78,5 +83,5 @@ alias project='cd ~/SkyDrive/Projects'
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# liquidprompt
-# source ~/Documents/liquidprompt/liquidprompt
+#zsh syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
