@@ -7,7 +7,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap phinze/hombrew-cask
 brew install brew-cask
 brew cask install adium skype google-chrome macvim spectacle alfred iterm2
- vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse
+ vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres
 # Tap additional repos
 brew tap homebrew/dupes
 
