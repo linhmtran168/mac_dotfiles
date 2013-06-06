@@ -1,5 +1,5 @@
 #!/bin/sh
-# Install Xcode and command linet tool
+# Install Xcode and command line tool
 # Install homebrew
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
@@ -7,12 +7,12 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap phinze/hombrew-cask
 brew install brew-cask
 brew cask install adium skype google-chrome macvim spectacle alfred iterm2
-
+ vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse
 # Tap additional repos
 brew tap homebrew/dupes
 
 # Install zsh and other packages
-brew install rbenv zsh go nodejs python python3 scala sbt tmux wget openssl zsh-syntax-highlighting
+brew install rbenv zsh go nodejs python python3 scala sbt tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb
 
 # Install powerline font
 git clone git@github.com:Lokaltog/powerline-fonts.git
