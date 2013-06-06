@@ -40,7 +40,7 @@ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-
 # Move default gem file to $RBENV_ROOT
 
 # Install neccessary npm packages
-npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade
+npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade ejs stylus sails nodemon forever
 
 # Install xcode package manager
 git clone git@github.com:mneorr/Alcatraz.git
