@@ -189,7 +189,7 @@ set nofoldenable
 syntax enable 
 
 "Set font
-set gfn=Meslo\ LG\ M\ DZ\ for\ Powerline:h11
+set gfn=Meslo\ LG\ M\ for\ Powerline:h11
 set shell=/bin/zsh
 
 if has('gui_running')
