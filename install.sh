@@ -34,5 +34,11 @@ git clone https://github.com/gmarik/vundle.git
 # Install ruby
 brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install 2.0.0-p195
+# Move default gem file to RBENV_ROOT
+
 # Install neccessary npm packages
 npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade
+
+# Install xcode package manager
+git clone git@github.com:mneorr/Alcatraz.git
+
