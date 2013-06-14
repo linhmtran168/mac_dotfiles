@@ -62,10 +62,8 @@ Bundle 'gmarik/vundle'
 "
 " Original repos on github
 Bundle 'tpope/vim-surround'
-" Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
-" Bundle 'tpope/vim-unimpaired'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/powerline'
 Bundle 'tomtom/tcomment_vim'
@@ -75,13 +73,11 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
-" Bundle 'godlygeek/tabular'
-" Bundle 'jpalardy/vim-slime'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+Bundle 'fholgado/minibufexpl.vim'
 
 " Git
-" Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
@@ -108,14 +104,9 @@ Bundle 'indenthtml.vim'
 
 " Indent
 Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'michaeljsmith/vim-indent-object'
 
 " Ruby & Rails
 Bundle 'tpope/vim-rails'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-" Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'skalnik/vim-vroom'
 
 " Haskell
 Bundle 'Twinside/vim-syntax-haskell-cabal'
@@ -129,8 +120,6 @@ Bundle 'VimClojure'
 Bundle 'c.vim'
 
 " Vim scripts repos
-" Bundle 'ZoomWin'
-Bundle 'minibufexpl.vim'
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
 

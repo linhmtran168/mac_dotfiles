@@ -7,7 +7,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap homebrew/dupes
 
 # Install zsh and other packages
-brew install rbenv zsh go nodejs python python3 scala sbt tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn
+brew install rbenv zsh go nodejs python python3 scala sbt tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir clojure leiningen
 
 # Install homebrew-cask
 brew tap phinze/hombrew-cask
@@ -47,3 +47,8 @@ npm -g install express derby yo grunt-cli bower less sass coffee-script jshint j
 
 # Install xcode package manager
 git clone git@github.com:mneorr/Alcatraz.git
+
+# PHP
+# Install mamp, link file, download source
+# Install composer
+# Install boris
