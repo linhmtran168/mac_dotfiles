@@ -212,13 +212,13 @@ set nobackup
 set nowb
 " set noswapfile
 " 
-" "Persistent undo
-" try
-"     set undodir=~/.vim/undodir
-" 
-"     set undofile
-" catch
-" endtry
+"Persistent undo
+try
+    set undodir=~/.vim/undodir
+
+    set undofile
+catch
+endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -354,8 +354,8 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :1,300 bd!<cr>
 
 " Use the arrows to something usefull
-map <right> :bn<cr>
-map <left> :bp<cr>
+map <right> :MBEbn<cr>
+map <left> :MBEbp<cr>
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
@@ -441,21 +441,10 @@ set guitablabel=%t
 """"""""""""""""""""""""""""""
 " => Minibuffer plugin
 """"""""""""""""""""""""""""""
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplorerMoreThanOne = 2
-let g:miniBufExplModSelTarget = 0
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMapWindowNavVim = 1
-" let g:miniBufExplVSplit = 25
-" let g:miniBufExplSplitBelow=1
-let g:miniBufExplSplitBelow = 0
-
-let g:bufExplorerSortBy = "name"
-
-autocmd BufRead,BufNew :call UMiniBufExplorer
-
-map <leader>u :TMiniBufExplorer<cr>
-
+let g:miniBufExplBRSplit = 0
+let g:miniBufExplBuffersNeeded = 1
+noremap <C-TAB> :MBEbf<CR>
+noremap <C-S-TAB> :MBEbb<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
@@ -542,10 +531,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
 nmap <leader>n :NERDTreeToggle<CR>
-
-"" Minibuffer Configuration
-let g:miniBufExplMapCTabSwitchBufs = 1
-set nu!
 
 "" Jquery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
