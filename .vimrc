@@ -546,9 +546,6 @@ au FileType * setlocal comments-=://
 au FileType * setlocal comments-=:--
 au FileType * setlocal comments-=:"
 
-"" Easymotion
-let g:EasyMotion_leader_key = '<leader>e'
-
 "" Zencoding
 let g:use_zen_complete_tag = 1
 
