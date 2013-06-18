@@ -32,6 +32,7 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # Symlink all dotfiles to home directories
 #Configure git
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global color.ui true
 
 # Configure vim
 # Install vundle and necessary plugins
