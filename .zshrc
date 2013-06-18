@@ -85,3 +85,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #zsh syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Temporarily fix for npm
+ulimit -n 10000
