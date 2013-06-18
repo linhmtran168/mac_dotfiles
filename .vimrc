@@ -122,7 +122,7 @@ Bundle 'c.vim'
 " Vim scripts repos
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
-
+" 
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
@@ -445,7 +445,6 @@ let g:miniBufExplBRSplit = 0
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplBuffersNeeded = 0
 let g:miniBufExplCycleArround = 1
-let g:miniBufExplDebugMode  = 0
 noremap <C-TAB> :MBEbf<CR>
 noremap <C-S-TAB> :MBEbb<CR>
 
@@ -548,7 +547,7 @@ au FileType * setlocal comments-=:--
 au FileType * setlocal comments-=:"
 
 "" Easymotion
-let g:EasyMotion_leader_key = '<leader>m'
+let g:EasyMotion_leader_key = '<leader>e'
 
 "" Zencoding
 let g:use_zen_complete_tag = 1
@@ -642,3 +641,6 @@ syntax on
 "" DelimitMate
 let delimitMate_expand_space = 1
 let delimitMate_matchpairs = "(:),[:],{:}"
+
+"" Buffergator
+let g:buffergator_viewport_split_policy="T"
