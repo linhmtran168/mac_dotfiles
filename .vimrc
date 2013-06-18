@@ -210,7 +210,7 @@ set ffs=unix,dos,mac "Default file types
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
 set nowb
-" set noswapfile
+set noswapfile
 " 
 "Persistent undo
 " try
