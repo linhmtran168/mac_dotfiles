@@ -213,12 +213,12 @@ set nowb
 " set noswapfile
 " 
 "Persistent undo
-try
-    set undodir=~/.vim/undodir
-
-    set undofile
-catch
-endtry
+" try
+"     set undodir=~/.vim/undodir
+" 
+"     set undofile
+" catch
+" endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -354,8 +354,8 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :1,300 bd!<cr>
 
 " Use the arrows to something usefull
-map <right> :MBEbn<cr>
-map <left> :MBEbp<cr>
+map <right> :bn<cr>
+map <left> :bp<cr>
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
@@ -442,9 +442,15 @@ set guitablabel=%t
 " => Minibuffer plugin
 """"""""""""""""""""""""""""""
 let g:miniBufExplBRSplit = 0
-let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplBuffersNeeded = 0
+let g:miniBufExplCycleArround = 1
+let g:miniBufExplDebugMode  = 0
 noremap <C-TAB> :MBEbf<CR>
 noremap <C-S-TAB> :MBEbb<CR>
+
+" Sets show line number
+set nu!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
