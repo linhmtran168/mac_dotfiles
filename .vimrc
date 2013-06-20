@@ -115,7 +115,7 @@ Bundle 'lukerandall/haskellmode-vim'
 " Other languages
 Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
-Bundle 'nsf/gocode', { 'rtp': 'vim/' }
+Bundle 'Blackrush/vim-gocode'
 Bundle 'VimClojure'
 Bundle 'c.vim'
 

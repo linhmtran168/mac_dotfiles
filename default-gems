@@ -3,3 +3,5 @@ pry
 cocoapods
 compass
 terminal-notifier
+capistrano
+railsless-deploy
