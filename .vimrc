@@ -113,14 +113,17 @@ Bundle 'lukerandall/haskellmode-vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
 Bundle 'Blackrush/vim-gocode'
-Bundle 'VimClojure'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 Bundle 'c.vim'
+Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
 Bundle 'bufexplorer.zip'
-" 
+Bundle 'YankRing.vim'
+
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
@@ -529,7 +532,6 @@ let g:use_zen_complete_tag = 1
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
-nmap ; :CtrlPBuffer<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|bzr)$',
@@ -625,3 +627,6 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+"" YankRing
+nmap <leader>y :YRShow<CR>
