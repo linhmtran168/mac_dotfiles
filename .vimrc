@@ -17,7 +17,6 @@
 "    -> General Abbrevs
 "    -> Editing mappings
 "
-"    -> Minibuffer plugin
 "    -> Omni complete functions
 "    -> Python section
 "    -> JavaScript section
@@ -67,31 +66,26 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/powerline'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'SirVer/ultisnips'
 
 " Git
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 
-
 " Javascript
-Bundle 'linhmtran168/vim-javascript'
+Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'jQuery'
 
 " Markup
 Bundle 'hallison/vim-markdown'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-haml'
-Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
@@ -99,14 +93,17 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'JSON.vim'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'linhmtran168/xmledit'
-Bundle 'indenthtml.vim'
+Bundle 'sukima/xmledit'
 
 " Indent
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " Ruby & Rails
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-cucumber'
+Bundle 'slim-template/vim-slim'
+Bundle 'vim-ruby/vim-ruby'
 
 " Haskell
 Bundle 'Twinside/vim-syntax-haskell-cabal'
@@ -122,12 +119,13 @@ Bundle 'c.vim'
 " Vim scripts repos
 Bundle 'mru.vim'
 Bundle 'sudo.vim'
+Bundle 'bufexplorer.zip'
 " 
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
-" Non github repos
-
+" Disabled
+" Bundle 'sjl/gundo.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -187,9 +185,6 @@ if has('gui_running')
   colorscheme Tomorrow-Night-Eighties
   set nonu
 else
-  " set t_Co=256
-  " let g:solarized_termcolors=256
-  " let g:solarized_termtrans=1
   set background=dark
   colorscheme Tomorrow-Night-Eighties
   set nonu
@@ -213,12 +208,12 @@ set nowb
 set noswapfile
 " 
 "Persistent undo
-" try
-"     set undodir=~/.vim/undodir
-" 
-"     set undofile
-" catch
-" endtry
+try
+    set undodir=~/.vim/undodir
+
+    set undofile
+catch
+endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -438,18 +433,6 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 set guitablabel=%t
 
 
-""""""""""""""""""""""""""""""
-" => Minibuffer plugin
-""""""""""""""""""""""""""""""
-let g:miniBufExplBRSplit = 0
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplBuffersNeeded = 0
-let g:miniBufExplCycleArround = 1
-noremap <C-TAB> :MBEbf<CR>
-noremap <C-S-TAB> :MBEbb<CR>
-
-" Sets show line number
-set nu!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
@@ -509,7 +492,7 @@ map <leader>f :MRU<CR>
 """"""""""""""""""""""""""""""
 " => Vim grep
 """"""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
+let Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git generated'
 set grepprg=/bin/grep\ -nH
 
 
@@ -530,6 +513,9 @@ map <leader>bb :cd ..<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets show line number
+set nu
+
 "" NERDTree Configuration
 let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
@@ -537,23 +523,18 @@ let NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
 nmap <leader>n :NERDTreeToggle<CR>
 
-"" Jquery
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-"" Disable auto-comment
-au FileType * setlocal comments-=:#
-au FileType * setlocal comments-=://
-au FileType * setlocal comments-=:--
-au FileType * setlocal comments-=:"
-
 "" Zencoding
 let g:use_zen_complete_tag = 1
+
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
 nmap ; :CtrlPBuffer<CR>
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|bzr)$',
+  \ 'file': '\v\.(o|swp|pyc|wav|mp3|ogg|blend|exe|so|dll)$',
+  \ }
 
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -639,5 +620,8 @@ syntax on
 let delimitMate_expand_space = 1
 let delimitMate_matchpairs = "(:),[:],{:}"
 
-"" Buffergator
-let g:buffergator_viewport_split_policy="T"
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
