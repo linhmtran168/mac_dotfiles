@@ -19,8 +19,6 @@ PATH=$HOME/bin:$PATH # Add local user bin to PATH
 # PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
-PATH=/usr/local/share/python:$PATH
-PATH=/usr/local/share/python3:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 
@@ -53,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(heroku rbenv brew python pip virtualenv virtualenvwrapper rails4 rails3 rails capistrano pow bundler rake gem ruby jruby composer laravel lein node npm osx tmux redis-cli cp history last-working-dir history-substring-search command-not-found sbt scala go golang git git-extras)
+plugins=(heroku rbenv brew python pip virtualenv virtualenvwrapper rails4 rails3 rails capistrano pow bundler rake gem ruby jruby composer laravel lein node npm osx tmux redis-cli cp history last-working-dir history-substring-search command-not-found sbt scala go golang git git-flow)
 
 # plugins=(rbenv osx cp history history-substring-search last-working-dir)
 

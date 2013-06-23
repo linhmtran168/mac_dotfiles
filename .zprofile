@@ -8,8 +8,6 @@ PATH=$HOME/bin:$PATH # Add local user bin to PATH
 # PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
-PATH=/usr/local/share/python:$PATH
-PATH=/usr/local/share/python3:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 
