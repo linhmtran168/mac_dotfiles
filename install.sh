@@ -7,7 +7,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap homebrew/dupes
 
 # Install zsh and other packages
-brew install rbenv zsh go nodejs python python3 scala sbt tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir clojure leiningen casperjs ctags
+brew install rbenv zsh go nodejs python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir clojure leiningen casperjs ctags
 
 # Install homebrew-cask
 brew tap phinze/hombrew-cask
