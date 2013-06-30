@@ -68,6 +68,7 @@ Bundle 'Lokaltog/powerline'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
@@ -524,7 +525,8 @@ let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
-nmap <leader>n :NERDTreeToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup = 0
+nmap <leader>n :NERDTreeTabsToggle<CR>
 
 "" Zencoding
 let g:use_zen_complete_tag = 1
@@ -539,7 +541,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 "" Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <leader>t :TagbarToggle<CR>
 let g:tagbar_width = 30
 let g:tagbar_expand = 1
 
