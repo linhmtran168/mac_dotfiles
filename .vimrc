@@ -526,7 +526,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
-nmap <leader>n :NERDTreeTabsToggle<CR>
+nmap <leader>n :NERDTreeMirrorToggle<CR>
 
 "" Zencoding
 let g:use_zen_complete_tag = 1
