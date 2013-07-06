@@ -70,6 +70,7 @@ alias ge='git merge'
 alias gp='git push'
 alias gd='git diff'
 alias gl='git log'
+alias gs='git status'
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
 # Directory Alias
@@ -85,7 +86,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Temporarily fix for npm
-ulimit -n 10000
+ulimit -n 4096
 
 # Set Locale
 export LANG="en_US.UTF-8"
