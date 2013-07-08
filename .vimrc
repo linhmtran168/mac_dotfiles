@@ -612,11 +612,19 @@ autocmd FileType python,java,c,cpp,markdown set tabstop=4
 
 "" Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 
 "" Go
 filetype off
 filetype plugin indent off
-set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
+set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 

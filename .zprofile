@@ -1,4 +1,5 @@
 # GO
+export GOROOT=/usr/local/Cellar/go/1.1.1/
 export GOPATH=$HOME/SkyDrive/go
 
 # PATH references

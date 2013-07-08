@@ -9,8 +9,8 @@ export EDITOR="vim"
 export PLATFORM="mac"
 
 # GO
+export GOROOT=/usr/local/Cellar/go/1.1.1/
 export GOPATH=$HOME/SkyDrive/go
-typeset -U GOPATH
 
 # PATH references
 PATH=$PATH:$GOPATH/bin
