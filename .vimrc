@@ -30,7 +30,7 @@ set nocompatible
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=700
+set history = 700
 
 " Enable filetype plugin
 filetype plugin on
@@ -41,7 +41,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader   = ","
 let g:mapleader = ","
 
 " When vimrc is edited, reload it
@@ -60,6 +60,7 @@ Bundle 'gmarik/vundle'
 " My Bundles:
 "
 " Original repos on github
+" Editor
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
@@ -74,6 +75,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
 Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
+Bundle 'godlygeek/tabular'
+Bundle 'sjl/gundo.vim'
 
 " Git
 Bundle 'tpope/vim-fugitive'
@@ -128,26 +131,24 @@ Bundle 'YankRing.vim'
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
-" Disabled
-" Bundle 'sjl/gundo.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical..
-set so=7
+set so = 7
 
 set wildmenu "Turn on WiLd menu
 
 set ruler "Always show current position
 
-set cmdheight=1 "The commandbar height
+set cmdheight = 1 "The commandbar height
 
 set hid "Change buffer - without saving
 
 " Set backspace config
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set backspace  = eol,start,indent
+set whichwrap += <,>,h,l
 
 set ignorecase "Ignore case when searching
 set smartcase
@@ -160,15 +161,15 @@ set nolazyredraw "Don't redraw while executing macros
 set magic "Set magic on, for regular expressions
 
 set showmatch "Show matching bracets when text indicator is over them
-set mat=2 "How many tenths of a second to blink
+set mat = 2 "How many tenths of a second to blink
 
 " No sound on errors
 set noerrorbells
 set novisualbell
-set tm=500
+set tm = 500
 
 "" Complete option
-set complete-=i
+set complete -= i
 "" Fold option
 set nofoldenable
 
@@ -179,28 +180,28 @@ set nofoldenable
 syntax enable 
 
 "Set font
-set gfn=Meslo\ LG\ S\ for\ Powerline:h11
-set shell=/bin/zsh
+set gfn   = Meslo\ LG\ S\ for\ Powerline:h11
+set shell = /bin/zsh
 
 if has('gui_running')
-  set guioptions-=T
-  set lines=36
-  set background=dark
+  set guioptions -= T
+  set lines       = 36
+  set background  = dark
   colorscheme Tomorrow-Night-Eighties
   set nonu
 else
-  set background=dark
+  set background = dark
   colorscheme Tomorrow-Night-Eighties
   set nonu
 endif
 
-set encoding=utf8
+set encoding = utf8
 try
     lang en_US
 catch
 endtry
 
-set ffs=unix,dos,mac "Default file types
+set ffs = unix,dos,mac "Default file types
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,7 +214,7 @@ set noswapfile
 " 
 "Persistent undo
 try
-    set undodir=~/.vim/undodir
+    set undodir = ~/.vim/undodir
 
     set undofile
 catch
@@ -225,12 +226,12 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
 set smarttab
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set softtabstop = 2
+set shiftwidth  = 2
+set tabstop     = 2
 
 set lbr
-set tw=500
+set tw = 500
 
 set ai "Auto indent
 " set si "Smart indent
@@ -368,7 +369,7 @@ map <leader>cd :cd %:p:h<cr>
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
+   let l:currentBufNum   = bufnr("%")
    let l:alternateBufNum = bufnr("#")
 
    if buflisted(l:alternateBufNum)
@@ -388,8 +389,8 @@ endfunction
 
 " Specify the behavior when switching between buffers
 try
-  set switchbuf=usetab
-  set stal=2
+  set switchbuf = usetab
+  set stal      = 2
 catch
 endtry
 
@@ -398,13 +399,13 @@ endtry
 " => Statusline
 """"""""""""""""""""""""""""""
 " Always hide the statusline
-set laststatus=2
+set laststatus = 2
 set noshowmode
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Abbrevs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+iab xdate <c-r> = strftime("%d/%m/%y %H:%M:%S")<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -434,7 +435,7 @@ endfunc
 
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
-set guitablabel=%t
+set guitablabel = %t
 
 
 
@@ -504,7 +505,7 @@ set grepprg=/bin/grep\ -nH
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
@@ -514,6 +515,7 @@ map <leader>pp :setlocal paste!<cr>
 
 map <leader>bb :cd ..<cr>
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -521,10 +523,10 @@ map <leader>bb :cd ..<cr>
 set nu
 
 "" NERDTree Configuration
-let NERDTreeChDirMode=2
-let NERDTreeShowBookmarks=1
-let NERDTreeWinSize = 30
-let NERDTreeQuitOnOpen = 1
+let NERDTreeChDirMode                   = 2
+let NERDTreeShowBookmarks               = 1
+let NERDTreeWinSize                     = 30
+let NERDTreeQuitOnOpen                  = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <leader>n :NERDTreeMirrorToggle<CR>
 
@@ -536,13 +538,13 @@ let g:use_zen_complete_tag = 1
 let g:ctrlp_map = '<leader>j'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|bzr)$',
-  \ 'file': '\v\.(o|swp|pyc|wav|mp3|ogg|blend|exe|so|dll)$',
+  \ 'dir'  : '\v[\/]\.(git|hg|svn|bzr)$',
+  \ 'file' : '\v\.(o|swp|pyc|wav|mp3|ogg|blend|exe|so|dll)$',
   \ }
 
 "" Tagbar
 nmap <leader>t :TagbarToggle<CR>
-let g:tagbar_width = 30
+let g:tagbar_width  = 30
 let g:tagbar_expand = 1
 
 "" CoffeeTags
@@ -558,10 +560,10 @@ let g:tagbar_expand = 1
   \ ],
   \ 'kind2scope' : {
   \  'f' : 'object',
-  \   'o' : 'object'
-  \},
-  \ 'sro' : ".",
-  \ 'ctagsbin' : 'coffeetags',
+  \  'o' : 'object'
+  \ },
+  \ 'sro'       : ".",
+  \ 'ctagsbin'  : 'coffeetags',
   \ 'ctagsargs' : ' ',
   \}
 
@@ -602,7 +604,7 @@ au BufRead,BufNewFile *.less set ft=less syntax=less
 "" Indent html
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+let g:html_indent_style1  = "inc"
 
 
 "" Indent for python, java, c, cpp
@@ -613,7 +615,7 @@ autocmd FileType python,java,c,cpp,markdown set tabstop=4
 "" Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 if ! has('gui_running')
-    set ttimeoutlen=10
+    set ttimeoutlen = 10
     augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
@@ -624,19 +626,29 @@ endif
 "" Go
 filetype off
 filetype plugin indent off
-set rtp+=$GOROOT/misc/vim
+set rtp += $GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
 "" DelimitMate
 let delimitMate_expand_space = 1
-let delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_matchpairs   = "(:),[:],{:}"
 
 "" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsListSnippets        = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 "" YankRing
 nmap <leader>y :YRShow<CR>
+
+"" Tabular
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:<CR>
+vmap <leader>a: :Tabularize /:<CR>
+
+"" Gundo
+nnoremap <leader>g :GundoToggle<CR>
+let g:gundo_close_on_revert = 1

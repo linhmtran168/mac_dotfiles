@@ -13,7 +13,7 @@ brew install rbenv zsh go nodejs python python3 scala sbt giter8 akka tmux wget 
 brew tap phinze/hombrew-cask
 brew install brew-cask
 brew cask install adium skype google-chrome macvim spectacle alfred iterm2
- vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox
+ vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox shuttle
 
 # Install powerline font
 git clone git@github.com:Lokaltog/powerline-fonts.git
