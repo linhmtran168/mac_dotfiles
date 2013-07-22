@@ -30,7 +30,7 @@ set nocompatible
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history = 700
+set history=700
 
 " Enable filetype plugin
 filetype plugin on
@@ -136,19 +136,19 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical..
-set so = 7
+set so=7
 
 set wildmenu "Turn on WiLd menu
 
 set ruler "Always show current position
 
-set cmdheight = 1 "The commandbar height
+set cmdheight=1 "The commandbar height
 
 set hid "Change buffer - without saving
 
 " Set backspace config
-set backspace  = eol,start,indent
-set whichwrap += <,>,h,l
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 set ignorecase "Ignore case when searching
 set smartcase
@@ -161,15 +161,15 @@ set nolazyredraw "Don't redraw while executing macros
 set magic "Set magic on, for regular expressions
 
 set showmatch "Show matching bracets when text indicator is over them
-set mat = 2 "How many tenths of a second to blink
+set mat=2 "How many tenths of a second to blink
 
 " No sound on errors
 set noerrorbells
 set novisualbell
-set tm = 500
+set tm=500
 
 "" Complete option
-set complete -= i
+set complete-=i
 "" Fold option
 set nofoldenable
 
@@ -180,28 +180,28 @@ set nofoldenable
 syntax enable 
 
 "Set font
-set gfn   = Meslo\ LG\ S\ for\ Powerline:h11
-set shell = /bin/zsh
+set gfn=Meslo\ LG\ S\ for\ Powerline:h11
+set shell=/bin/zsh
 
 if has('gui_running')
-  set guioptions -= T
-  set lines       = 36
-  set background  = dark
+  set guioptions-=T
+  set lines=36
+  set background=dark
   colorscheme Tomorrow-Night-Eighties
   set nonu
 else
-  set background = dark
+  set background=dark
   colorscheme Tomorrow-Night-Eighties
   set nonu
 endif
 
-set encoding = utf8
+set encoding=utf8
 try
     lang en_US
 catch
 endtry
 
-set ffs = unix,dos,mac "Default file types
+set ffs=unix,dos,mac "Default file types
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,7 +214,7 @@ set noswapfile
 " 
 "Persistent undo
 try
-    set undodir = ~/.vim/undodir
+    set undodir=~/.vim/undodir
 
     set undofile
 catch
@@ -226,12 +226,12 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab
 set smarttab
-set softtabstop = 2
-set shiftwidth  = 2
-set tabstop     = 2
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 
 set lbr
-set tw = 500
+set tw=500
 
 set ai "Auto indent
 " set si "Smart indent
@@ -399,7 +399,7 @@ endtry
 " => Statusline
 """"""""""""""""""""""""""""""
 " Always hide the statusline
-set laststatus = 2
+set laststatus=2
 set noshowmode
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,7 +435,7 @@ endfunc
 
 autocmd BufWrite *.py :call DeleteTrailingWS()
 
-set guitablabel = %t
+set guitablabel=%t
 
 
 
@@ -615,7 +615,7 @@ autocmd FileType python,java,c,cpp,markdown set tabstop=4
 "" Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 if ! has('gui_running')
-    set ttimeoutlen = 10
+    set ttimeoutlen=10
     augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
@@ -626,7 +626,7 @@ endif
 "" Go
 filetype off
 filetype plugin indent off
-set rtp += $GOROOT/misc/vim
+set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
