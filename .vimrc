@@ -119,7 +119,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
-Bundle 'c.vim'
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
@@ -650,5 +649,5 @@ nmap <leader>a: :Tabularize /:<CR>
 vmap <leader>a: :Tabularize /:<CR>
 
 "" Gundo
-nnoremap <leader>g :GundoToggle<CR>
+nnoremap <leader>gu :GundoToggle<CR>
 let g:gundo_close_on_revert = 1

@@ -6,3 +6,5 @@ terminal-notifier
 capistrano
 railsless-deploy
 git-deploy
+awesome_print
+bundler
