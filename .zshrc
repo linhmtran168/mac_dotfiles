@@ -86,7 +86,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Temporarily fix for npm
-ulimit -n 8192
+# ulimit -n 8192
 
 # Set Locale
 export LANG="en_US.UTF-8"

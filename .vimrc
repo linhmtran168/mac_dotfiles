@@ -88,7 +88,7 @@ Bundle 'kchmck/vim-coffee-script'
 
 " Markup
 Bundle 'hallison/vim-markdown'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-haml'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
@@ -179,7 +179,7 @@ set nofoldenable
 syntax enable 
 
 "Set font
-set gfn=Meslo\ LG\ S\ for\ Powerline:h11
+set gfn=Inconsolata-dz\ for\ Powerline:h11
 set shell=/bin/zsh
 
 if has('gui_running')
@@ -518,8 +518,24 @@ map <leader>bb :cd ..<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" General setting
 " Sets show line number
-set nu
+set number
+" Set xterm2 mouse mode to allow resizing of splits with mouse inside tmux
+set ttymouse=xterm2
+" Highlight cursor line.
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+" Make trailing whitespace annoyingly highlighted.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 "" NERDTree Configuration
 let NERDTreeChDirMode                   = 2
@@ -651,3 +667,9 @@ vmap <leader>a: :Tabularize /:<CR>
 "" Gundo
 nnoremap <leader>gu :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
+
+"" Vim indent guides
+let indent_guides_enable_on_vim_startup = 1
+
+"" XMLEdit
+let g:xmledit_enable_html = 1
