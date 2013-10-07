@@ -178,7 +178,7 @@ set nofoldenable
 syntax enable
 
 "Set font
-set gfn=Inconsolata-dz\ for\ Powerline:h11
+set gfn=Inconsolata\ for\ Powerline:h13
 set shell=/bin/zsh
 
 if has('gui_running')
