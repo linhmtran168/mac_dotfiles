@@ -24,7 +24,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remove vi old behavior
-set nocompatible 
+set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -65,7 +65,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
@@ -123,7 +123,6 @@ Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
 Bundle 'mru.vim'
-Bundle 'sudo.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
 
@@ -176,7 +175,7 @@ set nofoldenable
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Enable syntax hl
-syntax enable 
+syntax enable
 
 "Set font
 set gfn=Inconsolata-dz\ for\ Powerline:h11
@@ -186,11 +185,11 @@ if has('gui_running')
   set guioptions-=T
   set lines=36
   set background=dark
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme Tomorrow-Night
   set nonu
 else
   set background=dark
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme Tomorrow-Night
   set nonu
 endif
 
@@ -210,7 +209,7 @@ set ffs=unix,dos,mac "Default file types
 set nobackup
 set nowb
 set noswapfile
-" 
+"
 "Persistent undo
 try
     set undodir=~/.vim/undodir
@@ -252,9 +251,9 @@ vnoremap <silent> gv :call VisualSearch('gv')<CR>
 map <leader>r :vimgrep // **/*.<left><left><left><left><left><left><left>
 map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
 
-" " 
+""
 " From an idea by Michael Naumman
-" 
+"
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -342,7 +341,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Split 
+" Split
 set splitbelow
 set splitright
 
@@ -442,10 +441,10 @@ set guitablabel=%t
 " => Omni complete functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -520,7 +519,9 @@ map <leader>bb :cd ..<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" General setting
 " Sets show line number
+set relativenumber
 set number
+
 " Set xterm2 mouse mode to allow resizing of splits with mouse inside tmux
 set ttymouse=xterm2
 " Highlight cursor line.
@@ -547,7 +548,6 @@ nmap <leader>n :NERDTreeMirrorToggle<CR>
 
 "" Zencoding
 let g:use_zen_complete_tag = 1
-
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
@@ -601,13 +601,13 @@ let g:tagbar_expand = 1
 
 ""JSON
 au! BufRead,BufNewFile *.json set filetype=json
-augroup json_autocmd 
-    autocmd! 
-    autocmd FileType json set autoindent 
-    autocmd FileType json set formatoptions=tcq2l 
-    autocmd FileType json set textwidth=78 
-    autocmd FileType json set expandtab 
-    autocmd FileType json set foldmethod=syntax 
+augroup json_autocmd
+    autocmd!
+    autocmd FileType json set autoindent
+    autocmd FileType json set formatoptions=tcq2l
+    autocmd FileType json set textwidth=78
+    autocmd FileType json set expandtab
+    autocmd FileType json set foldmethod=syntax
 augroup END
 
 "" Jade template syntax
@@ -626,17 +626,6 @@ let g:html_indent_style1  = "inc"
 autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
 autocmd FileType python,java,c,cpp,markdown set tabstop=4
-
-"" Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
 
 "" Go
 filetype off
@@ -673,3 +662,8 @@ let indent_guides_enable_on_vim_startup = 1
 
 "" XMLEdit
 let g:xmledit_enable_html = 1
+
+"" Vim Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+set timeoutlen=1000 ttimeoutlen=50
