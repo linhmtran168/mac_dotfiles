@@ -16,6 +16,7 @@ brew cask install adium skype google-chrome macvim spectacle alfred iterm2
  vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox shuttle
 
 # Install powerline font
+git clone git@github.com:Lokaltog/powerline.git
 git clone git@github.com:Lokaltog/powerline-fonts.git
 # Install tomorrow-theme
 git clone git@github.com:chriskempson/tomorrow-theme.git
