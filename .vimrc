@@ -664,6 +664,6 @@ let indent_guides_enable_on_vim_startup = 1
 let g:xmledit_enable_html = 1
 
 "" Vim Airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 set timeoutlen=1000 ttimeoutlen=50
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
