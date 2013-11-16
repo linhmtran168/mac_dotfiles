@@ -114,11 +114,8 @@ Bundle 'Twinside/vim-syntax-haskell-cabal'
 Bundle 'lukerandall/haskellmode-vim'
 
 " Other languages
-Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
 Bundle 'Blackrush/vim-gocode'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
