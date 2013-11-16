@@ -62,7 +62,6 @@ source $ZSH/oh-my-zsh.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Alias
-# alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias gc='git commit'
 alias gco='git checkout'
@@ -73,6 +72,8 @@ alias gd='git diff'
 alias gl='git log'
 alias gs='git status'
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+alias tma='tmux attach -d -t'
+alias tmn='tmux new -s $(basename $(pwd))'
 
 # Directory Alias
 alias work='cd ~/SkyDrive/workspace'
