@@ -77,6 +77,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
+Bundle 'sjl/vitality.vim'
 
 " Git
 Bundle 'tpope/vim-fugitive'
