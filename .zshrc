@@ -77,6 +77,7 @@ alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Framew
 # tmux
 alias tma='tmux attach -d -t'
 alias tmn='tmux new -s $(basename $(pwd))'
+alias tmt='tmux list-sessions'
 # bower
 alias bower='noglob bower'
 
