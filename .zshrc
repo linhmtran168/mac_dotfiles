@@ -9,7 +9,7 @@ export EDITOR="vim"
 export PLATFORM="mac"
 
 # GO
-export GOROOT=/usr/local/Cellar/go/1.1.2/
+export GOROOT=/usr/local/Cellar/go/1.1.2
 export GOPATH=$HOME/SkyDrive/go
 
 # PATH references
@@ -20,7 +20,7 @@ PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
-PATH=/opt/homebrew-cask/Caskroom/postgres/latest/Postgres.app/Contents/MacOS/bin/:$PATH
+PATH=/opt/homebrew-cask/Caskroom/postgres/latest/Postgres.app/Contents/MacOS/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
