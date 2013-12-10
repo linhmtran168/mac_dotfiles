@@ -7,12 +7,17 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap homebrew/dupes
 
 # Install zsh and other packages
-brew install rbenv zsh go nodejs python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack
+brew install rbenv zsh go nodejs python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack boris
+
+# Install macvim
+brew install macvim --HEAD --override-system-vim
 
 # Install homebrew-cask
 brew tap phinze/hombrew-cask
 brew install brew-cask
-brew cask install adium skype google-chrome macvim spectacle alfred iterm2 vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox shuttle
+brew cask install adium skype google-chrome spectacle alfred iterm2 vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox shuttle
+# Install quicklook plugin
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package --force && qlmanage -r
 # Setup Iterm2 to have option key as Meta key (set profile's option key to +Esc)
 
 # Install powerline font
@@ -22,7 +27,6 @@ git clone git@github.com:Lokaltog/powerline-fonts.git
 git clone git@github.com:chriskempson/tomorrow-theme.git
 
 # Install necessary python package
-pip install git+git://github.com/Lokaltog/powerline
 pip install pylint virtualenv virtualenvwrappers numpy scipy matplotlib scikit-learn ipython colout
 
 easy_install ipython[zmq, qtconsole, notebook, test]
@@ -41,7 +45,7 @@ git clone https://github.com/gmarik/vundle.git
 
 # Install ruby
 brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install 2.0.0-p195
+rbenv install 2.0.0-*
 # Move default gem file to $RBENV_ROOT
 
 # Install neccessary npm packages
@@ -52,5 +56,7 @@ git clone git@github.com:mneorr/Alcatraz.git
 
 # PHP
 # Install mamp, link file, download source
+# Add pcntl and readline to MAMP's PHP
 # Install composer
-# Install boris
+
+# Config to have caps lock as ctrl key

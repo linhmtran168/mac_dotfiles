@@ -9,7 +9,6 @@ export EDITOR="vim"
 export PLATFORM="mac"
 
 # GO
-export GOROOT=/usr/local/Cellar/go/1.1.2
 export GOPATH=$HOME/SkyDrive/go
 
 # PATH references
@@ -51,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(heroku rbenv brew python pip virtualenv virtualenvwrapper rails4 rails3 rails capistrano pow bundler rake gem ruby jruby composer laravel lein node npm osx tmux redis-cli cp history last-working-dir history-substring-search command-not-found sbt scala go golang git git-flow)
+plugins=(heroku rbenv brew python pip virtualenv virtualenvwrapper rails capistrano pow bundler rake gem ruby jruby composer laravel lein node npm osx tmux redis-cli cp history last-working-dir history-substring-search command-not-found sbt scala go golang git git-flow)
 
 # plugins=(rbenv osx cp history history-substring-search last-working-dir)
 
@@ -62,16 +61,6 @@ source $ZSH/oh-my-zsh.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Alias
-# Git
-alias grep='grep --color=auto'
-alias gc='git commit'
-alias gco='git checkout'
-alias ge='git merge'
-alias gp='git push'
-alias gpl='git pull'
-alias gd='git diff'
-alias gl='git log'
-alias gs='git status'
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 # tmux
