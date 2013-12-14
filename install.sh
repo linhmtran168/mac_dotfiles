@@ -31,8 +31,13 @@ pip install pylint virtualenv virtualenvwrappers numpy scipy matplotlib scikit-l
 
 easy_install ipython[zmq, qtconsole, notebook, test]
 
-# Install oh-my-zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+# Install prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+chsh -s /bin/zsh
 
 # Symlink all dotfiles to home directories
 #Configure git
@@ -44,7 +49,7 @@ git config --global color.ui true
 git clone https://github.com/gmarik/vundle.git
 
 # Install ruby
-brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars
+brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars rbenv-binstubs
 rbenv install 2.0.0-*
 # Move default gem file to $RBENV_ROOT
 

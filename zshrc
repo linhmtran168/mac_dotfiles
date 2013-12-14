@@ -29,3 +29,7 @@ alias work='cd ~/SkyDrive/workspace'
 alias course='cd ~/SkyDrive/Courses'
 alias site='cd ~/SkyDrive/Sites'
 alias project='cd ~/SkyDrive/Projects'
+
+# Python virtualenv configuration
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
