@@ -75,7 +75,7 @@ function prompt_sorin_setup {
 
   # Define prompts.
   PROMPT='
-%F{cyan}%~%f${git_info:+${(e)git_info[prompt]}}${ruby_info[version]}$python_info[virtualenv]
+%F{113}%n@%m%f ❯ %F{cyan}%~%f${git_info:+${(e)git_info[prompt]}}${ruby_info[version]}$python_info[virtualenv]
 %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '

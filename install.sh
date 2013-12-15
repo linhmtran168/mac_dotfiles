@@ -28,7 +28,6 @@ git clone git@github.com:chriskempson/tomorrow-theme.git
 
 # Install necessary python package
 pip install pylint virtualenv virtualenvwrappers numpy scipy matplotlib scikit-learn ipython colout
-
 easy_install ipython[zmq, qtconsole, notebook, test]
 
 # Install prezto
@@ -40,6 +39,7 @@ done
 chsh -s /bin/zsh
 
 # Symlink all dotfiles to home directories
+
 #Configure git
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global color.ui true
@@ -54,14 +54,13 @@ rbenv install 2.0.0-*
 # Move default gem file to $RBENV_ROOT
 
 # Install neccessary npm packages
-npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade ejs stylus sails nodemon forever
-
-# Install xcode package manager
-git clone git@github.com:mneorr/Alcatraz.git
+npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade ejs stylus sails nodemon forever pm2 meteorite
 
 # PHP
 # Install mamp, link file, download source
 # Add pcntl and readline to MAMP's PHP
 # Install composer
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
 # Config to have caps lock as ctrl key

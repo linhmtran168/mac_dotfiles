@@ -88,7 +88,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 
 " Markup
-Bundle 'hallison/vim-markdown'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-haml'
 Bundle 'hail2u/vim-css3-syntax'
@@ -176,7 +176,7 @@ set nofoldenable
 syntax enable
 
 "Set font
-set gfn=Inconsolata\ for\ Powerline:h13
+set gfn=Inconsolata\ for\ Powerline:h14
 set shell=/bin/zsh
 
 if has('gui_running')
@@ -665,3 +665,6 @@ let g:xmledit_enable_html = 1
 set timeoutlen=1000 ttimeoutlen=50
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
+
+"" Markdown
+let g:vim_markdown_folding_disabled=1
