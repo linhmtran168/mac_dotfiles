@@ -668,3 +668,6 @@ let g:airline#extensions#whitespace#enabled = 0
 
 "" Markdown
 let g:vim_markdown_folding_disabled=1
+
+"" Emmet
+let g:user_emmet_leader_key="<c-e>"

@@ -36,6 +36,9 @@ fi
 # GO
 export GOPATH=$HOME/SkyDrive/go
 
+# Rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
