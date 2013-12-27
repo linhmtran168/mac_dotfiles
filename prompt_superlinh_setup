@@ -69,7 +69,7 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}◼%f%%b'
   zstyle ':prezto:module:git:info:keys' format \
-    'prompt' ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
+    'prompt' '(%F{blue}git%f$(coalesce "%b" "%p" "%c")%s)' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
   # Set ruby-info parameters.
@@ -83,9 +83,9 @@ function prompt_sorin_setup {
 
   # Define prompts.
   PROMPT='
-%F{113}%n@%m%f %F{208}λ%f %F{cyan}%~%f${git_info:+${(e)git_info[prompt]}} ${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}
+%F{113}%n@%m%f %F{208}λ%f %F{cyan}%~%f ${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}
 %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
