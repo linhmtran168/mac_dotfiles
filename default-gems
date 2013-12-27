@@ -5,3 +5,4 @@ terminal-notifier
 capistrano
 awesome_print
 bundler
+compass

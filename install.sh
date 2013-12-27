@@ -7,7 +7,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew tap homebrew/dupes
 
 # Install zsh and other packages
-brew install rbenv zsh go nodejs python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack boris
+brew install rbenv zsh go python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack boris
 
 # Install macvim
 brew install macvim --HEAD --override-system-vim
@@ -53,8 +53,13 @@ brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars rbenv-binstubs
 rbenv install 2.0.0-*
 # Move default gem file to $RBENV_ROOT
 
-# Install neccessary npm packages
-npm -g install express derby yo grunt-cli bower less sass coffee-script jshint jsonlint csslint jade ejs stylus sails nodemon forever pm2 meteorite
+# Install nvm
+curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+# Install nodejs
+nvm install 0.10
+nvm use 0.10
+# Install necessary npm packages
+npm -g install bower eslint generator-kraken jsonlint mocha sass bytewiser express grunt less nodemon sequelize coffee-script expressworks grunt-cli levelmeup uglifyjs csslint forever jade meteorite pm2 yo cssmin functional-javascript-workshop jshint minify promise-it-wont-hurt generator-kraken
 
 # PHP
 # Install mamp, link file, download source

@@ -85,3 +85,8 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+# NVM
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+# Rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
