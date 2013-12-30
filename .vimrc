@@ -2,25 +2,6 @@
 " My .vimrc configuration based on the configuration of amix the lucky stiff
 "             http://amix.dk - amix@amix.dk
 "
-"
-" Sections:
-"    -> General
-"    -> Vundle configuration
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Command mode related
-"    -> Moving around, tabs and buffers
-"    -> Statusline
-"    -> General Abbrevs
-"    -> Editing mappings
-"
-"    -> Omni complete functions
-"    -> Python section
-"    -> JavaScript section
-"    -> Personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remove vi old behavior
@@ -89,6 +70,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'sjl/vitality.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'terryma/vim-expand-region'
+Bundle 'gcmt/taboo.vim'
 
 " Git
 Bundle 'tpope/vim-fugitive'
@@ -125,9 +107,12 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'Twinside/vim-syntax-haskell-cabal'
 Bundle 'lukerandall/haskellmode-vim'
 
+" Go
+Bundle 'Blackrush/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
+
 " Other languages
 Bundle 'mileszs/ack.vim'
-Bundle 'Blackrush/vim-gocode'
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
@@ -187,7 +172,6 @@ set tm=500
 
 "" Fold option
 set nofoldenable
-set foldcolumn=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -196,23 +180,23 @@ set foldcolumn=1
 syntax enable
 
 "Set font
-set gfn=Inconsolata\ for\ Powerline:h14
+set gfn=Sauce\ Code\ Powerline\ Light:h12
 set background=dark
 
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
   set guitablabel=%M\ %t
-  colorscheme Tomorrow-Night
+  colorscheme Tomorrow-Night-Eighties
+  set t_Co=256
 else
-  set background=dark
-  colorscheme Tomorrow-Night
+  colorscheme Tomorrow-Night-Eighties
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 try
-    lang en_US
+  lang en_US
 catch
 endtry
 
@@ -378,7 +362,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>gr :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 " Vimgreps in the current file
 map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
@@ -541,6 +525,28 @@ func! CurrentFileDir(cmd)
 endfunc
 
 
+""""""""""""""""""""""""""""""
+" => MRU plugin
+""""""""""""""""""""""""""""""
+let MRU_Max_Entries = 400
+map <leader>f :MRU<CR>
+
+""""""""""""""""""""""""""""""
+" => bufExplorer plugin
+""""""""""""""""""""""""""""""
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>o :BufExplorer<cr>
+
+""""""""""""""""""""""""""""""
+" => Vim grep
+""""""""""""""""""""""""""""""
+let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
+set grepprg=/bin/grep\ -nH
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My personal configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -564,27 +570,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-""""""""""""""""""""""""""""""
-" => MRU plugin
-""""""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
-
-""""""""""""""""""""""""""""""
-" => bufExplorer plugin
-""""""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-map <leader>o :BufExplorer<cr>
-
-""""""""""""""""""""""""""""""
-" => Vim grep
-""""""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
-set grepprg=/bin/grep\ -nH
 
 "" NERDTree Configuration
 let NERDTreeChDirMode                   = 2
@@ -672,13 +657,6 @@ autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
 autocmd FileType python,java,c,cpp,markdown set tabstop=4
 
-"" Go
-filetype off
-filetype plugin indent off
-set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-
 "" DelimitMate
 let delimitMate_expand_space = 1
 let delimitMate_matchpairs   = "(:),[:],{:}"
@@ -725,3 +703,6 @@ let g:multi_cursor_next_key='<c-j>'
 let g:multi_cursor_prev_key='<c-k>'
 let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
+
+"" Taboo
+let g:taboo_tab_format=' %N %f%m '
