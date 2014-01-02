@@ -6,37 +6,7 @@
 
 " Remove vi old behavior
 set nocompatible
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=700
-
-" Enable filetype plugin
-filetype plugin on
-filetype indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader   = ","
-let g:mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
-" When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
-
-" Set default shell
-set shell=/bin/zsh
+filetype off
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle Configuration
@@ -83,7 +53,6 @@ Bundle 'kchmck/vim-coffee-script'
 " Markup
 Bundle 'plasticboy/vim-markdown'
 Bundle 'mattn/emmet-vim'
-Bundle 'tpope/vim-haml'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
@@ -102,6 +71,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-cucumber'
 Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml'
 
 " Haskell
 Bundle 'Twinside/vim-syntax-haskell-cabal'
@@ -122,6 +92,38 @@ Bundle 'YankRing.vim'
 
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=700
+
+" Enable filetype plugin
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader   = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Set default shell
+set shell=/bin/zsh
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,8 +313,9 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
 " Remember info about open buffers on close
-set viminfo^=%
+" set viminfo^=%
 
 
 """"""""""""""""""""""""""""""
@@ -534,11 +537,8 @@ map <leader>f :MRU<CR>
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-map <leader>o :BufExplorer<cr>
 
 """"""""""""""""""""""""""""""
 " => Vim grep
