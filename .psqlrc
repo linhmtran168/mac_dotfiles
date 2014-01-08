@@ -1,2 +1,12 @@
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '']]'
+\set QUIET 1
+\timing
+\set ON_ERROR_ROLLBACK interactive
+\set VERBOSITY verbose
+\x auto
+\set PROMPT1 '%[%033[1m%]%M/%n@%/%R%[%033[0m%]%# '
 \set PROMPT2 '[more] %R > '
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\pset null '[NULL]'
+\unset QUIET

@@ -17,6 +17,7 @@ export PLATFORM="mac"
 # Alias
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
 # tmux
 alias tma='tmux attach -d -t'
 alias tmn='tmux new -s $(basename $(pwd))'

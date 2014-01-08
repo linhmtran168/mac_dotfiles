@@ -42,6 +42,10 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'terryma/vim-expand-region'
 Bundle 'gcmt/taboo.vim'
 
+" Search
+Bundle 'rking/ag.vim'
+Bundle 'mileszs/ack.vim'
+
 " Git
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
@@ -82,7 +86,6 @@ Bundle 'Blackrush/vim-gocode'
 Bundle 'jnwhiteh/vim-golang'
 
 " Other languages
-Bundle 'mileszs/ack.vim'
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
@@ -544,7 +547,7 @@ let g:bufExplorerFindActive=1
 " => Vim grep
 """"""""""""""""""""""""""""""
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
-set grepprg=/bin/grep\ -nH
+set grepprg=/usr/bin/grep\ -nH
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -699,8 +702,8 @@ let g:user_emmet_leader_key="<c-e>"
 
 "" Vim multicursors
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<c-j>'
-let g:multi_cursor_prev_key='<c-k>'
+let g:multi_cursor_next_key='<c-s>'
+let g:multi_cursor_prev_key='<c-w>'
 let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
 
