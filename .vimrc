@@ -89,7 +89,6 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
-Bundle 'mru.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
 
@@ -117,10 +116,6 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -532,16 +527,9 @@ endfunc
 
 
 """"""""""""""""""""""""""""""
-" => MRU plugin
-""""""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
-
-""""""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
 let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
 
 """"""""""""""""""""""""""""""
 " => Vim grep
@@ -574,6 +562,12 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Fast reload vimrc
+map <leader>vi :so $MYVIMRC<CR>
+
+"""
+" Plugin settings
+"""
 "" NERDTree Configuration
 let NERDTreeChDirMode                   = 2
 let NERDTreeShowBookmarks               = 1
@@ -584,6 +578,7 @@ nmap <leader>n :NERDTreeMirrorToggle<CR>
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
+map <leader>f :CtrlPMRU<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir'  : '\v[\/](\.(git|hg|svn|bzr|DS_Store|coffee)|node_modules|)$',

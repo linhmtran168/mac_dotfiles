@@ -6,3 +6,4 @@ capistrano
 awesome_print
 bundler
 compass
+rubocop

@@ -52,7 +52,7 @@ path=(
   /usr/local/{bin,sbin}
   $GOPATH/bin
   $HOME/.cabal/bin
-  /opt/homebrew-cask/Caskroom/postgres/latest/Postgres.app/Contents/MacOS/bin
+  /Applications/Postgres93.app/Contents/MacOS/bin
   /usr/local/heroku/bin
   $path
 )
