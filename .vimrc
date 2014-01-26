@@ -72,6 +72,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " Ruby & Rails
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-cucumber'
 Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
@@ -171,7 +172,10 @@ set t_vb=
 set tm=500
 
 "" Fold option
-set nofoldenable
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -186,7 +190,6 @@ set background=dark
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
-  set guitablabel=%M\ %t
   colorscheme Tomorrow-Night-Eighties
   set t_Co=256
 else
@@ -545,6 +548,8 @@ set grepprg=/usr/bin/grep\ -nH
 " Sets show line number
 set relativenumber
 set number
+set ttyfast
+set fillchars=diff:·
 
 " Set xterm2 mouse mode to allow resizing of splits with mouse inside tmux
 set ttymouse=xterm2
@@ -564,6 +569,16 @@ autocmd BufWinLeave * call clearmatches()
 
 " Fast reload vimrc
 map <leader>vi :so $MYVIMRC<CR>
+
+" Tmux
+" allows cursor change in tmux mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 """
 " Plugin settings
@@ -649,7 +664,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
-
 "" Indent for python, java, c, cpp
 autocmd FileType python,java,c,cpp,markdown set softtabstop=4
 autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
@@ -697,10 +711,17 @@ let g:user_emmet_leader_key="<c-e>"
 
 "" Vim multicursors
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<c-s>'
+let g:multi_cursor_next_key='<c-m>'
 let g:multi_cursor_prev_key='<c-w>'
 let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
 
 "" Taboo
 let g:taboo_tab_format=' %N %f%m '
+
+"" Gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
+"" Ag.vim
+nnoremap <leader>a :Ag
