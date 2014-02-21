@@ -102,6 +102,13 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 zstyle ':prezto:module:prompt' theme 'superlinh'
 
 #
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+
+#
 # Screen
 #
 
@@ -158,5 +165,4 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'

@@ -33,11 +33,17 @@ fi
 # Paths
 #
 
+# Chrome path
+export CHROME_BIN='/opt/homebrew-cask/Caskroom/google-chrome/stable-channel/Google Chrome.app/Contents/MacOS/Google Chrome'
+
 # GO
 export GOPATH=$HOME/SkyDrive/go
 
 # Rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
+
+# Dart
+export DART_SDK=/usr/local/Cellar/dart-editor/31822/dart-sdk
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -88,5 +94,7 @@ fi
 # NVM
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
-# Rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# Chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby ruby-2.1.0
