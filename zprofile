@@ -39,9 +39,6 @@ export CHROME_BIN='/opt/homebrew-cask/Caskroom/google-chrome/stable-channel/Goog
 # GO
 export GOPATH=$HOME/SkyDrive/go
 
-# Rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
-
 # Dart
 export DART_SDK=/usr/local/Cellar/dart-editor/31822/dart-sdk
 
