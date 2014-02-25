@@ -27,6 +27,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
+  'ssh' \
   'history' \
   'directory' \
   'spectrum' \
@@ -106,7 +107,7 @@ zstyle ':prezto:module:prompt' theme 'superlinh'
 #
 
 # Auto switch the Ruby version on directory change.
-zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
