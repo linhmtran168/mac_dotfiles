@@ -51,7 +51,7 @@ git clone https://github.com/gmarik/vundle.git
 # Install ruby
 brew install chruby ruby-install direnv
 ruby-install ruby $version
-chruby ruby-$version
+chruby $version
 
 # Install nvm
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
