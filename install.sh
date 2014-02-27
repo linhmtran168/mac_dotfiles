@@ -10,7 +10,7 @@ brew tap homebrew/dupes
 brew install rbenv zsh go python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack boris the_silver_searcher
 
 # Install macvim
-brew install macvim --HEAD --override-system-vim
+brew install macvim --override-system-vim
 
 # Install homebrew-cask
 brew tap phinze/hombrew-cask
@@ -49,9 +49,9 @@ git config --global color.ui true
 git clone https://github.com/gmarik/vundle.git
 
 # Install ruby
-brew install rbenv-default-gems rbenv-gem-rehash rbenv-vars rbenv-binstubs
-rbenv install 2.0.0-*
-# Move default gem file to $RBENV_ROOT
+brew install chruby ruby-install direnv
+ruby-install ruby $version
+chruby ruby-$version
 
 # Install nvm
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
@@ -59,7 +59,7 @@ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 nvm install 0.10
 nvm use 0.10
 # Install necessary npm packages
-npm -g install bower eslint generator-kraken jsonlint mocha sass bytewiser express grunt less nodemon sequelize coffee-script expressworks grunt-cli levelmeup uglifyjs csslint forever jade meteorite pm2 yo cssmin functional-javascript-workshop jshint minify promise-it-wont-hurt generator-kraken
+npm -g install bower eslint generator-kraken jsonlint mocha sass bytewiser express gulp grunt less nodemon sequelize coffee-script expressworks grunt-cli levelmeup uglifyjs csslint forever jade meteorite pm2 yo cssmin functional-javascript-workshop jshint minify promise-it-wont-hurt generator-kraken
 
 # PHP
 # Install mamp, link file, download source
