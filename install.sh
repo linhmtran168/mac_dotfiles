@@ -59,7 +59,7 @@ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 nvm install 0.10
 nvm use 0.10
 # Install necessary npm packages
-npm -g install bower eslint generator-kraken jsonlint mocha sass bytewiser express gulp grunt less nodemon sequelize coffee-script expressworks grunt-cli levelmeup uglifyjs csslint forever jade meteorite pm2 yo cssmin functional-javascript-workshop jshint minify promise-it-wont-hurt generator-kraken
+npm -g install bower generator-kraken mocha browserify generator-mocha nodemon bytewiser generator-webapp coffee-script grunt pageres csslint grunt-cli pm2 cssmin gulp promise-it-wont-hurt envify harp protractor eslint ionic react-tools express jade sass expressworks jshint sequelize forever jsonlint tldr functional-javascript-workshop less uglifyjs generator-angular levelmeup yo generator-gulp-webapp meteorite generator-karma minify
 
 # PHP
 # Install mamp, link file, download source
