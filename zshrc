@@ -32,7 +32,8 @@ alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.9.2/node-webkit.app/Contents
 
 # ligt-table
 alias light='/opt/homebrew-cask/Caskroom/lighttable/0.6.4/LightTable/LightTable.app/Contents/MacOS/node-webkit'
-alias julia='/opt/homebrew-cask/Caskroom/julia/0.2/Julia-0.2.0.app/Contents/Resources/julia/bin/julia'
+alias julia='/opt/homebrew-cask/Caskroom/julia/0.2.1/Julia-0.2.1.app/Contents/Resources/julia/bin/julia'
+alias nimrod='/usr/local/Cellar/nimrod/0.9.2/libexec/bin/nimrod'
 
 # Directory Alias
 alias work='cd ~/OneDrive/workspace'
@@ -45,6 +46,3 @@ alias project='cd ~/OneDrive/Projects'
 # Python virtualenv configuration
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-# Direnv
-eval "$(direnv hook zsh)"

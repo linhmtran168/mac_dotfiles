@@ -41,6 +41,7 @@ Bundle 'sjl/vitality.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'terryma/vim-expand-region'
 Bundle 'gcmt/taboo.vim'
+Bundle 'jlanzarotta/bufexplorer'
 
 " Search
 Bundle 'rking/ag.vim'
@@ -83,14 +84,12 @@ Bundle 'Twinside/vim-syntax-haskell-cabal'
 Bundle 'lukerandall/haskellmode-vim'
 
 " Go
-Bundle 'Blackrush/vim-gocode'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 
 " Other languages
 Bundle 'hdima/python-syntax'
 
 " Vim scripts repos
-Bundle 'bufexplorer.zip'
 Bundle 'YankRing.vim'
 
 " Vim themes
@@ -664,10 +663,10 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
-"" Indent for python, java, c, cpp
-autocmd FileType python,java,c,cpp,markdown set softtabstop=4
-autocmd FileType python,java,c,cpp,markdown set shiftwidth=4
-autocmd FileType python,java,c,cpp,markdown set tabstop=4
+"" Indent for python, c, cpp
+autocmd FileType python,c,cpp,markdown set softtabstop=4
+autocmd FileType python,c,cpp,markdown set shiftwidth=4
+autocmd FileType python,c,cpp,markdown set tabstop=4
 
 "" DelimitMate
 let delimitMate_expand_space = 1

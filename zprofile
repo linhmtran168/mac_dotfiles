@@ -42,6 +42,9 @@ export GOPATH=$HOME/OneDrive/go
 # Dart
 export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 
+# Python
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
