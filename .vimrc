@@ -35,11 +35,12 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
 Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/vitality.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'terryma/vim-expand-region'
+" Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'terryma/vim-expand-region'
 Bundle 'gcmt/taboo.vim'
 Bundle 'jlanzarotta/bufexplorer'
 
@@ -709,11 +710,11 @@ let g:vim_markdown_folding_disabled=1
 let g:user_emmet_leader_key="<c-e>"
 
 "" Vim multicursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<c-m>'
-let g:multi_cursor_prev_key='<c-w>'
-let g:multi_cursor_skip_key='<c-x>'
-let g:multi_cursor_quit_key='<esc>'
+" let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_next_key='<c-m>'
+" let g:multi_cursor_prev_key='<c-w>'
+" let g:multi_cursor_skip_key='<c-x>'
+" let g:multi_cursor_quit_key='<esc>'
 
 "" Taboo
 let g:taboo_tab_format=' %N %f%m '
