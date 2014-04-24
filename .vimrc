@@ -24,9 +24,9 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
-Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -39,8 +39,6 @@ Bundle 'honza/vim-snippets'
 Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/vitality.vim'
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'terryma/vim-expand-region'
 Bundle 'gcmt/taboo.vim'
 Bundle 'jlanzarotta/bufexplorer'
 
@@ -708,13 +706,6 @@ let g:vim_markdown_folding_disabled=1
 
 "" Emmet
 let g:user_emmet_leader_key="<c-e>"
-
-"" Vim multicursors
-" let g:multi_cursor_use_default_mapping=0
-" let g:multi_cursor_next_key='<c-m>'
-" let g:multi_cursor_prev_key='<c-w>'
-" let g:multi_cursor_skip_key='<c-x>'
-" let g:multi_cursor_quit_key='<esc>'
 
 "" Taboo
 let g:taboo_tab_format=' %N %f%m '
