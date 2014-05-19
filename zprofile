@@ -42,9 +42,6 @@ export GOPATH=$HOME/OneDrive/go
 # Dart
 export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 
-# Python
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -58,7 +55,7 @@ path=(
   /usr/local/{bin,sbin}
   $GOPATH/bin
   $HOME/.cabal/bin
-  /Applications/Postgres93.app/Contents/MacOS/bin
+  /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/heroku/bin
   $path
 )
@@ -94,6 +91,5 @@ fi
 # NVM
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
-# Chruby
-source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.1.1
+# Rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

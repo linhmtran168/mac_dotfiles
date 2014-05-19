@@ -548,6 +548,8 @@ set relativenumber
 set number
 set ttyfast
 set fillchars=diff:·
+" Fix ruby slow navigation
+set re=1
 
 " Set xterm2 mouse mode to allow resizing of splits with mouse inside tmux
 set ttymouse=xterm2

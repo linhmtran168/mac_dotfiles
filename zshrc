@@ -30,10 +30,14 @@ alias bower='noglob bower'
 # node-webkit
 alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.9.2/node-webkit.app/Contents/MacOS/node-webkit'
 
-# ligt-table
+# light-table
 alias light='/opt/homebrew-cask/Caskroom/lighttable/0.6.4/LightTable/LightTable.app/Contents/MacOS/node-webkit'
+# julia
 alias julia='/opt/homebrew-cask/Caskroom/julia/0.2.1/Julia-0.2.1.app/Contents/Resources/julia/bin/julia'
+# nimrod
 alias nimrod='/usr/local/Cellar/nimrod/0.9.2/libexec/bin/nimrod'
+# jdk
+alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
 
 # Directory Alias
 alias work='cd ~/OneDrive/workspace'
