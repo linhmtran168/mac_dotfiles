@@ -42,11 +42,21 @@ alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
 # Directory Alias
 alias work='cd ~/OneDrive/workspace'
 alias course='cd ~/OneDrive/Courses'
-alias depg='cd ~/OneDrive/DevPlayground'
-alias jspg='cd ~/Dropbox/JsPlayground'
-alias code='cd ~/OneDrive/Codes'
-alias project='cd ~/OneDrive/Projects'
+alias src='cd ~/Dropbox/Src'
 
 # Python virtualenv configuration
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+#Peco
+function peco-src () {
+  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+
+zle -N peco-src
+bindkey '^[' peco-src
