@@ -53,7 +53,9 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
+  /usr/local/opt/go/libexec/bin
   $GOPATH/bin
+  $DART_SDK/bin
   $HOME/.cabal/bin
   /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/heroku/bin

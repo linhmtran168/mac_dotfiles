@@ -25,22 +25,27 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-abolish'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
-Bundle 'majutsushi/tagbar'
-Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/vitality.vim'
 Bundle 'gcmt/taboo.vim'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'YankRing.vim'
+
+" Coding
+Bundle 'SirVer/ultisnips'
+Bundle 'godlygeek/tabular'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'Valloric/YouCompleteMe'
 
 " Search
 Bundle 'rking/ag.vim'
@@ -53,15 +58,16 @@ Bundle 'airblade/vim-gitgutter'
 " Javascript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'moll/vim-node'
 
 " Markup
-Bundle 'plasticboy/vim-markdown'
 Bundle 'mattn/emmet-vim'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/html5.vim'
-Bundle 'juvenn/mustache.vim'
 Bundle 'wavded/vim-stylus'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'JSON.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'sukima/xmledit'
@@ -79,8 +85,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 
 " Haskell
-Bundle 'Twinside/vim-syntax-haskell-cabal'
-Bundle 'lukerandall/haskellmode-vim'
+Bundle 'eagletmt/ghcmod-vim'
 
 " Go
 Bundle 'fatih/vim-go'
@@ -88,8 +93,6 @@ Bundle 'fatih/vim-go'
 " Other languages
 Bundle 'hdima/python-syntax'
 
-" Vim scripts repos
-Bundle 'YankRing.vim'
 
 " Vim themes
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -231,7 +234,7 @@ set expandtab
 " Be smart when using tabs
 set smarttab
 
-" 1 tab == 4 spaces
+" 1 tab == 2 spaces
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
