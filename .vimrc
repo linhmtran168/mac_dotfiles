@@ -71,6 +71,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'JSON.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'sukima/xmledit'
+Bundle 'mxw/vim-jsx'
 
 " Indent
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -187,12 +188,12 @@ syntax enable
 "Set font
 set gfn=Sauce\ Code\ Powerline\ Light:h12
 set background=dark
+set t_Co=256
 
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
   colorscheme Tomorrow-Night-Eighties
-  set t_Co=256
 else
   colorscheme Tomorrow-Night-Eighties
 endif
