@@ -42,6 +42,9 @@ export GOPATH=$HOME/OneDrive/go
 # Dart
 export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 
+# NVM
+export NVM_DIR=~/.nvm
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -91,7 +94,7 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 # NVM
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+source $(brew --prefix nvm)/nvm.sh
 
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
