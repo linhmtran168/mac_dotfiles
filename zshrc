@@ -28,12 +28,12 @@ alias tmk='tmux kill-session -t'
 alias bower='noglob bower'
 
 # node-webkit
-alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.9.2/node-webkit.app/Contents/MacOS/node-webkit'
+alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.10.2/node-webkit-v0.10.2-osx-x64/node-webkit.app/Contents/MacOS/node-webkit'
 
 # light-table
 alias light='/opt/homebrew-cask/Caskroom/lighttable/0.6.4/LightTable/LightTable.app/Contents/MacOS/node-webkit'
 # julia
-alias julia='/opt/homebrew-cask/Caskroom/julia/0.2.1/Julia-0.2.1.app/Contents/Resources/julia/bin/julia'
+alias julia='/opt/homebrew-cask/Caskroom/julia/0.3.0/Julia-0.3.0.app/Contents/Resources/julia/bin/julia'
 # octave
 alias octave='/usr/local/octave/3.8.0/bin/octave'
 # jdk
