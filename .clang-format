@@ -24,7 +24,7 @@ IndentCaseLabels: false
 MaxEmptyLinesToKeep: 1
 KeepEmptyLinesAtTheStartOfBlocks: true
 NamespaceIndentation: None
-ObjCSpaceAfterProperty: false
+ObjCSpaceAfterProperty: true
 ObjCSpaceBeforeProtocolList: true
 PenaltyBreakBeforeFirstCallParameter: 19
 PenaltyBreakComment: 300
