@@ -37,7 +37,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'sjl/gundo.vim'
@@ -627,6 +627,7 @@ nmap <leader>n :NERDTreeMirrorToggle<CR>
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
 map <leader>f :CtrlPMRU<CR>
+map <leader>b :CtrlPBuffer<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir'  : '\v[\/](\.(git|hg|svn|bzr|DS_Store|coffee)|node_modules|)$',
