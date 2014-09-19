@@ -3,130 +3,98 @@
 "             http://amix.dk - amix@amix.dk
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Skip initialization for vim-tiny or vim-small
+if !1 | finish | endif
 
 " Remove vi old behavior
 set nocompatible
 filetype off
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NeoBundle Configuration
+" => Vim plug Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !1 | finish | endif
-
-if has('vim_starting')
 " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " My Bundles here:
-" Refer to |:NeoBundle-examples|.
 
 " Editor
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'sjl/vitality.vim'
-NeoBundle 'gcmt/taboo.vim'
-NeoBundle 'jlanzarotta/bufexplorer'
-NeoBundle 'YankRing.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'honza/vim-snippets'
+Plug 'sjl/gundo.vim'
+Plug 'sjl/vitality.vim'
+Plug 'gcmt/taboo.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'YankRing.vim'
 
 " Coding
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build' : {
-      \     'mac' : './install.sh --clang-completer',
-      \     'unix' : './install.sh --clang-completer'
-      \   },
-      \ }
+Plug 'SirVer/ultisnips'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
 " Search
-NeoBundle 'rking/ag.vim'
-NeoBundle 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 
 " Git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Javascript
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'moll/vim-node'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'moll/vim-node'
 
 " Markup
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'JSON.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'sukima/xmledit'
-NeoBundle 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+Plug 'othree/html5.vim'
+Plug 'wavded/vim-stylus'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'JSON.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'sukima/xmledit'
+Plug 'mxw/vim-jsx'
 
 " Indent
-NeoBundle 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Ruby & Rails
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-cucumber'
+Plug 'slim-template/vim-slim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
 
 " Haskell
-NeoBundle 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/ghcmod-vim'
 
 " Go
-NeoBundle 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Other languages
-NeoBundle 'hdima/python-syntax'
-
+Plug 'hdima/python-syntax'
 
 " Vim themes
-NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
-call neobundle#end()
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-if !has('vim_starting')
-  " Call on_source hook when reloading .vimrc.
-  call neobundle#call_hook('on_source')
-endif
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
