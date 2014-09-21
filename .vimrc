@@ -29,6 +29,9 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/ctrlp.vim'
+ " Required:
+ filetype plugin indent on
 Plug 'Raimondi/delimitMate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/gundo.vim'
@@ -127,7 +130,7 @@ set shell=/bin/zsh
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the curors - when moving vertical..
+" Set 7 lines to the cursor - when moving vertical..
 set so=7
 
 set wildmenu "Turn on WiLd menu
@@ -546,6 +549,7 @@ set grepprg=/usr/bin/grep\ -nH
 "" General setting
 " Sets show line number
 set relativenumber
+" Show relavie line number
 set number
 set ttyfast
 set fillchars=diff:·
@@ -594,8 +598,9 @@ nmap <leader>n :NERDTreeMirrorToggle<CR>
 
 "" Ctrlp.vim
 let g:ctrlp_map = '<leader>j'
-map <leader>f :CtrlPMRU<CR>
-map <leader>b :CtrlPBuffer<CR>
+noremap <leader>f :CtrlPMRU<CR>
+noremap <leader>b :CtrlPBuffer<CR>
+noremap <leader>g :CtrlPGhq<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir'  : '\v[\/](\.(git|hg|svn|bzr|DS_Store|coffee)|node_modules|)$',

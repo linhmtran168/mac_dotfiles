@@ -1,0 +1,11 @@
+" Sets show relative line number
+set relativenumber
+set number
+
+set ignorecase "Ignore case when searching
+
+set hlsearch "Highlight search things
+
+set incsearch "Make search act like search in modern browsers
+
+set wrap "Wrap lines
