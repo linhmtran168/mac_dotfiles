@@ -11,10 +11,23 @@
 # Load dependencies.
 pmodload 'helper'
 
+function prompt_sorin_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_sorin_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_sorin_pwd="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}/${${pwd:t}//\%/%%}"
+  fi
+}
+
 function prompt_sorin_precmd {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
 
+  # Format PWD.
+  prompt_sorin_pwd
   # Get Git repository information.
   if (( $+functions[git-info] )); then
     git-info
@@ -44,7 +57,7 @@ function prompt_sorin_setup {
   # Load required functions.
   autoload -Uz add-zsh-hook
 
-  # Add hook for calling git-info before each command.
+  # Add hook for calling infos before each command.
   add-zsh-hook precmd prompt_sorin_precmd
 
   # Set editor-info parameters.
@@ -83,7 +96,7 @@ function prompt_sorin_setup {
 
   # Define prompts.
   PROMPT='
-%F{113}%n@%m%f %F{208}λ%f %F{cyan}%~%f ${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}
+%F{113}%n@%m%f %F{208}λ%f %F{cyan}%${_prompt_sorin_pwd}%f ${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}
 %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
