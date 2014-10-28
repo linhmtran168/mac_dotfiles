@@ -14,6 +14,9 @@ fi
 # Variable for tmux-powerline
 export PLATFORM="mac"
 
+# For Drake
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+
 # Alias
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
@@ -47,7 +50,7 @@ alias src='cd ~/Dropbox/Src'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-#Peco
+# Peco
 function peco-src () {
   local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
@@ -59,3 +62,6 @@ function peco-src () {
 
 zle -N peco-src
 bindkey '^]' peco-src
+
+# Autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh

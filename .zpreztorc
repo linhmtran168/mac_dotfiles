@@ -32,7 +32,6 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'completion' \
-  'homebrew' \
   'osx' \
   'ruby' \
   'rails' \
@@ -41,6 +40,7 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'haskell' \
   'tmux' \
+  'homebrew' \
   'utility' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -76,6 +76,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Enable color
 zstyle ':prezto:module:history-substring-search' color 'yes'
+
 # Set the query found color.
 zstyle ':prezto:module:history-substring-search:color' found ''
 

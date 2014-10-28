@@ -49,6 +49,9 @@ export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 # NVM
 export NVM_DIR=~/.nvm
 
+# Haskell
+export HASKELL_DIR=$HOME/Library/Haskell
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -63,9 +66,10 @@ path=(
   /usr/local/opt/go/libexec/bin
   $GOPATH/bin
   $DART_SDK/bin
-  $HOME/.cabal/bin
+  $HASKELL_DIR/bin
   /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/heroku/bin
+  /Applications/MATLAB_R2014b.app/bin
   $path
 )
 
@@ -79,8 +83,9 @@ path=(
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
-if (( $+commands[lesspipe.sh] )); then
-  export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
+  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
 #

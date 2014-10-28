@@ -30,8 +30,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/ctrlp.vim'
- " Required:
- filetype plugin indent on
 Plug 'Raimondi/delimitMate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/gundo.vim'
@@ -39,6 +37,7 @@ Plug 'sjl/vitality.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'YankRing.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 
 " Coding
 Plug 'SirVer/ultisnips'
@@ -87,6 +86,7 @@ Plug 'tpope/vim-haml'
 
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 
 " Go
 Plug 'fatih/vim-go'
@@ -124,7 +124,7 @@ nmap <leader>w :w!<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Set default shell
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -725,3 +725,16 @@ let g:gitgutter_eager = 0
 
 "" Ag.vim
 nnoremap <leader>a :Ag ''<left>
+
+"" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_extra_conf_vim_data = ['&filetype']
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+
+"" Haskell
+autocmd FileType haskell set softtabstop=4
+autocmd FileType haskell set tabstop=8
+autocmd FileType haskell set shiftwidth=4
+autocmd FileType haskell set shiftround
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
