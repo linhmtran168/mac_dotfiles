@@ -1,10 +1,10 @@
 ;;; Default settings
 (prelude-require-packages '(color-theme-sanityinc-tomorrow evil-nerd-commenter
                           evil-matchit evil-leader evil-jumper emmet-mode
-                          sml-mode))
+                          paradox sml-mode))
 
 ;; Default theme
-(load-theme 'sanityinc-tomorrow-night t)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;;; Slime
 (setq slime-default-lisp 'clisp)
@@ -14,12 +14,12 @@
 (setq evil-shift-width 2)
 
 ;; Cursor color
-(setq evil-emacs-state-cursor '("red" box))
-(setq evil-normal-state-cursor '("green" box))
+(setq evil-emacs-state-cursor '("slate blue" box))
+(setq evil-normal-state-cursor '("deep sky blue" box))
 (setq evil-visual-state-cursor '("orange" box))
-(setq evil-insert-state-cursor '("cyan" bar))
-(setq evil-replace-state-cursor '("red" bar))
-(setq evil-operator-state-cursor '("red" hollow))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("firebrick" bar))
+(setq evil-operator-state-cursor '("lime green" hollow))
 
 ;; Setup leader
 (setq evil-leader/in-all-states 1)
@@ -30,6 +30,9 @@
 ;;; Helm
 (helm-mode 1)
 (evil-leader/set-key "f" 'helm-recentf)
+(eval-after-load 'helm
+  '(progn
+     (define-key helm-map (kbd "M-o") 'helm-previous-source)))
 
 
 ;; Browsing wrapped lines
@@ -37,21 +40,7 @@
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;;; Evil nerd commenter
-(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-(global-set-key (kbd "C-c l") 'evilnc-comment-or-uncomment-to-the-line)
-(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
-(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
-(evil-leader/set-key
-  "ci" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "\\" 'evilnc-comment-operator
-  )
-
+(evilnc-default-hotkeys)
 
 ;;; Evil Ace Jump
 (evil-leader/set-key "," 'evil-ace-jump-word-mode) ; ,e for Ace Jump (word)

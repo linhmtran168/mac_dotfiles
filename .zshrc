@@ -35,7 +35,7 @@ alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.10.5/node-webkit-v0.10.5-osx
 # light-table
 alias light='/opt/homebrew-cask/Caskroom/lighttable/0.6.4/LightTable/LightTable.app/Contents/MacOS/node-webkit'
 # julia
-alias julia='/opt/homebrew-cask/Caskroom/julia/0.3.1/Julia-0.3.1.app/Contents/Resources/julia/bin/julia'
+alias julia='/opt/homebrew-cask/Caskroom/julia/0.3.2/Julia-0.3.2.app/Contents/Resources/julia/bin/julia'
 # octave
 alias octave='/usr/local/octave/3.8.0/bin/octave'
 # jdk

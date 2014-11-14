@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -731,6 +732,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "" Haskell
 autocmd FileType haskell set softtabstop=4
