@@ -1,17 +1,11 @@
 ;;; Default settings
+;; Default packages
 (prelude-require-packages '(color-theme-sanityinc-tomorrow evil-nerd-commenter
                           evil-matchit evil-leader evil-jumper emmet-mode
-                          paradox sml-mode))
+                          paradox sml-mode company-ghc))
 
 ;; Default theme
 (load-theme 'sanityinc-tomorrow-eighties t)
-
-;;; Slime
-(setq slime-default-lisp 'clisp)
-
-
-;;; Evil settings
-(setq evil-shift-width 2)
 
 ;; Cursor color
 (setq evil-emacs-state-cursor '("slate blue" box))
@@ -20,6 +14,18 @@
 (setq evil-insert-state-cursor '("red" bar))
 (setq evil-replace-state-cursor '("firebrick" bar))
 (setq evil-operator-state-cursor '("lime green" hollow))
+
+
+;;; Slime
+(setq slime-default-lisp 'clisp)
+
+
+;;; Evil settings
+(setq evil-shift-width 2)
+
+;; Browsing wrapped lines
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;; Setup leader
 (setq evil-leader/in-all-states 1)
@@ -35,17 +41,18 @@
      (define-key helm-map (kbd "M-o") 'helm-previous-source)))
 
 
-;; Browsing wrapped lines
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
 ;;; Evil nerd commenter
 (evilnc-default-hotkeys)
+
 
 ;;; Evil Ace Jump
 (evil-leader/set-key "," 'evil-ace-jump-word-mode) ; ,e for Ace Jump (word)
 (evil-leader/set-key "l" 'evil-ace-jump-line-mode) ; ,l for Ace Jump (line)
 (evil-leader/set-key "x" 'evil-ace-jump-char-mode) ; ,x for Ace Jump (char)
+
+
+;;; Company Mode
+(add-to-list 'company-backends 'company-ghc)
 
 
 ;;; Haskell Mode
@@ -63,6 +70,12 @@
 (add-hook 'haskell-mode-hook
           (function (lambda ()
             (setq evil-shift-width 4))))
+
+;; Ghc mod
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
 
 ;;; SML mode
 (add-hook 'sml-mode-hook
