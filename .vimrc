@@ -91,7 +91,10 @@ Plug 'eagletmt/neco-ghc'
 " Go
 Plug 'fatih/vim-go'
 
-" Other languages
+" CSharp
+Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive && cd server && xbuild' }
+
+" Python
 Plug 'hdima/python-syntax'
 
 " Vim themes

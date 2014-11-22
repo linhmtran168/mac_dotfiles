@@ -52,6 +52,9 @@ export NVM_DIR=~/.nvm
 # Haskell
 export HASKELL_DIR=$HOME/Library/Haskell
 
+# Mono
+export MONO_GAC_PREFIX="/usr/local"
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
