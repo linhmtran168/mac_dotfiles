@@ -44,7 +44,7 @@ Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --omnisharp-completer' }
 
 " Search
 Plug 'rking/ag.vim'
@@ -93,6 +93,7 @@ Plug 'fatih/vim-go'
 
 " CSharp
 Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive && cd server && xbuild' }
+Plug 'OrangeT/vim-csharp'
 
 " Python
 Plug 'hdima/python-syntax'
@@ -129,6 +130,8 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Set default shell
 set shell=/usr/local/bin/zsh
 
+" No showmatch
+set noshowmatch
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -674,10 +677,10 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
-"" Indent for python, c, cpp
-autocmd FileType python,c,cpp,markdown set softtabstop=4
-autocmd FileType python,c,cpp,markdown set shiftwidth=4
-autocmd FileType python,c,cpp,markdown set tabstop=4
+"" Indent for python, c, cpp, c#
+autocmd FileType python,c,cpp,markdown,cs set softtabstop=4
+autocmd FileType python,c,cpp,markdown,cs set shiftwidth=4
+autocmd FileType python,c,cpp,markdown,cs set tabstop=4
 
 "" DelimitMate
 let delimitMate_expand_space = 1
@@ -742,3 +745,21 @@ autocmd FileType haskell set tabstop=8
 autocmd FileType haskell set shiftwidth=4
 autocmd FileType haskell set shiftround
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+"" Omnisharp
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+
+    " automatic syntax check on events (TextChanged requires Vim 7.4)
+    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+augroup END
