@@ -38,7 +38,10 @@ fi
 #
 
 # Chrome path
-export CHROME_BIN='/opt/homebrew-cask/Caskroom/google-chrome/stable-channel/Google Chrome.app/Contents/MacOS/Google Chrome'
+export CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+# Composer
+export COMPOSER_DIR=$HOME/.composer
 
 # GO
 export GOPATH=$HOME/OneDrive/go
@@ -47,7 +50,7 @@ export GOPATH=$HOME/OneDrive/go
 export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 
 # NVM
-export NVM_DIR=~/.nvm
+export NVM_DIR=$HOME/.nvm
 
 # Haskell
 export HASKELL_DIR=$HOME/Library/Haskell
@@ -73,6 +76,7 @@ path=(
   /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/heroku/bin
   /Applications/MATLAB_R2014b.app/bin
+  $COMPOSER_DIR/vendor/bin
   $path
 )
 
