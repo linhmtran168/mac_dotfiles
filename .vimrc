@@ -71,7 +71,6 @@ Plug 'JSON.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
-Plug 'xsbeats/vim-blade'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
@@ -672,6 +671,9 @@ au BufRead,BufNewFile *.jade set ft=jade syntax=jade
 
 "" Less template syntax
 au BufRead,BufNewFile *.less set ft=less syntax=less
+
+"" Blade template filytype
+au BufRead,BufNewFile *.blade.php set ft=html syntax=html
 
 "" Indent html
 let g:html_indent_inctags = "html,body,head,tbody"
