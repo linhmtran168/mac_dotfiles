@@ -768,5 +768,5 @@ augroup omnisharp_commands
 augroup END
 
 "" Vim Plug options
-let g:plug_timeout = 240
-let g:plug_retries = 3
+let g:plug_timeout = 360
+let g:plug_retries = 5
