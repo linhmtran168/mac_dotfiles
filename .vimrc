@@ -71,6 +71,7 @@ Plug 'JSON.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
+Plug 'xsbeats/vim-blade'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
@@ -763,3 +764,7 @@ augroup omnisharp_commands
     "show type information automatically when the cursor stops moving
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
 augroup END
+
+"" Vim Plug options
+let g:plug_timeout = 240
+let g:plug_retries = 3
