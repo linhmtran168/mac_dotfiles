@@ -681,9 +681,9 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
 "" Indent for python, c, cpp, c#
-autocmd FileType python,c,cpp,markdown,cs set softtabstop=4
-autocmd FileType python,c,cpp,markdown,cs set shiftwidth=4
-autocmd FileType python,c,cpp,markdown,cs set tabstop=4
+autocmd FileType yaml,python,c,cpp,markdown,cs set softtabstop=4
+autocmd FileType yaml,python,c,cpp,markdown,cs set shiftwidth=4
+autocmd FileType yaml,python,c,cpp,markdown,cs set tabstop=4
 
 "" DelimitMate
 let delimitMate_expand_space = 1
