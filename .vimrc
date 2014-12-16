@@ -69,6 +69,7 @@ Plug 'wavded/vim-stylus'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'JSON.vim'
 Plug 'digitaltoad/vim-jade'
+Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 
 " Indent
