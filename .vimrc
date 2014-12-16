@@ -69,7 +69,6 @@ Plug 'wavded/vim-stylus'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'JSON.vim'
 Plug 'digitaltoad/vim-jade'
-Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 
 " Indent
@@ -710,9 +709,6 @@ let g:gundo_close_on_revert = 1
 
 "" Vim indent guides
 let indent_guides_enable_on_vim_startup = 1
-
-"" XMLEdit
-let g:xmledit_enable_html = 1
 
 "" Vim Airline
 set timeoutlen=1000 ttimeoutlen=50
