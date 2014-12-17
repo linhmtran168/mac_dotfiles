@@ -75,7 +75,6 @@ path=(
   $HASKELL_DIR/bin
   /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/heroku/bin
-  /Applications/MATLAB_R2014b.app/bin
   $COMPOSER_DIR/vendor/bin
   $path
 )
