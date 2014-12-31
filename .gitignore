@@ -1,2 +1,3 @@
 flycheck_personal.el
-.config/filezilla
+.config/
+!.config/powerline/
