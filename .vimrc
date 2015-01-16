@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 Plug 'Lokaltog/vim-easymotion'
@@ -37,6 +38,7 @@ Plug 'sjl/vitality.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'YankRing.vim'
+Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 
 " Coding
@@ -100,7 +102,7 @@ Plug 'OrangeT/vim-csharp'
 Plug 'hdima/python-syntax'
 
 " Vim themes
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -196,13 +198,14 @@ syntax enable
 set gfn=Sauce\ Code\ Powerline\ Light:h12
 set background=dark
 set t_Co=256
+let base16colorspace=256
 
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme base16-eighties
 else
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme base16-eighties
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -768,3 +771,16 @@ augroup END
 "" Vim Plug options
 let g:plug_timeout = 360
 let g:plug_retries = 5
+
+"" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"" Base16 Theme
+let g:base16_shell_path='~/Dev/github.com/chriskempson/base16-shell/'
