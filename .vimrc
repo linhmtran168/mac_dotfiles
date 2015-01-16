@@ -198,13 +198,13 @@ syntax enable
 set gfn=Sauce\ Code\ Powerline\ Light:h12
 set background=dark
 set t_Co=256
-let base16colorspace=256
 
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
   colorscheme base16-eighties
 else
+  let base16colorspace=256
   colorscheme base16-eighties
 endif
 
