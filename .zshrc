@@ -41,6 +41,9 @@ alias src='cd ~/Dropbox/Src'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
+# Pythonpy
+alias py=/usr/local/bin/py
+
 # Peco
 function peco-src () {
   local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
