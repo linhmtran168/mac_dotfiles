@@ -59,3 +59,7 @@ bindkey '^]' peco-src
 
 # Autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# Base16 Shell
+BASE16_SHELL="$HOME/Dev/github.com/chriskempson/base16-shell/base16-eighties.dark.sh"
+[[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
