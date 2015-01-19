@@ -13,6 +13,13 @@
 (defvar linhmtran168-packages
   '(
     ;; package linhmtran168s go here
+    sml-mode
+    fsharp-mode
+    julia-mode
+    racket-mode
+    yaml-mode
+    helm-ag
+    ag
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -29,3 +36,11 @@ which require an initialization must be listed explicitly in the list.")
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
+(defun linhmtran168/init-sml-mode ()
+  (use-package sml-mode
+    :defer t
+    :config
+    (progn
+      (add-hook 'sml-mode-hook
+                (function (lambda ()
+                            (setq evil-shift-width 4)))))))
