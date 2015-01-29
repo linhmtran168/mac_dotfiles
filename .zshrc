@@ -24,11 +24,11 @@ alias tmk='tmux kill-session -t'
 alias bower='noglob bower'
 
 # node-webkit
-alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.11.2/node-webkit-v0.11.2-osx-x64/node-webkit.app/Contents/MacOS/node-webkit'
+alias nw='/opt/homebrew-cask/Caskroom/node-webkit/0.11.5/node-webkit-v0.11.5-osx-x64/node-webkit.app/Contents/MacOS/node-webkit'
 # light-table
 alias light='/opt/homebrew-cask/Caskroom/lighttable/0.6.4/LightTable/LightTable.app/Contents/MacOS/node-webkit'
 # julia
-alias julia='/opt/homebrew-cask/Caskroom/julia/0.3.3/Julia-0.3.3.app/Contents/Resources/julia/bin/julia'
+alias julia='/opt/homebrew-cask/Caskroom/julia/0.3.5/Julia-0.3.5.app/Contents/Resources/julia/bin/julia'
 # jdk
 alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
 
@@ -58,7 +58,7 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 # Autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # Base16 Shell
 BASE16_SHELL="$HOME/Dev/github.com/chriskempson/base16-shell/base16-eighties.dark.sh"
