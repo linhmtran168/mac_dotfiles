@@ -4,6 +4,7 @@
 
 ;; Configuration Layers
 ;; --------------------
+
 (setq-default
  ;; List of additional paths where to look for configuration layers.
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
@@ -23,8 +24,22 @@
  ;; then the banner is chosen randomly among the available banners, if
  ;; the value is nil then no banner is displayed.
  dotspacemacs-startup-banner 'random
- ;; Default theme applied at startup
- dotspacemacs-default-theme 'base16-eighties
+ ;; List of themes, the first of the list is loaded when spacemacs starts.
+ ;; Press <SPC> T n to cycle to the next theme in the list (works great
+ ;; with 2 themes variants, one dark and one light)
+ dotspacemacs-themes '(base16-eighties
+                       solarized-light
+                       solarized-dark
+                       leuven
+                       monokai
+                       zenburn)
+ ;; Default font. The powerline-offset allows to quickly tweak the mode-line
+ ;; size to make separators look not too crappy.
+ dotspacemacs-default-font '("Source Code Pro"
+                             :size 13
+                             :weight normal
+                             :width normal
+                             :powerline-scale 1.1)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -60,9 +75,6 @@
  ;; overrides the default behavior of Emacs which recenters the point when
  ;; it reaches the top or bottom of the screen
  dotspacemacs-smooth-scrolling t
- ;; If non nil pressing 'jk' in insert state, ido or helm will activate the
- ;; evil leader.
- dotspacemacs-feature-toggle-leader-on-jk nil
  ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
  dotspacemacs-smartparens-strict-mode nil
  ;; If non nil advises quit functions to keep server open when quitting.
@@ -79,7 +91,7 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
-)
+  )
 
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
@@ -101,29 +113,3 @@ This function is called at the very end of Spacemacs initialization."
 ;; auto-generate custom variable definitions.
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
- '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
- '(evil-shift-width 2)
- '(haskell-interactive-popup-error nil)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
- '(ring-bell-function (quote ignore) t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
