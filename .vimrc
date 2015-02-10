@@ -74,6 +74,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 Plug 'xsbeats/vim-blade'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
