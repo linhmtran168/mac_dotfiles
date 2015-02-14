@@ -74,9 +74,6 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # History Substring Search
 #
 
-# Enable color
-zstyle ':prezto:module:history-substring-search' color 'yes'
-
 # Set the query found color.
 zstyle ':prezto:module:history-substring-search:color' found ''
 
@@ -167,3 +164,6 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+
+# Integrate with iTerm2.
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
