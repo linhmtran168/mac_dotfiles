@@ -53,7 +53,7 @@ export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
 export NVM_DIR=$HOME/.nvm
 
 # Haskell
-export HASKELL_DIR=$HOME/Library/Haskell
+export CABAL_DIR=$HOME/.cabal
 
 # Mono
 export MONO_GAC_PREFIX="/usr/local"
@@ -72,7 +72,7 @@ path=(
   /usr/local/opt/go/libexec/bin
   $GOPATH/bin
   $DART_SDK/bin
-  $HASKELL_DIR/bin
+  $CABAL_DIR/bin
   /Applications/Postgres.app/Contents/Versions/9.4/bin
   /usr/local/heroku/bin
   $COMPOSER_DIR/vendor/bin

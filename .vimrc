@@ -40,6 +40,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'YankRing.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
+Plug 'terryma/vim-multiple-cursors'
 
 " Coding
 Plug 'SirVer/ultisnips'
