@@ -560,9 +560,9 @@ set grepprg=/usr/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" General setting
 " Sets show line number
-set relativenumber
-" Show relavie line number
 set number
+" Show relative line number
+set relativenumber
 set ttyfast
 set fillchars=diff:·
 " Fix ruby slow navigation
@@ -736,7 +736,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
 "" Ag.vim
-nnoremap <leader>a :Ag ''<left>
+nnoremap <leader>a :Ag ""<left>
 
 "" YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
