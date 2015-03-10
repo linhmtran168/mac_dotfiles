@@ -44,7 +44,7 @@ export CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 export COMPOSER_DIR=$HOME/.composer
 
 # GO
-export GOPATH=$HOME/OneDrive/go
+export GOPATH=$HOME/Dev/go
 
 # Dart
 export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
