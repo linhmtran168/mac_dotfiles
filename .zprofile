@@ -46,9 +46,6 @@ export COMPOSER_DIR=$HOME/.composer
 # GO
 export GOPATH=$HOME/Dev/go
 
-# Dart
-export DART_SDK=/opt/homebrew-cask/Caskroom/darteditor/latest/dart/dart-sdk
-
 # NVM
 export NVM_DIR=$HOME/.nvm
 
@@ -71,7 +68,6 @@ path=(
   /usr/local/{bin,sbin}
   /usr/local/opt/go/libexec/bin
   $GOPATH/bin
-  $DART_SDK/bin
   $CABAL_DIR/bin
   /Applications/Postgres.app/Contents/Versions/9.4/bin
   /usr/local/heroku/bin
