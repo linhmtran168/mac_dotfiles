@@ -1,0 +1,19 @@
+[user]
+	name = Linh Tran
+	email = linh.mtran168@live.com
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = /usr/local/bin/vim
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
+[push]
+	default = simple
+[http]
+[ghq]
+	root = ~/Dev
+[credential]
+	helper = osxkeychain
+[merge]
+	tool = vimdiff
