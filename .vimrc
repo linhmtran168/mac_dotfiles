@@ -786,3 +786,6 @@ let g:syntastic_check_on_wq = 0
 
 "" Base16 Theme
 let g:base16_shell_path='~/Dev/github.com/chriskempson/base16-shell/'
+
+"" Dash
+:nmap <silent> <leader>da <Plug>DashSearch
