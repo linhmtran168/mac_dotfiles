@@ -14,7 +14,12 @@ filetype off
 " => Vim plug Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Required:
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  call plug#begin('~/.nvim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+end
+
 
 " My Bundles here:
 
