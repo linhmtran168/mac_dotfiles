@@ -14,7 +14,12 @@ filetype off
 " => Vim plug Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Required:
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  call plug#begin('~/.nvim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+end
+
 
 " My Bundles here:
 
@@ -753,7 +758,6 @@ autocmd FileType haskell set shiftround
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 "" Omnisharp
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 augroup omnisharp_commands
     autocmd!
 
@@ -765,7 +769,7 @@ augroup omnisharp_commands
 
     " Automatically add new cs files to the nearest project on save
     autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-  
+
     "show type information automatically when the cursor stops moving
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
 augroup END
@@ -783,6 +787,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" C#
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+" Javascript
+let g:syntastic_javascript_checkers = ['eslint']
 
 "" Base16 Theme
 let g:base16_shell_path='~/Dev/github.com/chriskempson/base16-shell/'

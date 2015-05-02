@@ -44,6 +44,9 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # Pythonpy
 alias py=/usr/local/bin/py
 
+# TheFuck
+alias fuk='$(thefuck $(fc -ln -1))'
+
 # Peco
 function peco-src () {
   local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
