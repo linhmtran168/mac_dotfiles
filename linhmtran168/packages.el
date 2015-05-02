@@ -16,7 +16,6 @@
     sml-mode
     fsharp-mode
     julia-mode
-    racket-mode
     yaml-mode
     helm-ag
     ag
@@ -44,3 +43,9 @@ which require an initialization must be listed explicitly in the list.")
       (add-hook 'sml-mode-hook
                 (function (lambda ()
                             (setq evil-shift-width 4)))))))
+
+(defun linhmtran168/init-fsharp-mode ())
+(defun linhmtran168/init-julia-mode ())
+(defun linhmtran168/init-yaml-mode ())
+(defun linhmtran168/init-ag ())
+(defun linhmtran168/init-helm-ag ())
