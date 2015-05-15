@@ -108,6 +108,9 @@ Plug 'OrangeT/vim-csharp'
 " Python
 Plug 'hdima/python-syntax'
 
+" Scala
+Plug 'derekwyatt/vim-scala'
+
 " Vim themes
 Plug 'chriskempson/base16-vim'
 
