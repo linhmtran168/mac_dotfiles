@@ -5,7 +5,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/vim
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --all --graph --decorate --oneline
 [color]
 	ui = true
 [push]

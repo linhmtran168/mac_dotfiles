@@ -14,7 +14,7 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
-#peco for history
+# peco for history
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -31,18 +31,36 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-#peco for git
+# peco for git
 function git-hash() {
-  git log --oneline --branches --decorate=full | peco | awk '{print $1}'
+  # git log --oneline --branches --decorate=full | peco | awk '{print $1}'
+  git lg | peco | sed -e "s/^[\*\|][ |\\\/\* ]*//g" | awk '{print $1}'
 }
-alias -g H='$(git-hash)'
+alias -g GH='$(git-hash)'
 
 function git-branch() {
   git branch -a | peco | sed -e "s/^\*\s*//g"
 }
-alias -g B='$(git-branch)'
+alias -g GB='$(git-branch)'
 
 function git-reflog() {
   git reflog | peco | awk '{print $1}'
 }
-alias -g R='$(git-reflog)'
+alias -g GR='$(git-reflog)'
+
+function git-changed-files() {
+  git status --short | peco | awk '{print $2}'
+}
+alias -g GF='$(git-changed-files)'
+
+# PS
+function peco-ps() {
+  ps aux | peco | awk '{print $2}'
+}
+alias -g PID='$(peco-ps)'
+
+# File
+function peco-file-search() {
+  find . -type f -name "*${1}*" | grep -v "/\.git\|/\.svn\|/\.hg" | peco
+}
+alias -g FN='$(peco-file-search)'
