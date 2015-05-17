@@ -13,6 +13,7 @@ function peco-src () {
 
 zle -N peco-src
 bindkey '^]' peco-src
+
 #peco for history
 function peco-select-history() {
     local tac
@@ -30,3 +31,18 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+#peco for git
+function git-hash() {
+  git log --oneline --branches --decorate=full | peco | awk '{print $1}'
+}
+alias -g H='$(git-hash)'
+
+function git-branch() {
+  git branch -a | peco | sed -e "s/^\*\s*//g"
+}
+alias -g B='$(git-branch)'
+
+function git-reflog() {
+  git reflog | peco | awk '{print $1}'
+}
+alias -g R='$(git-reflog)'
