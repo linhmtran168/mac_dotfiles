@@ -48,17 +48,9 @@ alias py=/usr/local/bin/py
 alias fuk='$(thefuck $(fc -ln -1))'
 
 # Peco
-function peco-src () {
-  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-
-zle -N peco-src
-bindkey '^]' peco-src
+if [[ -s "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh" ]]; then
+  source "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh"
+fi
 
 # Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
