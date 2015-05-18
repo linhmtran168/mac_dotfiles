@@ -131,8 +131,9 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader   = ","
-let g:mapleader = ","
+nnoremap <space> <nop>
+let mapleader   = "\<space>"
+let g:mapleader = "\<space>"
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -176,7 +177,6 @@ set ignorecase "Ignore case when searching
 set smartcase
 
 set hlsearch "Highlight search things
-
 set incsearch "Make search act like search in modern browsers
 
 set lazyredraw "Don't redraw while executing macros
@@ -185,6 +185,8 @@ set magic "Set magic on, for regular expressions
 
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
+
+set scrolloff=5 "Always 5 lines above/below the cursor
 
 " No sound on errors
 set noerrorbells
@@ -282,10 +284,6 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Map space to / (search) and c-space to ? (backgwards search)
-map <space> /
-map <c-space> ?
 
 " Disable hightlight when <leander><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -800,3 +798,12 @@ let g:base16_shell_path='~/Dev/github.com/chriskempson/base16-shell/'
 
 "" Dash
 :nmap <silent> <leader>da <Plug>DashSearch
+
+"" For quick find git conflict
+function! FindConflict()
+  try
+    /<<<<<<<
+  catch
+  endtry
+endfunction
+nnoremap <leader>gc :call FindConflict()<CR>
