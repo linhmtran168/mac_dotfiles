@@ -13,5 +13,7 @@
 [http]
 [ghq]
 	root = ~/Dev
+[credential]
+	helper = osxkeychain
 [merge]
 	tool = vimdiff
