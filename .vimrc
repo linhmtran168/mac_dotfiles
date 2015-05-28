@@ -793,9 +793,6 @@ let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 " Javascript
 let g:syntastic_javascript_checkers = ['eslint']
 
-"" Base16 Theme
-let g:base16_shell_path='~/Dev/github.com/chriskempson/base16-shell/'
-
 "" Dash
 :nmap <silent> <leader>da <Plug>DashSearch
 
