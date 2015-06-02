@@ -10,17 +10,15 @@
 ;;
 ;;; License: GPLv3
 
-(defvar linhmtran168-pre-extensions
+(setq linhmtran168-pre-extensions
   '(
     ;; pre extension linhmtran168s go here
-    )
-  "List of all extensions to load before the packages.")
+    ))
 
-(defvar linhmtran168-post-extensions
+(setq linhmtran168-post-extensions
   '(
     ;; post extension linhmtran168s go here
-    )
-  "List of all extensions to load after the packages.")
+    ))
 
 ;; For each extension, define a function linhmtran168/init-<extension-linhmtran168>
 ;;

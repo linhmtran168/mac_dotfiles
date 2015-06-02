@@ -10,21 +10,18 @@
 ;;
 ;;; License: GPLv3
 
-(defvar linhmtran168-packages
+(setq linhmtran168-packages
   '(
     ;; package linhmtran168s go here
     sml-mode
-    fsharp-mode
     julia-mode
+    fsharp-mode
     yaml-mode
     helm-ag
     ag
-    )
-  "List of all packages to install and/or initialize. Built-in packages
-which require an initialization must be listed explicitly in the list.")
+    ))
 
-(defvar linhmtran168-excluded-packages '()
-  "List of packages to exclude.")
+(setq linhmtran168-excluded-packages '())
 
 ;; For each package, define a function linhmtran168/init-<package-linhmtran168>
 ;;
@@ -44,8 +41,8 @@ which require an initialization must be listed explicitly in the list.")
                 (function (lambda ()
                             (setq evil-shift-width 4)))))))
 
-(defun linhmtran168/init-fsharp-mode ())
 (defun linhmtran168/init-julia-mode ())
+(defun linhmtran168/init-fsharp-mode ())
 (defun linhmtran168/init-yaml-mode ())
 (defun linhmtran168/init-ag ())
 (defun linhmtran168/init-helm-ag ())
