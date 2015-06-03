@@ -94,6 +94,15 @@ Plug 'slim-template/vim-slim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-haml'
 
+" Clojure
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-leiningen'
+Plug 'venantius/vim-eastwood'
+Plug 'vim-scripts/paredit.vim'
+Plug 'venantius/vim-eastwood'
+Plug 'venantius/vim-cljfmt'
+Plug 'kien/rainbow_parentheses.vim'
+
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
