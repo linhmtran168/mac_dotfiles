@@ -81,6 +81,7 @@ Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 Plug 'xsbeats/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'ekalinin/Dockerfile.vim'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
@@ -704,9 +705,9 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
 "" Indent for python, c, cpp, c#, go, java
-autocmd FileType python,c,cpp,markdown,cs,go,java set softtabstop=4
-autocmd FileType python,c,cpp,markdown,cs,go,java set shiftwidth=4
-autocmd FileType python,c,cpp,markdown,cs,go,java set tabstop=4
+autocmd FileType python,c,cpp,markdown,cs,go,java,php set softtabstop=4
+autocmd FileType python,c,cpp,markdown,cs,go,java,php set shiftwidth=4
+autocmd FileType python,c,cpp,markdown,cs,go,java,php set tabstop=4
 
 "" DelimitMate
 let delimitMate_expand_space = 1
