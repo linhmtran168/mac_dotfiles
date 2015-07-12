@@ -23,7 +23,8 @@
      markdown
      scala
      clojure
-     erlang-elixir
+     erlang
+     elixir
      python
      racket
      ruby
@@ -38,6 +39,7 @@
      emacs-lisp
      (git :variables
            git-gutter-use-fringe t)
+     github
    )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
