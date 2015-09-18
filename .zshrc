@@ -54,4 +54,4 @@ BASE16_SHELL="$HOME/Dev/github.com/chriskempson/base16-shell/base16-eighties.dar
 [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
 # GVM
-[[ -s "/Users/linhmtran/.gvm/scripts/gvm" ]] && source "/Users/linhmtran/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
