@@ -235,6 +235,8 @@ layers configuration. You are free to put any user code."
   (add-hook 'haskell-mode-hook
             (function (lambda ()
                         (setq evil-shift-width 4))))
+  ;; Haskll mode hook
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   ;; Python shift width
   (add-hook 'python-mode-hook
             (function (lambda ()
