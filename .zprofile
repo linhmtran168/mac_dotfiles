@@ -106,3 +106,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# startup virtualenv-burrito
+if [ -f $HOME/.venvburrito/startup.sh ]; then
+    . $HOME/.venvburrito/startup.sh
+fi
