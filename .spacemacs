@@ -40,8 +40,6 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      vim-empty-lines
-     ansible
-     dockerfile
      org
      java
      scala
@@ -68,6 +66,9 @@ values."
      typescript
      ruby-on-rails
      react
+     vagrant
+     ansible
+     dockerfile
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
