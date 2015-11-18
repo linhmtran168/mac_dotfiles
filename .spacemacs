@@ -50,7 +50,10 @@ values."
      racket
      scheme
      ruby
-     haskell
+     (haskell :variables
+              haskell-enable-ghc-mod-support t
+              haskell-enable-hindent-style "johan-tibell"
+              )
      c-c++
      go
      rust
@@ -236,8 +239,9 @@ layers configuration. You are free to put any user code."
   (add-hook 'haskell-mode-hook
             (function (lambda ()
                         (setq evil-shift-width 4))))
-  ;; Haskll mode hook
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
   ;; Python shift width
   (add-hook 'python-mode-hook
             (function (lambda ()
