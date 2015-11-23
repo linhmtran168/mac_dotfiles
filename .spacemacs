@@ -246,6 +246,12 @@ layers configuration. You are free to put any user code."
   (add-hook 'python-mode-hook
             (function (lambda ()
                         (setq evil-shift-width 4))))
+
+  ;; Javascript settings
+  (setq-default
+   js2-basic-offset 2
+   js-indent-level 2
+   )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
