@@ -52,7 +52,7 @@ Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
 
 " Search
 Plug 'rking/ag.vim'
@@ -107,6 +107,7 @@ Plug 'kien/rainbow_parentheses.vim'
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
+Plug 'neovimhaskell/haskell-vim'
 
 " Go
 Plug 'fatih/vim-go'
@@ -581,8 +582,6 @@ set number
 set relativenumber
 set ttyfast
 set fillchars=diff:·
-" Fix ruby slow navigation
-set re=1
 " Fix popup
 map q: :q
 
@@ -770,23 +769,6 @@ autocmd FileType haskell set shiftwidth=4
 autocmd FileType haskell set shiftround
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-"" Omnisharp
-augroup omnisharp_commands
-    autocmd!
-
-    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-
-    " automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
-    " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-
-    "show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-augroup END
-
 "" Vim Plug options
 let g:plug_timeout = 360
 let g:plug_retries = 5
@@ -795,7 +777,6 @@ let g:plug_retries = 5
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
