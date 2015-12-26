@@ -235,10 +235,7 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  ;; Haskell shift width
-  (add-hook 'haskell-mode-hook
-            (function (lambda ()
-                        (setq evil-shift-width 4))))
+  ;; Haskell mode config
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
