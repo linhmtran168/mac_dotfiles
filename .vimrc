@@ -763,9 +763,6 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "" Haskell
-autocmd FileType haskell set softtabstop=4
-autocmd FileType haskell set tabstop=8
-autocmd FileType haskell set shiftwidth=4
 autocmd FileType haskell set shiftround
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
