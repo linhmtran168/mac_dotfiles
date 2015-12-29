@@ -53,6 +53,7 @@ Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
+Plug 'luochen1990/rainbow'
 
 " Search
 Plug 'rking/ag.vim'
@@ -81,6 +82,7 @@ Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 Plug 'xsbeats/vim-blade'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'pearofducks/ansible-vim'
 Plug 'ekalinin/Dockerfile.vim'
 
 " Indent
@@ -703,7 +705,7 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
-"" Indent for python, c, cpp, c#, go, java
+"" Indent for python, c, cpp, c#, java
 autocmd FileType python,c,cpp,markdown,cs,java,php set softtabstop=4
 autocmd FileType python,c,cpp,markdown,cs,java,php set shiftwidth=4
 autocmd FileType python,c,cpp,markdown,cs,java,php set tabstop=4
@@ -798,8 +800,14 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+" Rainbow
+let g:rainbow_active=1
+
 "" Dash
 :nmap <silent> <leader>da <Plug>DashSearch
+
+" Remove windows' end of line
+nnoremap <leader>rm :%s///g<CR>
 
 "" For quick find git conflict
 function! FindConflict()
