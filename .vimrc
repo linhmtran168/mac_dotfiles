@@ -116,6 +116,10 @@ Plug 'fatih/vim-go'
 Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive && cd server && xbuild' }
 Plug 'OrangeT/vim-csharp'
 
+" Typescript
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+
 " Python
 Plug 'hdima/python-syntax'
 
