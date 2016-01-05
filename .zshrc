@@ -38,9 +38,6 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # Pythonpy
 alias py=/usr/local/bin/py
 
-# TheFuck
-alias fuk='$(thefuck $(fc -ln -1))'
-
 # Peco
 if [[ -s "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh" ]]; then
   source "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh"
@@ -53,5 +50,5 @@ fi
 BASE16_SHELL="$HOME/Dev/github.com/chriskempson/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
-# GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# TheFuck
+eval "$(thefuck --alias fuk)"
