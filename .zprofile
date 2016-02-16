@@ -49,9 +49,6 @@ export GOPATH=$HOME/Dev/go
 # NVM
 export NVM_DIR=$HOME/.nvm
 
-# Haskell
-export CABAL_DIR=$HOME/.cabal
-
 # Mono
 export MONO_GAC_PREFIX="/usr/local"
 
@@ -68,7 +65,7 @@ path=(
   /usr/local/{bin,sbin}
   /usr/local/opt/go/libexec/bin
   $GOPATH/bin
-  $CABAL_DIR/bin
+  $HOME/.local/bin
   /Applications/Postgres.app/Contents/Versions/9.4/bin
   /usr/local/heroku/bin
   $COMPOSER_DIR/vendor/bin
