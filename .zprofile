@@ -66,7 +66,7 @@ path=(
   /usr/local/opt/go/libexec/bin
   $GOPATH/bin
   $HOME/.local/bin
-  /Applications/Postgres.app/Contents/Versions/9.4/bin
+  /Applications/Postgres.app/Contents/Versions/latest/bin
   /usr/local/heroku/bin
   $COMPOSER_DIR/vendor/bin
   $path
@@ -108,6 +108,3 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if [ -f $HOME/.venvburrito/startup.sh ]; then
     . $HOME/.venvburrito/startup.sh
 fi
-
-# GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
