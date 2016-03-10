@@ -10,6 +10,20 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Function to toggle between anaconda and system python
+function tg_conda {
+  if  [[ -z "$PYTHON_DIST" ]]; then
+    _OLD_PATH="$PATH"
+    export PATH="$HOME/anaconda/bin:$PATH"
+    export PYTHON_DIST='pydist:conda'
+    echo "Using Anaconda Python"
+  else
+    export PATH="$_OLD_PATH"
+    unset PYTHON_DIST
+    echo "Back to system Python"
+  fi
+}
+
 # Alias
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
@@ -23,20 +37,10 @@ alias tmk='tmux kill-session -t'
 # bower
 alias bower='noglob bower'
 
-# jdk
-alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
-
 # Directory Alias
 alias work='cd ~/OneDrive/workspace'
 alias course='cd ~/OneDrive/Courses'
 alias src='cd ~/Dropbox/Src'
-
-# Python virtualenv configuration
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-# Pythonpy
-alias py=/usr/local/bin/py
 
 # Peco
 if [[ -s "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh" ]]; then

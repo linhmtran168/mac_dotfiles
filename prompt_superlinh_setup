@@ -89,14 +89,14 @@ function prompt_sorin_setup {
   zstyle ':prezto:module:ruby:info:version' format '%F{red}rb:%v%f'
 
   # Set python-info parameters.
-  zstyle ':prezto:module:python:info:virtualenv' format '%F{220}py:%v%f'
+  zstyle ':prezto:module:python:info:virtualenv' format '%F{220}pyenv:%v%f'
 
   # Set node-info parameters
   zstyle ':prezto:module:node:info:version' format '%F{106}node:%v%f'
 
   # Define prompts.
   PROMPT='
-%F{113}%n@%m%f %F{208}λ%f %F{cyan}${_prompt_sorin_pwd}%f ${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}
+%F{113}%n@%m%f %F{208}λ%f %F{cyan}${_prompt_sorin_pwd}%f ${ruby_info[version]} ${node_info[version]} %F{green}${PYTHON_DIST}%f ${python_info[virtualenv]}
 %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]} ${git_info:+${(e)git_info[prompt]}}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '

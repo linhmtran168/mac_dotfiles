@@ -40,8 +40,8 @@ fi
 # Chrome path
 export CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
-# Composer
-export COMPOSER_DIR=$HOME/.composer
+# Anaconda
+export ANACONDA_DIR=$HOME/anaconda
 
 # GO
 export GOPATH=$HOME/Dev/go
@@ -62,13 +62,11 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
-  /usr/local/opt/go/libexec/bin
   $GOPATH/bin
   $HOME/.local/bin
   /Applications/Postgres.app/Contents/Versions/latest/bin
   /usr/local/heroku/bin
-  $COMPOSER_DIR/vendor/bin
+  /usr/local/{bin,sbin}
   $path
 )
 
@@ -103,8 +101,3 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# startup virtualenv-burrito
-if [ -f $HOME/.venvburrito/startup.sh ]; then
-    . $HOME/.venvburrito/startup.sh
-fi
