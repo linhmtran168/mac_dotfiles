@@ -40,9 +40,6 @@ fi
 # Chrome path
 export CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
-# Anaconda
-export ANACONDA_DIR=$HOME/anaconda
-
 # GO
 export GOPATH=$HOME/Dev/go
 
