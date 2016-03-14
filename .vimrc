@@ -48,6 +48,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Chiel92/vim-autoformat'
 
 " Coding
 Plug 'SirVer/ultisnips'
@@ -823,3 +824,8 @@ function! FindConflict()
   endtry
 endfunction
 nnoremap <leader>gc :call FindConflict()<CR>
+
+"" Vim-autoformat
+noremap <F5> :Autoformat<CR>
+let g:formatdef_scalafmt = "'scalafmt'"
+let g:formatters_scala = ['scalafmt']
