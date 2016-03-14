@@ -47,6 +47,7 @@ Plug 'YankRing.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ryanoasis/vim-devicons'
 
 " Coding
 Plug 'SirVer/ultisnips'
@@ -225,7 +226,7 @@ set foldmethod=indent
 syntax enable
 
 "Set font
-set gfn=Sauce\ Code\ Powerline\ Light:h12
+set gfn=Sauce\ Code\ Pro\ Light:h12
 set background=dark
 set t_Co=256
 
