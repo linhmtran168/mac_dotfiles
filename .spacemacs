@@ -57,8 +57,8 @@ values."
      c-c++
      go
      rust
-     fsharp
      emacs-lisp
+     fsharp
      sml
      sql
      extra-langs

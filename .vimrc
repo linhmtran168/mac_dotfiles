@@ -55,7 +55,7 @@ Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'luochen1990/rainbow'
 
 " Search
