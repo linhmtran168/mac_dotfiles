@@ -58,7 +58,6 @@ values."
      go
      rust
      emacs-lisp
-     fsharp
      sml
      sql
      extra-langs
