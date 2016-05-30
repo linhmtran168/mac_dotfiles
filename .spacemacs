@@ -55,6 +55,7 @@ values."
               haskell-enable-hindent-style "johan-tibell"
               )
      c-c++
+     fsharp
      go
      rust
      emacs-lisp

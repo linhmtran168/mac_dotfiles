@@ -55,6 +55,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/.cargo/bin
   $GOPATH/bin
   $HOME/.local/bin
   /Applications/Postgres.app/Contents/Versions/latest/bin
