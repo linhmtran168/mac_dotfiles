@@ -62,3 +62,5 @@ BASE16_SHELL="$HOME/Dev/github.com/chriskempson/base16-shell/base16-eighties.dar
 
 # TheFuck
 eval "$(thefuck --alias fuk)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
