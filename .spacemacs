@@ -34,7 +34,6 @@ values."
      search-engine
      (git :variables
           git-gutter-use-fringe t)
-     github
      (colors :variables colors-enable-rainbow-identifiers t)
      (shell :variables
             shell-default-height 30
@@ -55,8 +54,8 @@ values."
               )
      c-c++
      fsharp
-     go
      rust
+     go
      emacs-lisp
      sml
      sql
@@ -67,8 +66,8 @@ values."
      javascript
      typescript
      react
-     vagrant
      ansible
+     vagrant
      dockerfile
      )
    ;; List of additional packages that will be installed without being
