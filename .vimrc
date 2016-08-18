@@ -235,10 +235,10 @@ set t_Co=256
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
-  colorscheme base16-eighties
+  colorscheme base16-tomorrow-night
 else
   let base16colorspace=256
-  colorscheme base16-eighties
+  colorscheme base16-tomorrow-night
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
