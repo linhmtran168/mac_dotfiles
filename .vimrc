@@ -227,7 +227,8 @@ set foldmethod=indent
 syntax enable
 
 "Set font
-set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h12
+set macligatures
+set guifont=Hasklig:h12
 set background=dark
 set t_Co=256
 
