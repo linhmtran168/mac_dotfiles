@@ -15,7 +15,7 @@ filetype off
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Required:
 if has('nvim')
-  call plug#begin('~/.nvim/plugged')
+  call plug#begin('~/.config/nvim/plugged')
 else
   call plug#begin('~/.vim/plugged')
 end
@@ -227,8 +227,7 @@ set foldmethod=indent
 syntax enable
 
 "Set font
-set macligatures
-set guifont=Hasklig:h12
+set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h12
 set background=dark
 set t_Co=256
 
@@ -596,7 +595,9 @@ set fillchars=diff:·
 map q: :q
 
 " Set xterm2 mouse mode to allow resizing of splits with mouse inside tmux
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+end
 " Highlight cursor line.
 augroup CursorLine
   au!
