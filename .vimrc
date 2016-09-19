@@ -167,6 +167,10 @@ set shell=/usr/local/bin/zsh
 " No showmatch
 set noshowmatch
 
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+end
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -314,6 +318,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Nvim configuration
+if has('nvim')
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+end
 " Split
 set splitbelow
 set splitright
@@ -808,6 +819,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 " Go
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" Omni sharp
+let g:OmniSharp_selector_ui = 'ctrlp'
 
 " Rainbow
 let g:rainbow_active=1
