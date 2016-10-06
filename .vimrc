@@ -231,7 +231,7 @@ set foldmethod=indent
 syntax enable
 
 "Set font
-set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete:h12
+set guifont=Sauce\ Code\ Powerline:h12
 set background=dark
 set t_Co=256
 
@@ -845,3 +845,9 @@ nnoremap <leader>gc :call FindConflict()<CR>
 noremap <F5> :Autoformat<CR>
 let g:formatdef_scalafmt = "'scalafmt'"
 let g:formatters_scala = ['scalafmt']
+
+"" Base16-vim
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
