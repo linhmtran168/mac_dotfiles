@@ -49,8 +49,8 @@ alias course='cd ~/OneDrive/Courses'
 alias src='cd ~/Dropbox/Src'
 
 # Peco
-if [[ -s "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh" ]]; then
-  source "$HOME/Dev/github.com/linhmtran168/mac_dotfiles/peco.zsh"
+if [[ -s "$HOME/mac_dotfiles/peco.zsh" ]]; then
+  source "$HOME/mac_dotfiles/peco.zsh"
 fi
 
 # Autojump
