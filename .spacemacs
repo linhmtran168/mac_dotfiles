@@ -302,6 +302,7 @@ layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'zigzag)
   (spaceline-compile)
   )
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables

@@ -59,7 +59,6 @@ path=(
   $GOPATH/bin
   $HOME/.local/bin
   /Applications/Postgres.app/Contents/Versions/latest/bin
-  /usr/local/heroku/bin
   /usr/local/{bin,sbin}
   $path
 )
