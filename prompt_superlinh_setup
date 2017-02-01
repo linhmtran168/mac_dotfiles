@@ -92,9 +92,6 @@ function prompt_sorin_precmd {
   prompt_sorin_precmd_async &!
   _prompt_sorin_precmd_async_pid=$!
 
-  # render preprompt
-  print -P '\n%F{113}%n@%m%f %F{208}λ%f %F{6}${_prompt_sorin_pwd}%f ${ruby_info[version]} ${node_info[version]} %F{70}${PYTHON_DIST}%f ${python_info[virtualenv]}'
-
   # Get Ruby info
   if (( $+functions[ruby-info] )); then
     ruby-info
@@ -109,6 +106,10 @@ function prompt_sorin_precmd {
   if (( $+functions[node-info] )); then
     node-info
   fi
+
+  # render preprompt
+  print -P '\n%F{113}%n@%m%f %F{208}λ%f %F{6}${_prompt_sorin_pwd}%f ${ruby_info[version]} ${node_info[version]} %F{70}${PYTHON_DIST}%f ${python_info[virtualenv]}'
+
 }
 
 function prompt_sorin_setup {
