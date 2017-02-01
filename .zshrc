@@ -54,7 +54,7 @@ if [[ -s "$HOME/mac_dotfiles/peco.zsh" ]]; then
 fi
 
 # Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # Base16 Shell
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -62,5 +62,3 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # TheFuck
 eval "$(thefuck --alias fuk)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

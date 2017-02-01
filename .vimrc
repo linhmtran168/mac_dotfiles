@@ -53,7 +53,7 @@ Plug 'mhinz/vim-startify'
 " Coding
 Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'luochen1990/rainbow'
@@ -804,14 +804,6 @@ let g:go_highlight_build_constraints = 1
 let g:plug_timeout = 360
 let g:plug_retries = 5
 
-"" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " C#
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 " Javascript
