@@ -63,3 +63,5 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # TheFuck
 eval "$(thefuck --alias fuk)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
