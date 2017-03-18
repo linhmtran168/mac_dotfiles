@@ -335,6 +335,8 @@ It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
   ;; Turn off exec path message
   (setq exec-path-from-shell-check-startup-files nil)
+  ;; Add node exec-path
+  (setq exec-path (append exec-path '("~/.nvm/versions/node/v7.7.3/bin")))
   )
 
 (defun dotspacemacs/user-config ()
