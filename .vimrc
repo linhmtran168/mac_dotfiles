@@ -835,8 +835,11 @@ nnoremap <leader>gc :call FindConflict()<CR>
 
 "" Vim-autoformat
 noremap <F5> :Autoformat<CR>
+" Scala
 let g:formatdef_scalafmt = "'scalafmt'"
 let g:formatters_scala = ['scalafmt']
+" Python
+let g:formatter_yapf_style = 'pep8'
 
 "" Base16-vim
 if filereadable(expand("~/.vimrc_background"))
