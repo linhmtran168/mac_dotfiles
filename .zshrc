@@ -10,9 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Zsh completion
 fpath=(/usr/local/share/zsh/site-functions /usr/local/share/zsh-completions $fpath)
 
@@ -52,10 +49,6 @@ alias src='cd ~/Dropbox/Src'
 if [[ -s "$HOME/mac_dotfiles/peco.zsh" ]]; then
   source "$HOME/mac_dotfiles/peco.zsh"
 fi
-
-# Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-autoload -U compinit && compinit
 
 # Base16 Shell
 BASE16_SHELL=$HOME/.config/base16-shell/

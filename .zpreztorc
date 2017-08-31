@@ -24,18 +24,16 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'prompt' \
   'environment' \
   'terminal' \
+  'command-not-found' \
   'editor' \
   'ssh' \
   'history' \
   'directory' \
   'spectrum' \
-  'completion' \
   'osx' \
   'ruby' \
-  'rails' \
   'git' \
   'node' \
   'python' \
@@ -43,9 +41,27 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'homebrew' \
   'utility' \
+  'completion' \
+  'fasd' \
+  'autosuggestions' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'autosuggestions' 
+  'prompt'
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+zstyle ':prezto:module:autosuggestions:color' found ''
+
+#
+# Completions
+#
+
+# Set the entries to ignore in static */etc/hosts* for host completion.
+zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
+  '0.0.0.0' '127.0.0.1'
 
 #
 # Editor
@@ -56,6 +72,9 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+# Allow the zsh prompt context to be shown.
+zstyle ':prezto:module:editor' ps-context 'yes'
 
 #
 # Git
@@ -85,6 +104,13 @@ zstyle ':prezto:module:history-substring-search:color' not-found ''
 zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
+# OS X
+#
+
+# Set the keyword used by `mand` to open man pages in Dash.app
+# zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
+
+#
 # Pacman
 #
 
@@ -100,12 +126,28 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'superlinh'
 
+# Set the working directory prompt display length.
+# By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
+# for longer or 'full' (with '~' expansion) for even longer prompt display.
+# zstyle ':prezto:module:prompt' pwd-length 'short'
+
 #
 # Ruby
 #
 
 # Auto switch the Ruby version on directory change.
 # zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+
+#
+#
+# Python
+#
+
+# Auto switch the Python virtualenv on directory change.
+zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
+
+# Automatically initialize virtualenvwrapper if pre-requisites are met.
+zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 
 #
 # Screen
@@ -134,6 +176,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
+  'line' \
   'cursor' \
   'root'
 #
@@ -142,6 +185,10 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 #   'builtin' 'bg=blue' \
 #   'command' 'bg=blue' \
 #   'function' 'bg=blue'
+#
+# Set syntax pattern styles.
+zstyle ':prezto:module:syntax-highlighting' pattern \
+  'rm*-rf*' 'fg=white,bold,bg=red'
 
 #
 # Terminal
@@ -155,6 +202,9 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the tab title format.
 # zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+
+# Set the terminal multiplexer title format.
+zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
 
 #
 # Tmux

@@ -43,7 +43,7 @@ Plug 'sjl/gundo.vim'
 Plug 'sjl/vitality.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'YankRing.vim'
+Plug 'vim-scripts/YankRing.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 Plug 'terryma/vim-multiple-cursors'
@@ -79,7 +79,7 @@ Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 Plug 'wavded/vim-stylus'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'JSON.vim'
+Plug 'vim-scripts/JSON.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
@@ -130,6 +130,9 @@ Plug 'hdima/python-syntax'
 
 " Scala
 Plug 'derekwyatt/vim-scala'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " Vim themes
 Plug 'chriskempson/base16-vim'
