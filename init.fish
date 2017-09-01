@@ -32,7 +32,7 @@ function tg_conda
     set -gx _OLD_PATH $PATH
     set -gx PATH $HOME/anaconda/bin $PATH
     source (conda info --root)/etc/fish/conf.d/conda.fish
-    set -gx PYTHON_DIST 'pydist:conda'
+    set -gx PYTHON_DIST 'conda'
     echo "Using Anaconda Python"
   else
     set -gx PATH $_OLD_PATH
@@ -48,3 +48,6 @@ end
 
 # Peco
 source $HOME/mac_dotfiles/peco.fish
+
+# Show node version
+set -g theme_display_node yes
