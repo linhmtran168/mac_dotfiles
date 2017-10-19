@@ -36,7 +36,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/gundo.vim'
@@ -650,16 +650,12 @@ let NERDTreeQuitOnOpen                  = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <leader>n :NERDTreeMirrorToggle<CR>
 
-"" Ctrlp.vim
-let g:ctrlp_map = '<leader>j'
-noremap <leader>f :CtrlPMRU<CR>
-noremap <leader>b :CtrlPBuffer<CR>
-noremap <leader>g :CtrlPGhq<CR>
+"" Fzf.vim
+let g:fzf_command_prefix = 'Fzf'
+noremap <leader>f :FzfHistory<CR>
+noremap <leader>b :FzfBuffers<CR>
+noremap <leader>j :FzfFiles<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = {
-  \ 'dir'  : '\v[\/](\.(git|hg|svn|bzr|DS_Store|coffee)|node_modules|)$',
-  \ 'file' : '\v\.(o|swp|pyc|wav|mp3|ogg|blend|exe|so|dll)$',
-  \ }
 
 "" Tagbar
 nmap <leader>t :TagbarToggle<CR>
@@ -806,14 +802,6 @@ let g:go_highlight_build_constraints = 1
 "" Vim Plug options
 let g:plug_timeout = 360
 let g:plug_retries = 5
-
-" C#
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-" Javascript
-let g:syntastic_javascript_checkers = ['standard']
-" Go
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " Omni sharp
 let g:OmniSharp_selector_ui = 'ctrlp'
