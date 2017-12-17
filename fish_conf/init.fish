@@ -1,3 +1,6 @@
+# Set language
+set -xg LC_ALL en_US.UTF-8
+set -xg LANG en_US.UTF-8
 # Base16 shell
 set -xg BASE16_SHELL $HOME/.config/base16-shell/
 # Go
@@ -43,7 +46,7 @@ end
 
 # Base16
 if status --is-interactive
-  eval sh $BASE16_SHELL/scripts/base16-default-dark.sh
+  eval sh $BASE16_SHELL/scripts/base16-tomorrow-night.sh
 end
 
 # Peco

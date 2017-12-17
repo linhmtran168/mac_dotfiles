@@ -118,7 +118,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go'
 
 " CSharp
-Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive && cd server && xbuild' }
+Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive; and cd server; and xbuild' }
 Plug 'OrangeT/vim-csharp'
 
 " Typescript
@@ -165,7 +165,7 @@ nmap <leader>w :w!<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Set default shell
-set shell=/usr/local/bin/zsh
+set shell=/usr/local/bin/fish
 
 " No showmatch
 set noshowmatch
@@ -234,7 +234,7 @@ set foldmethod=indent
 syntax enable
 
 "Set font
-set guifont=Sauce\ Code\ Powerline:h12
+set guifont=Source\ Code\ Pro\ Medium\ for\ Powerline:h12
 set background=dark
 set t_Co=256
 
