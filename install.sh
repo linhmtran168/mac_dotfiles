@@ -1,71 +1,67 @@
-#!/bin/sh
-# Install Xcode and command line tool
-# Install homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+# Create ssh key
+ssh-keygen -t rsa -b 4096 -C "email"
+# Clone dotfiles directory
+git clone git@github.com:linhmtran168/mac_dotfiles.git
+# Install package
+brew install python fish python vim tmux cmake mono fzf z thefuck rbenv nvm golang
+# Change default shell to fish
+chsh -s /usr/local/bin/fish
+sudo vim /etc/shells
 
-# Tap additional repos
-brew tap homebrew/dupes
+# Install brew package
+brew cask install java calibre dash appcleaner flux postgres
 
-# Install zsh and other packages
-brew install rbenv zsh go python python3 scala sbt giter8 akka tmux wget openssl zsh-syntax-highlighting rethinkdb mongodb pyqt zmq svn erlang-r16 elixir leiningen casperjs ctags redis ack boris the_silver_searcher
+# Symlink config file
+ln -sf ~/mac_dotfiles/.gitignore_global  ~
+ln -sf ~/mac_dotfiles/.gitignore ~
+ln -sf ~/mac_dotfiles/.gitconfig ~
+ln -sf ~/mac_dotfiles/fish_conf/before.init.fish ~/.config/omf/
+mkdir ~/.config/fish/functions
+ln -sf ~/mac_dotfiles/fish_conf/fish_prompt.fish ~/.config/fish/functions/
+ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/omf
+ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish .config/omf/
 
-# Install macvim
-brew install macvim --override-system-vim
+# Fish
+## OMF
+curl -L https://get.oh-my.fish | fish
+omf install nvm foreign-env osx pbcopy python rbenv rustup thefuck vi-mode z
+## Fisher
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fisher install ansible-completion docker-completion fzf gitignore settitle
 
-# Install homebrew-cask
-brew tap phinze/hombrew-cask
-brew install brew-cask
-brew cask install adium skype google-chrome spectacle alfred iterm2 vlc calibre f-lux sourcetree sublime-text mou u-torrent colloquy racket eclipse caffeine postgres firefox-aurora vagrant virtualbox shuttle
-# Install quicklook plugin
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package --force && qlmanage -r
-# Setup Iterm2 to have option key as Meta key (set profile's option key to +Esc)
+# Vim
+ln -sf ~/mac_dotfiles/.vimrc ~
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir .vim/undodir
 
-# Install powerline font
-git clone git@github.com:Lokaltog/powerline.git
-git clone git@github.com:Lokaltog/powerline-fonts.git
-# Install tomorrow-theme
-git clone git@github.com:chriskempson/tomorrow-theme.git
+# Base 16
+ghq get https://github.com/chriskempson/base16-iterm2
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# Install necessary python package
-pip install pylint virtualenv virtualenvwrappers numpy scipy matplotlib scikit-learn ipython colout
-easy_install ipython[zmq, qtconsole, notebook, test]
+# Powerline
+pip3 install powerline-status
+ghq get git@github.com:powerline/powerline.git
+ghq get git@github.com:powerline/fonts.git
 
-# Install prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-chsh -s /bin/zsh
+# Tmux
+mkdir -p ~/.config/powerline/themes/tmux/
+ln -sf ~/mac_dotfiles/tmux_default.json ~/.config/powerline/themes/tmux/default.json
+ln -sf ~/mac_dotfiles/.tmux.conf ~
 
-# Symlink all dotfiles to home directories
+# Golang
+mkdir -p ~/Dev/go
+go get -u github.com/nsf/gocode
+go get -u github.com/motemen/ghq
 
-#Configure git
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-git config --global color.ui true
+# NVM
+nvm install 9.3.0
+nvm alias default 9.3.0
+npm -g install diff-so-fancy tern js-beautify eslint
 
-# Configure vim
-# Install vundle and necessary plugins
-git clone https://github.com/gmarik/vundle.git
+# Ruby
+rbenv install 2.4.3
+rbenv global 2.4.3
 
-# Install ruby
-brew install chruby ruby-install direnv
-ruby-install ruby $version
-chruby $version
-
-# Install nvm
-curl https://raw.github.com/creationix/nvm/master/install.sh | sh
-# Install nodejs
-nvm install 0.10
-nvm use 0.10
-# Install necessary npm packages
-npm -g install bower generator-kraken mocha browserify generator-mocha nodemon bytewiser generator-webapp coffee-script grunt pageres csslint grunt-cli pm2 cssmin gulp promise-it-wont-hurt envify harp protractor eslint ionic react-tools express jade sass expressworks jshint sequelize forever jsonlint tldr functional-javascript-workshop less uglifyjs generator-angular levelmeup yo generator-gulp-webapp meteorite generator-karma minify
-
-# PHP
-# Install mamp, link file, download source
-# Add pcntl and readline to MAMP's PHP
-# Install composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-
-# Config to have caps lock as ctrl key
+# Rust
+curl https://sh.rustup.rs -sSf | sh
