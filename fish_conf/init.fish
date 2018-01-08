@@ -33,7 +33,7 @@ alias src='cd ~/Dropbox/Src'
 function tg_conda
   if test -z "$PYTHON_DIST"
     set -gx _OLD_PATH $PATH
-    set -gx PATH $HOME/anaconda/bin $PATH
+    set -gx PATH $HOME/anaconda3/bin $PATH
     source (conda info --root)/etc/fish/conf.d/conda.fish
     set -gx PYTHON_DIST 'conda'
     echo "Using Anaconda Python"
