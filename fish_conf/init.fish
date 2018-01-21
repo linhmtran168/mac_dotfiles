@@ -51,6 +51,3 @@ end
 
 # Peco
 source $HOME/mac_dotfiles/fish_conf/peco.fish
-
-# Show node version
-set -g theme_display_node yes
