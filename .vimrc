@@ -49,6 +49,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mhinz/vim-startify'
+Plug 'justinmk/vim-sneak'
 
 " Coding
 Plug 'SirVer/ultisnips'
@@ -118,8 +119,8 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go'
 
 " CSharp
-Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive; and cd server; and xbuild' }
-Plug 'OrangeT/vim-csharp'
+" Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive; and cd server; and xbuild' }
+" Plug 'OrangeT/vim-csharp'
 
 " Typescript
 Plug 'Quramy/tsuquyomi'
@@ -804,7 +805,7 @@ let g:plug_timeout = 360
 let g:plug_retries = 5
 
 " Omni sharp
-let g:OmniSharp_selector_ui = 'ctrlp'
+" let g:OmniSharp_selector_ui = 'ctrlp'
 
 " Rainbow
 let g:rainbow_active=1
