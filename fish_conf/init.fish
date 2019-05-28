@@ -5,6 +5,7 @@ set -xg LANG en_US.UTF-8
 set -xg BASE16_SHELL $HOME/.config/base16-shell/
 # Go
 set -xg GOPATH $HOME/Dev/go
+set -xg GOROOT /usr/local/opt/go/libexec
 # NVM
 set -xg NVM_DIR $HOME/.nvm
 # Mono
@@ -12,7 +13,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin /Applications/Postgres.app/Contents/Versions/latest/bin
+set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin /Applications/Postgres.app/Contents/Versions/latest/bin $HOME/.composer/vendor/bin
 
 # Alias
 # OSX
@@ -20,7 +21,8 @@ alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Framew
 
 # tmux
 alias tma='tmux attach -d -t'
-alias tmn='tmux new -s (basename (pwd))'
+alias tmd='tmux new -s (basename (pwd))'
+alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
 

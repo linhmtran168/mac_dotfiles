@@ -136,7 +136,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'rust-lang/rust.vim'
 
 " Vim themes
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim', {'do': 'git checkout dict_fix'}
 
 call plug#end()
 
