@@ -51,7 +51,9 @@ function fish_prompt
   set -l orange (set_color ffb300)
   set -l green (set_color green)
   set -l ltgreen (set_color 689f38)
-  set -l cyan (set_color cyan)
+  set -l nodegreen (set_color 689f63)
+  set -l gocyan (set_color 7fd5ea)
+  set -l pyyellow (set_color ffd343)
 
   set_color -o 666
   printf '['
@@ -65,7 +67,7 @@ function fish_prompt
 
   _prompt_rubies $gray $red
 
-  _prompt_go $gray $cyan
+  _prompt_go $gray $gocyan
 
   if [ "$PYTHON_DIST" != "$LAST_PYTHON_DIST" -o "$CONDA_DEFAULT_ENV" != "$LAST_CONDA_ENV" -o -z "$PYTHON_VERSION" ]
     set -gx PYTHON_VERSION (python --version 2>&1 | cut -d\  -f2)
@@ -78,7 +80,7 @@ function fish_prompt
     set -gx LAST_CONDA_ENV $CONDA_DEFAULT_ENV
   end
 
-  _prompt_virtualfish $gray $yellow
+  _prompt_virtualfish $gray $pyyellow
 
   _prompt_rust $gray $orange
 
@@ -87,7 +89,7 @@ function fish_prompt
     set -gx LAST_NVM_BIN $NVM_BIN
   end
 
-  _prompt_nvm $gray $ltgreen
+  _prompt_nvm $gray $nodegreen
 
   set_color -o 666
   if set -q SCORPHISH_GIT_INFO_ON_FIRST_LINE
@@ -105,8 +107,8 @@ function fish_prompt
   set -g __fish_git_prompt_showdirtystate true
   set -g __fish_git_prompt_showuntrackedfiles true
   set -g __fish_git_prompt_showstashstate true
-  set -g __fish_git_prompt_show_informative_status true 
-  
+  set -g __fish_git_prompt_show_informative_status true
+
   __fish_git_prompt " (%s)"
 
   if test $exit_code -ne 0
