@@ -19,6 +19,8 @@ set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin /A
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
+# Direnv
+eval (direnv hook fish)
 # tmux
 alias tma='tmux attach -d -t'
 alias tmd='tmux new -s (basename (pwd))'
