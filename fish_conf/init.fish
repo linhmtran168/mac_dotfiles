@@ -13,7 +13,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin /Applications/Postgres.app/Contents/Versions/latest/bin $HOME/.composer/vendor/bin
+set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin $HOME/.composer/vendor/bin
 
 # Alias
 # OSX
@@ -31,7 +31,7 @@ alias tmk='tmux kill-session -t'
 # Directory Alias
 alias work='cd ~/OneDrive/workspace'
 alias course='cd ~/OneDrive/Courses'
-alias src='cd ~/Dropbox/Src'
+alias src='cd ~/Dev'
 
 # Anaconda
 function tg_conda
@@ -53,5 +53,8 @@ if status --is-interactive
   eval sh $BASE16_SHELL/scripts/base16-tomorrow-night.sh
 end
 
-# Peco
-source $HOME/mac_dotfiles/fish_conf/peco.fish
+# FZF
+source $HOME/mac_dotfiles/fish_conf/fzf.fish
+
+# FZF
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
