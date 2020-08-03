@@ -54,7 +54,5 @@ if status --is-interactive
 end
 
 # FZF
-source $HOME/mac_dotfiles/fish_conf/fzf.fish
-
-# FZF
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+source $HOME/mac_dotfiles/fish_conf/fzf.fish

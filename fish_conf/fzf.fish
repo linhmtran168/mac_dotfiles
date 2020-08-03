@@ -1,8 +1,7 @@
 ##
 # FZF
 ##
-# Peco for repo
-function ghq-src
+function fzf-src
   commandline | read -l buffer
   ghq list --full-path | \
     sd "$HOME" "" | \
@@ -15,7 +14,7 @@ function ghq-src
   commandline -f repaint
 end
 
-# peco for git
+# git
 function git-hash
   git lg | fzf | sd "^[\*\|][ |\\\/\* ]*" "" | awk '{print $1}'
 end
