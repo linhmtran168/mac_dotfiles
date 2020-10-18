@@ -1,8 +1,6 @@
 # Set language
 set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
-# Base16 shell
-set -xg BASE16_SHELL $HOME/.config/base16-shell/
 # Go
 set -xg GOPATH $HOME/Dev/go
 set -xg GOROOT /usr/local/opt/go/libexec
@@ -28,10 +26,11 @@ alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
 
-# Directory Alias
-alias work='cd ~/OneDrive/workspace'
-alias course='cd ~/OneDrive/Courses'
-alias src='cd ~/Dev'
+# Base16
+if status --is-interactive
+  set BASE16_SHELL $HOME/.config/base16-shell/
+  source $BASE16_SHELL/profile_helper.fish
+end
 
 # Anaconda
 function tg_conda
@@ -48,11 +47,9 @@ function tg_conda
   end
 end
 
-# Base16
-if status --is-interactive
-  eval sh $BASE16_SHELL/scripts/base16-tomorrow-night.sh
-end
-
 # FZF
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
+
+# Starship
+starship init fish | source
