@@ -69,58 +69,27 @@ Plug 'airblade/vim-gitgutter'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node'
 
 " Markup
 Plug 'mattn/emmet-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
-Plug 'wavded/vim-stylus'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'vim-scripts/JSON.vim'
-Plug 'digitaltoad/vim-jade'
 Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
-Plug 'jwalton512/vim-blade'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'pearofducks/ansible-vim'
 Plug 'ekalinin/Dockerfile.vim'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Ruby & Rails
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-cucumber'
-Plug 'slim-template/vim-slim'
+" Ruby
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-haml'
-
-" Clojure
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-leiningen'
-Plug 'venantius/vim-eastwood'
-Plug 'vim-scripts/paredit.vim'
-Plug 'venantius/vim-eastwood'
-Plug 'venantius/vim-cljfmt'
-Plug 'kien/rainbow_parentheses.vim'
-
-" Haskell
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'neovimhaskell/haskell-vim'
 
 " Go
 Plug 'fatih/vim-go'
-
-" CSharp
-" Plug 'OmniSharp/omnisharp-vim', { 'do': 'git submodule update --init --recursive; and cd server; and xbuild' }
-" Plug 'OrangeT/vim-csharp'
 
 " Typescript
 Plug 'Quramy/tsuquyomi'
@@ -128,9 +97,6 @@ Plug 'leafgarland/typescript-vim'
 
 " Python
 Plug 'hdima/python-syntax'
-
-" Scala
-Plug 'derekwyatt/vim-scala'
 
 " Rust
 Plug 'rust-lang/rust.vim'

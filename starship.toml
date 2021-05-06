@@ -1,0 +1,31 @@
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+renamed = "👅"
+deleted = "🗑"
+staged = "➕"
+show_sync_count = true
+staged_count.enabled = true
+modified_count.enabled = true
+deleted_count.enabled = true
+rename_count.enabled = true
+stashed_count.enabled = true
+untracked_count.enabled = true
+conflicted_count.enabled = true
+
+[kubernetes]
+format = "on [⛵ $context\\($namespace\\)](cyan bold) in "
+disabled = false
+[kubernetes.context_aliases]
+"gke_freenance-dev_asia-northeast1-a_freenance-dev-cluster" = "frnc-dev"
+
+[conda]
+ignore_base = false
+
+[gcloud]
+format = "on [$symbol $active]($style) "
