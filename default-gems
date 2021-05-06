@@ -1,10 +1,5 @@
 rails
 pry
-pry-coolline
-cocoapods
-terminal-notifier
-capistrano
 awesome_print
 bundler
-compass
 rubocop
