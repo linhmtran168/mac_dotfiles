@@ -43,6 +43,8 @@ cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git co
 # ln -sf ~/mac_dotfiles/fish_conf/fish_prompt.fish ~/.config/fish/functions/
 ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/omf/init.fish
 ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish ~/.config/omf/key_bindings.fish
+ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish ~/.config/omf/key_bindings.fish
+ln -sf ~/mac_dotfiles/starship.toml ~/.config/starship.toml
 
 # Vim
 ln -sf ~/mac_dotfiles/.vimrc ~
