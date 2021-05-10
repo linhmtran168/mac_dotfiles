@@ -1,3 +1,4 @@
+#!/bin/sh
 # Xcode
 xcode-select —install
 
@@ -9,14 +10,14 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# Install brew package
-brew install python fish python vim tmux cmake dust diff-so-fancy exa fd fzf z \
+ Install brew package
+#brew install python fish python vim tmux cmake dust diff-so-fancy exa fd fzf z \
     ghq rbenv nvm golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer terraform kubernetes-cli 
+    tealdeer terraform kubernetes-cli
 # Install brew casks
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
-brew install 1password alfred adoptopendjdk appcleaner calibre font-cascadia-code-pl \ 
+brew install adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl \
     iterm2 google-cloud-sdk microsoft-edge postman anki visual-studio-code
 # Docker
 brew install homebrew/cask/docker
@@ -27,11 +28,12 @@ brew install homebrew/cask/docker
 
 # Fish
 # Change default shell to fish
+# Must run sudo vim /etc/shells to add fish to list of shell
 chsh -s /usr/local/bin/fish
-sudo vim /etc/shells
 ## OMF
 curl -L https://get.oh-my.fish | fish
-omf install nvm foreign-env osx pbcopy python rbenv rustup thefuck vi-mode z brew
+omf update
+omf install nvm foreign-env osx pbcopy python rbenv rustup thefuck z brew fzf
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
