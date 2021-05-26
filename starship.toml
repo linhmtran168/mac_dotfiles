@@ -21,3 +21,6 @@ ignore_base = false
 
 [gcloud]
 format = "on [$symbol $active]($style) "
+
+[battery]
+disabled = true

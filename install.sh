@@ -62,6 +62,7 @@ ghq get git@github.com:powerline/powerline.git
 # ghq get git@github.com:powerline/fonts.git
 
 # Tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir -p ~/.config/powerline/themes/tmux/
 ln -sf ~/mac_dotfiles/tmux_default.json ~/.config/powerline/themes/tmux/default.json
 ln -sf ~/mac_dotfiles/.tmux.conf ~/.tmux.conf
