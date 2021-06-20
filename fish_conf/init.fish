@@ -58,3 +58,4 @@ powerline-setup
 
 # Starship
 starship init fish | source
+

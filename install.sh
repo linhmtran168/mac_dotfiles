@@ -11,9 +11,10 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  Install brew package
-#brew install python fish python vim tmux cmake dust diff-so-fancy exa fd fzf z \
+brew install python fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh z \
     ghq rbenv nvm golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer terraform kubernetes-cli
+    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli
+brew install clementtsang/bottom/bottom
 # Install brew casks
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
