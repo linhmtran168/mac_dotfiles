@@ -10,15 +10,15 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
- Install brew package
+# Install brew package
 brew install python fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh z \
     ghq rbenv nvm golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli
+    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv
 brew install clementtsang/bottom/bottom
 # Install brew casks
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
-brew install adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl \
+brew install --cask adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
     iterm2 google-cloud-sdk microsoft-edge postman anki visual-studio-code
 # Docker
 brew install homebrew/cask/docker
@@ -39,11 +39,7 @@ omf install nvm foreign-env osx pbcopy python rbenv rustup thefuck z brew fzf
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
 cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git config
-# ln -sf ~/mac_dotfiles/fish_conf/before.init.fish ~/.config/omf/
-# mkdir ~/.config/fish/functions
-# ln -sf ~/mac_dotfiles/fish_conf/fish_prompt.fish ~/.config/fish/functions/
 ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/omf/init.fish
-ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish ~/.config/omf/key_bindings.fish
 ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish ~/.config/omf/key_bindings.fish
 ln -sf ~/mac_dotfiles/starship.toml ~/.config/starship.toml
 
@@ -59,8 +55,8 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 
 # Powerline
 pip3 install powerline-status
+pip3 install psutil
 ghq get git@github.com:powerline/powerline.git
-# ghq get git@github.com:powerline/fonts.git
 
 # Tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -84,3 +80,4 @@ gem install pry awesome_print bundler rubocop
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
+
