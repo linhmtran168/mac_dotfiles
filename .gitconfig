@@ -22,3 +22,7 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [pull]
 	rebase = false
+
+; Custom include
+; [includeIf "gitdir:~/Dev/github.com/linhmtran168/"]
+;   path = ~/.personal.gitconfig
