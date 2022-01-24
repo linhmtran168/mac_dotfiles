@@ -4,24 +4,42 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/vim
+  pager = delta
 [alias]
 	lg = log --all --graph --decorate --oneline
 [color]
 	ui = true
 [push]
 	default = simple
-[http]
+[pull]
+  rebase = false
 [ghq]
 	root = ~/Dev
 [credential]
 	helper = osxkeychain
+[ghq]
+  root = ~/Dev
+[credential]
+  helper = osxkeychain
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
+
 [merge]
-	tool = vimdiff
-[pager]
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
-[pull]
-	rebase = false
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
 
 ; Custom include
 ; [includeIf "gitdir:~/Dev/github.com/linhmtran168/"]
