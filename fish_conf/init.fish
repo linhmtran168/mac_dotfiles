@@ -67,3 +67,6 @@ end
 # Starship
 starship init fish | source
 
+# Alias to flush nat route for multipass
+alias flpf='sudo pfctl -f /etc/pf.conf'
+
