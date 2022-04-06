@@ -11,9 +11,9 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Install brew package
-brew install python fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh z \
-    ghq rbenv nvm golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv
+brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh z \
+    ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
+    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf
 brew install clementtsang/bottom/bottom
 # Install brew casks
 brew tap adoptopenjdk/openjdk
@@ -34,7 +34,7 @@ chsh -s /usr/local/bin/fish
 ## OMF
 curl -L https://get.oh-my.fish | fish
 omf update
-omf install nvm foreign-env osx pbcopy python rbenv rustup thefuck z brew fzf
+omf install foreign-env osx pbcopy python rustup thefuck z brew fzf
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
@@ -67,16 +67,19 @@ ln -sf ~/mac_dotfiles/.tmux.conf ~/.tmux.conf
 # Golang
 mkdir -p ~/Dev/go
 
-# NVM
-nvm install --lts
-nvm use --lts
-nvm alias default node
-npm -g install eslint
-
+# ASDF
 # Ruby
-rbenv install 2.7.3
-rbenv global 2.7.3
-gem install pry awesome_print bundler rubocop
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf install ruby latest
+asdf global ruby latest
+asdf reshim ruby latest
+gem install pry
+
+# Nodejs
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs lts
+asdf global nodejs lts
+asdf reshim nodejs lts
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh

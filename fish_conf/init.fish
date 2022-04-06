@@ -20,12 +20,18 @@ alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Framew
 # Direnv
 eval (direnv hook fish)
 
+# Aadf
+source /usr/local/opt/asdf/libexec/asdf.fish
+
 # tmux
 alias tma='tmux attach -d -t'
 alias tmd='tmux new -s (basename (pwd))'
 alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
+
+# Alias to flush nat route for multipass
+alias flpf='sudo pfctl -f /etc/pf.conf'
 
 # Base16
 if status --is-interactive
@@ -66,7 +72,4 @@ end
 
 # Starship
 starship init fish | source
-
-# Alias to flush nat route for multipass
-alias flpf='sudo pfctl -f /etc/pf.conf'
 

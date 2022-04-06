@@ -81,6 +81,7 @@ Plug 'sukima/xmledit'
 Plug 'mxw/vim-jsx'
 Plug 'pearofducks/ansible-vim'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'khaveesh/vim-fish-syntax'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
