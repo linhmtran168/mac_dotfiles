@@ -20,7 +20,7 @@ alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Framew
 # Direnv
 eval (direnv hook fish)
 
-# Aadf
+# Asdf
 source /usr/local/opt/asdf/libexec/asdf.fish
 
 # tmux
