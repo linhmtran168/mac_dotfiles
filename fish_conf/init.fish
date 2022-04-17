@@ -63,11 +63,6 @@ source $HOME/mac_dotfiles/fish_conf/fzf.fish
 set fish_function_path $fish_function_path $HOME/Dev/github.com/powerline/powerline/powerline/bindings/fish
 powerline-setup
 
-# Nvim
-function nvim
-  CC=/usr/local/bin/gcc-11 command nvim
-end
-
 # Starship
 starship init fish | source
 
