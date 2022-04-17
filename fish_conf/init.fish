@@ -4,8 +4,6 @@ set -xg LANG en_US.UTF-8
 # Go
 set -xg GOPATH $HOME/Dev/go
 set -xg GOROOT /usr/local/opt/go/libexec
-# NVM
-set -xg NVM_DIR $HOME/.nvm
 # Mono
 set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
