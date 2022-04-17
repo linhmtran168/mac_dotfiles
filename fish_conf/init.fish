@@ -9,7 +9,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin $HOME/.composer/vendor/bin
+set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin
 
 # Alias
 # OSX
