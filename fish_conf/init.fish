@@ -9,7 +9,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin $HOME/.composer/vendor/bin
+set --universal fish_user_paths $fish_user_paths $HOME/.cargo/bin $GOPATH/bin
 
 # Alias
 # OSX
@@ -62,11 +62,6 @@ source $HOME/mac_dotfiles/fish_conf/fzf.fish
 # Powerline
 set fish_function_path $fish_function_path $HOME/Dev/github.com/powerline/powerline/powerline/bindings/fish
 powerline-setup
-
-# Nvim
-function nvim
-  CC=/usr/local/bin/gcc-11 command nvim
-end
 
 # Starship
 starship init fish | source
