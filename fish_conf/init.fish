@@ -28,6 +28,9 @@ alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
 
+# Wezterm update
+alias upwt='brew upgrade --cask wezterm-nightly --no-quarantine --greedy-latest'
+
 # Alias to flush nat route for multipass
 alias flpf='sudo pfctl -f /etc/pf.conf'
 
