@@ -62,9 +62,8 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.i
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
 
-# Powerline
-set fish_function_path $fish_function_path $HOME/Dev/github.com/powerline/powerline/powerline/bindings/fish
-powerline-setup
+# Zoxide
+zoxide init fish | source
 
 # Starship
 starship init fish | source

@@ -13,7 +13,7 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 # Install brew package
 brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh \
     ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf fisher
+    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf zoxide
 brew install clementtsang/bottom/bottom
 # Install brew casks
 brew tap adoptopenjdk/openjdk
@@ -31,10 +31,9 @@ brew install homebrew/cask/docker
 # Change default shell to fish
 # Must run sudo vim /etc/shells to add fish to list of shell
 chsh -s /usr/local/bin/fish
-fisher install jethrokuan/z
-fisher install PatrickF1/fzf.fish
 ## OMF
 curl -L https://get.oh-my.fish | fish
+zoxide init --cmd cd --hook prompt fish
 omf update
 omf install foreign-env osx pbcopy python rustup thefuck brew
 
