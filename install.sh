@@ -33,9 +33,10 @@ brew install homebrew/cask/docker
 chsh -s /usr/local/bin/fish
 ## OMF
 curl -L https://get.oh-my.fish | fish
-zoxide init --cmd cd --hook prompt fish
 omf update
 omf install foreign-env osx pbcopy python rustup thefuck brew
+zoxide init --cmd cd --hook prompt fish
+/usr/local/opt/fzf/install
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
