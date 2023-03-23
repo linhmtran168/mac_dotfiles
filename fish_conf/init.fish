@@ -59,12 +59,12 @@ end
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # FZF
-set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
-
-# Zoxide
-zoxide init fish | source
 
 # Starship
 starship init fish | source
+
+# Zoxide
+zoxide init fish | source
 
