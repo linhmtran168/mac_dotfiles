@@ -1,14 +1,64 @@
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$c\
+$cmake\
+$golang\
+$helm\
+$java\
+$julia\
+$nodejs\
+$php\
+$pulumi\
+$python\
+$ruby\
+$rust\
+$terraform\
+$zig\
+$buf\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$azure\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$status\
+$os\
+$container\
+$shell\
+$character"""
+
+right_format = """$time"""
+
 [git_status]
-conflicted = "🏳"
+conflicted = '🏳'
 ahead = "🏎💨${count}"
-behind = "😰"
-diverged = "😵"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-renamed = "👅"
-deleted = "🗑"
-staged = "➕"
+behind = '😰${count}'
+diverged = '😵⇡${ahead_count}⇣${behind_count}'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
 
 [kubernetes]
 format = "on [⛵ $context\\($namespace\\)](cyan bold) in "
@@ -24,3 +74,7 @@ format = "on [$symbol $active]($style) "
 
 [battery]
 disabled = true
+
+[time]
+disabled = false
+

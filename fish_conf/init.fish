@@ -63,8 +63,16 @@ set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
 
 # Starship
+function starship_transient_prompt_func
+  starship module character
+end
+function starship_transient_rprompt_func
+  starship module time
+end
 starship init fish | source
+enable_transience
 
 # Zoxide
 zoxide init fish | source
+set -xg __zoxide_z_prefix 'z!'
 
