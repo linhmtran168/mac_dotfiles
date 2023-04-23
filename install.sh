@@ -34,6 +34,8 @@ chsh -s /usr/local/bin/fish
 ## fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 /usr/local/opt/fzf/install
+## tide
+fisher install IlanCosman/tide@v5
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
