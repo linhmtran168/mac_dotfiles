@@ -1,3 +1,4 @@
+## Env setup
 # Set language
 set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
@@ -11,16 +12,16 @@ set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 # Set path
 set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /usr/local/sbin
 
-# Alias
+## Key bindings
+# Vi mode
+fish_vi_key_bindings
+# FZF
+bind -M insert \c] fzf-src # -M for insert mode
+source ~/mac_dotfiles/fish_conf/fzf.fish
+
+## Alias
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-
-# Direnv
-eval (direnv hook fish)
-
-# Asdf
-source /usr/local/opt/asdf/libexec/asdf.fish
-
 # tmux
 alias tma='tmux attach -d -t'
 alias tmd='tmux new -s (basename (pwd))'
@@ -33,6 +34,13 @@ alias upwt='brew upgrade --cask wezterm-nightly --no-quarantine --greedy-latest'
 
 # Alias to flush nat route for multipass
 alias flpf='sudo pfctl -f /etc/pf.conf'
+
+## Other functions
+# Direnv
+eval (direnv hook fish)
+
+# Asdf
+source /usr/local/opt/asdf/libexec/asdf.fish
 
 # Base16
 if status --is-interactive
@@ -61,16 +69,6 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.i
 # FZF
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
-
-# Starship
-function starship_transient_prompt_func
-  starship module character
-end
-function starship_transient_rprompt_func
-  starship module time
-end
-starship init fish | source
-enable_transience
 
 # Zoxide
 zoxide init fish | source

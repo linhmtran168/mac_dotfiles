@@ -31,19 +31,14 @@ brew install homebrew/cask/docker
 # Change default shell to fish
 # Must run sudo vim /etc/shells to add fish to list of shell
 chsh -s /usr/local/bin/fish
-## OMF
-curl -L https://get.oh-my.fish | fish
-omf update
-omf install foreign-env osx pbcopy python rustup thefuck brew
-zoxide init --cmd cd --hook prompt fish
+## fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 /usr/local/opt/fzf/install
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
 cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git config
-ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/omf/init.fish
-ln -sf ~/mac_dotfiles/fish_conf/key_bindings.fish ~/.config/omf/key_bindings.fish
-ln -sf ~/mac_dotfiles/starship.toml ~/.config/starship.toml
+ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/fish/conf.d/init.fish
 
 # Vim
 ln -sf ~/mac_dotfiles/.vimrc ~
