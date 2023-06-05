@@ -19,7 +19,7 @@ brew install clementtsang/bottom/bottom
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
 brew install --cask adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
-    iterm2 google-cloud-sdk microsoft-edge postman anki visual-studio-code
+    google-cloud-sdk microsoft-edge postman anki visual-studio-code rectangle contexts wezterm
 # Docker
 brew install homebrew/cask/docker
 
