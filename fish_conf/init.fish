@@ -10,14 +10,11 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /usr/local/sbin
+set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /usr/local/sbin /opt/homebrew/bin
 
 ## Key bindings
 # Vi mode
 fish_vi_key_bindings
-# FZF
-bind -M insert \c] fzf-src # -M for insert mode
-source ~/mac_dotfiles/fish_conf/fzf.fish
 
 ## Alias
 # OSX
@@ -28,6 +25,7 @@ alias tmd='tmux new -s (basename (pwd))'
 alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
+alias tmkna='tmux list-sessions | grep -v attached | awk \'BEGIN{FS=":"}{print $1}\' | xargs -n 1 tmux kill-session -t'
 
 # Wezterm update
 alias upwt='brew upgrade --cask wezterm-nightly --force --no-quarantine --greedy-latest'
@@ -40,7 +38,7 @@ alias flpf='sudo pfctl -f /etc/pf.conf'
 eval (direnv hook fish)
 
 # Asdf
-source /usr/local/opt/asdf/libexec/asdf.fish
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # Base16
 if status --is-interactive
@@ -64,11 +62,12 @@ function tg_conda
 end
 
 # Cloud SDK
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
+# source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # FZF
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
+bind -M insert \c] fzf-src # -M for insert mode
 
 # Zoxide
 zoxide init fish | source
