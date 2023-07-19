@@ -12,14 +12,15 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Install brew package
 brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh \
-    ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
-    tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf zoxide
-brew install clementtsang/bottom/bottom
+	ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
+	tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf zoxide \
+	bottom lazygit lazydocker luarocks juliaup
+
 # Install brew casks
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
 brew install --cask adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
-    google-cloud-sdk microsoft-edge postman anki visual-studio-code rectangle contexts wezterm
+	google-cloud-sdk microsoft-edge postman anki visual-studio-code rectangle contexts wezterm
 # Docker
 brew install homebrew/cask/docker
 
@@ -38,18 +39,18 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v5
 
 # Symlink config file for git and fish
-ln -sf ~/mac_dotfiles/.gitignore_global  ~/.gitignore_global
+ln -sf ~/mac_dotfiles/.gitignore_global ~/.gitignore_global
 cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git config
 ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/fish/conf.d/init.fish
 
 # Vim
 ln -sf ~/mac_dotfiles/.vimrc ~
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.vim/undodir
 
 # Base 16
-ghq get git@github.com:martinlindhe/base16-iterm2.git # Manually change theme using iterm config
+ghq get git@github.com:martinlindhe/base16-iterm2.git                             # Manually change theme using iterm config
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell # Use base16-xxx shell command to change theme
 
 # Powerline
@@ -82,4 +83,3 @@ asdf reshim nodejs lts
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
-

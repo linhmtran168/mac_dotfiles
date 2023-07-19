@@ -4,7 +4,7 @@ set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
 # Go
 set -xg GOPATH $HOME/Dev/go
-set -xg GOROOT /usr/local/opt/go/libexec
+set -xg GOROOT /opt/homebrew/opt/go/libexec
 # Mono
 set -xg MONO_GAC_PREFIX "/usr/local"
 # Chrome
