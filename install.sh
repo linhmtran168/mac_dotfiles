@@ -50,8 +50,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 mkdir ~/.vim/undodir
 
 # Base 16
-ghq get git@github.com:martinlindhe/base16-iterm2.git                             # Manually change theme using iterm config
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell # Use base16-xxx shell command to change theme
+git clone https://github.com/tinted-theming/base16-shell.git $HOME/.config/base16-shell
 
 # Powerline
 pip3 install powerline-status

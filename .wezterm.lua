@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 return {
-	color_scheme = "Tomorrow Night Eighties",
+  color_scheme_dirs = { "~/.config/wezterm/colors" },
+	color_scheme = "Everforest Dark (Medium)",
 	font = wezterm.font("CaskaydiaCove Nerd Font"),
 	font_size = 13,
 	keys = {

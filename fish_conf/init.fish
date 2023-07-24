@@ -42,8 +42,11 @@ source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # Base16
 if status --is-interactive
-  set BASE16_SHELL $HOME/.config/base16-shell/
-  source $BASE16_SHELL/profile_helper.fish
+  set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
+  if test -s "$BASE16_SHELL_PATH"
+    set -g BASE16_CONFIG_PATH "$HOME/.config/tinted-theming"
+    source "$BASE16_SHELL_PATH/profile_helper.fish"
+  end
 end
 
 # Anaconda
