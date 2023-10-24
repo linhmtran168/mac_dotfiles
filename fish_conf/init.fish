@@ -7,10 +7,12 @@ set -xg GOPATH $HOME/Dev/go
 set -xg GOROOT /opt/homebrew/opt/go/libexec
 # Mono
 set -xg MONO_GAC_PREFIX "/usr/local"
+# Modular
+set -xg MODULAR_PATH $HOME/.modular
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /usr/local/sbin /opt/homebrew/bin
+set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin $MODULAR_PATH/pkg/packages.modular.com_mojo/bin /usr/local/sbin /opt/homebrew/bin
 
 ## Key bindings
 # Vi mode
