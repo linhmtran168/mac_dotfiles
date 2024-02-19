@@ -11,6 +11,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 set -xg MODULAR_PATH $HOME/.modular
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+set -xg LIBRARY_PATH $LIBRARY_PATH /opt/homebrew/opt/zstd/lib
 # Set path
 set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin $MODULAR_PATH/pkg/packages.modular.com_mojo/bin /usr/local/sbin /opt/homebrew/bin
 
