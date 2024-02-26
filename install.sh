@@ -20,7 +20,8 @@ brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa 
 brew tap adoptopenjdk/openjdk
 brew tap homebrew/cask-fonts
 brew install --cask adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
-	google-cloud-sdk microsoft-edge postman anki visual-studio-code rectangle contexts wezterm
+	google-cloud-sdk microsoft-edge anki visual-studio-code rectangle contexts wezterm betterdisplay istat-menus \
+	aws-vault
 # Docker
 brew install homebrew/cask/docker
 
@@ -50,7 +51,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 mkdir ~/.vim/undodir
 
 # Base 16
-git clone https://github.com/tinted-theming/base16-shell.git $HOME/.config/base16-shell
+git clone https://github.com/tinted-theming/base16-shell.git "$HOME/.config/base16-shell"
 
 # Powerline
 pip3 install powerline-status
@@ -59,9 +60,10 @@ ghq get git@github.com:powerline/powerline.git
 
 # Tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-mkdir -p ~/.config/powerline/themes/tmux/
-ln -sf ~/mac_dotfiles/tmux_default.json ~/.config/powerline/themes/tmux/default.json
 ln -sf ~/mac_dotfiles/.tmux.conf ~/.tmux.conf
+## Tmux powerline
+ln -sf ~/mac_dotfiles/tmux-powerline/config.sh ~/.config/tmux-powerline/config.sh
+ln -sf ~/mac_dotfiles/tmux-powerline/themes/simple.sh ~/.config/tmux-powerline/themes/simple.sh
 
 # Golang
 mkdir -p ~/Dev/go
