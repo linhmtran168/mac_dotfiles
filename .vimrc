@@ -36,7 +36,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/gundo.vim'
@@ -58,10 +59,6 @@ Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 Plug 'luochen1990/rainbow'
-
-" Search
-Plug 'rking/ag.vim'
-Plug 'mileszs/ack.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -133,7 +130,7 @@ nmap <leader>w :w!<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Set default shell
-set shell=/usr/local/bin/fish
+set shell=/opt/homebrew/bin/fish
 
 " No showmatch
 set noshowmatch
@@ -619,7 +616,8 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <leader>n :NERDTreeMirrorToggle<CR>
 
 "" Fzf.vim
-let g:fzf_command_prefix = 'Fzf'
+let g:fzf_vim = {}
+let g:fzf_vim.command_prefix = 'Fzf'
 noremap <leader>f :FzfHistory<CR>
 noremap <leader>b :FzfBuffers<CR>
 noremap <leader>j :FzfFiles<CR>
@@ -719,6 +717,7 @@ vmap <leader>a: :Tabularize /:<CR>
 "" Gundo
 nnoremap <leader>gu :GundoToggle<CR>
 let g:gundo_close_on_revert = 1
+let g:gundo_prefer_python3 = 1
 
 "" Vim indent guides
 let indent_guides_enable_on_vim_startup = 1
@@ -741,8 +740,8 @@ let g:taboo_tab_format=' %N %f%m '
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-"" Ag.vim
-nnoremap <leader>a :Ag ""<left>
+"" Ripgrep
+nnoremap <leader>g :Rg ""<left>
 
 "" YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
