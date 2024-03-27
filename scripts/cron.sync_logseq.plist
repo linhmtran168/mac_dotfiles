@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>cron.sync_logseq</string>
+    <key>Program</key>
+    <string>/Users/linh.tm/.local/bin/sync_logseq.sh</string>
+    <key>StandardInPath</key>
+    <string>/tmp/sync_logseq.stdin</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/sync_logseq.stdout</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/sync_logseq.stderr</string>
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Hour</key>
+        <integer>13</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Hour</key>
+        <integer>17</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+      </dict>
+    </array>
+  </dict>
+</plist>
