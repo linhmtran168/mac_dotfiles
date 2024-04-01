@@ -101,6 +101,7 @@ Plug 'rust-lang/rust.vim'
 
 " Vim themes
 Plug 'chriskempson/base16-vim'
+Plug 'sainnhe/everforest'
 
 call plug#end()
 
@@ -200,17 +201,20 @@ syntax enable
 
 "Set font
 set guifont=Source\ Code\ Pro\ Medium\ for\ Powerline:h12
+
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
 set t_Co=256
 
 if has('gui_running')
   set guioptions-=T
   set guioptions-=e
-  colorscheme base16-tomorrow-night
 else
   let base16colorspace=256
-  colorscheme base16-tomorrow-night
 endif
+colorscheme everforest
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8

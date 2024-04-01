@@ -13,13 +13,11 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 # Install brew package
 brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh \
 	ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
-	tealdeer cheat curlie git-delta duf procs broots terraform kubernetes-cli direnv asdf zoxide \
+	tealdeer cheat curlie git-delta duf procs broot terraform kubernetes-cli direnv asdf zoxide \
 	bottom lazygit lazydocker luarocks juliaup
 
 # Install brew casks
-brew tap adoptopenjdk/openjdk
-brew tap homebrew/cask-fonts
-brew install --cask adoptopenjdk 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
+brew install --cask temurin 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
 	google-cloud-sdk microsoft-edge anki visual-studio-code rectangle contexts wezterm betterdisplay istat-menus \
 	aws-vault
 # Docker
@@ -32,13 +30,14 @@ brew install homebrew/cask/docker
 # Fish
 # Change default shell to fish
 # Must run sudo vim /etc/shells to add fish to list of shell
-chsh -s /usr/local/bin/fish
+chsh -s /opt/homebrew/bin/fish
 ## fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-/usr/local/opt/fzf/install
 ## tide
-fisher install IlanCosman/tide@v5
+fisher install IlanCosman/tide@v6
 
+# Wezterm
+mkdir -p $HOME/.config/wezterm/ && git clone https://github.com/frdwin/Everforest-Wezterm $HOME/.config/wezterm/colors
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global ~/.gitignore_global
 cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git config

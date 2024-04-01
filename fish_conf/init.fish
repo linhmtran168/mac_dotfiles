@@ -11,7 +11,7 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 set -xg MODULAR_PATH $HOME/.modular
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-set -xg LIBRARY_PATH $LIBRARY_PATH /opt/homebrew/opt/zstd/lib
+# set -xg LIBRARY_PATH $LIBRARY_PATH /opt/homebrew/opt/zstd/lib
 # Set path
 set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin $MODULAR_PATH/pkg/packages.modular.com_mojo/bin /usr/local/sbin /opt/homebrew/bin
 
@@ -41,7 +41,12 @@ alias flpf='sudo pfctl -f /etc/pf.conf'
 eval (direnv hook fish)
 
 # Asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# source /opt/homebrew/opt/asdf/libexec/asdf.fish
+if status is-interactive
+  mise activate fish | source
+else
+  mise activate fish --shims | source
+end
 
 # Base16
 if status --is-interactive
@@ -72,6 +77,7 @@ end
 
 # FZF
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+fzf --fish | source
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
 bind -M insert \c] fzf-src # -M for insert mode
 
