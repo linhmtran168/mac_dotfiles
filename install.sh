@@ -69,17 +69,18 @@ mkdir -p ~/Dev/go
 
 # ASDF
 # Ruby
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf install ruby latest
-asdf global ruby latest
-asdf reshim ruby latest
-gem install pry
-
+# asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+# asdf install ruby latest
+# asdf global ruby latest
+# asdf reshim ruby latest
+# gem install pry
 # Nodejs
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs lts
-asdf global nodejs lts
-asdf reshim nodejs lts
+# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+# asdf install nodejs lts
+# asdf global nodejs lts
+# asdf reshim nodejs lts
+# Mise
+curl https://mise.run | sh
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
