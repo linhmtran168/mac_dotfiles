@@ -4,7 +4,7 @@ local act = wezterm.action
 return {
   color_scheme_dirs = { "~/.config/wezterm/colors" },
 	color_scheme = "Everforest Dark (Medium)",
-	font = wezterm.font("CaskaydiaCove NF"),
+	font = wezterm.font("Cascadia Code NF"),
 	font_size = 13,
 	keys = {
 		{ key = "x", mods = "ALT|CTRL", action = act.CloseCurrentPane({ confirm = true }) },
