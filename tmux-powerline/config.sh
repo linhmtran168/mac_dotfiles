@@ -10,7 +10,7 @@ export TMUX_POWERLINE_DEBUG_MODE_ENABLED="false"
 export TMUX_POWERLINE_PATCHED_FONT_IN_USE="true"
 
 # The theme to use.
-# export TMUX_POWERLINE_THEME="simple"
+export TMUX_POWERLINE_THEME="simple"
 # Overlay directory to look for themes. There you can put your own themes outside the repo. Fallback will still be the "themes" directory in the repo.
 export TMUX_POWERLINE_DIR_USER_THEMES="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/themes"
 # Overlay directory to look for segments. There you can put your own segments outside the repo. Fallback will still be the "segments" directory in the repo.
