@@ -36,12 +36,14 @@ alias upwt='brew upgrade --cask wezterm@nightly --force --no-quarantine --greedy
 # Alias to flush nat route for multipass
 alias flpf='sudo pfctl -f /etc/pf.conf'
 
+# 1Password
+source ~/.config/op/plugins.sh
+
 ## Other functions
 # Direnv
 eval (direnv hook fish)
 
-# Asdf
-# source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# Mise
 if status is-interactive
   mise activate fish | source
 else
