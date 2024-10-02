@@ -22,6 +22,7 @@ fish_vi_key_bindings
 ## Alias
 # OSX
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
 # tmux
 alias tma='tmux attach -d -t'
 alias tmd='tmux new -s (basename (pwd))'
@@ -29,6 +30,14 @@ alias tmn='tmux new -s'
 alias tml='tmux list-sessions'
 alias tmk='tmux kill-session -t'
 alias tmkna='tmux list-sessions | grep -v attached | awk \'BEGIN{FS=":"}{print $1}\' | xargs -n 1 tmux kill-session -t'
+
+# Zellij
+alias zln='zellij -s'
+alias zld='zellij -s (basename (pwd))'
+alias zll='zellij ls'
+alias zlk='zellij k'
+alias zlka='zellij ka'
+alias zla='zellij a'
 
 # Wezterm update
 alias upwt='brew upgrade --cask wezterm@nightly --force --no-quarantine --greedy-latest'

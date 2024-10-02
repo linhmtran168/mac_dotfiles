@@ -14,7 +14,7 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 brew install fish python vim tmux cmake dust diff-so-fancy bat sd hyperfine exa fd fzf xh \
 	ghq golang helm hadolint htop minikube ripgrep sd starship tokei \
 	tealdeer cheat curlie git-delta duf procs broot terraform kubernetes-cli direnv asdf zoxide \
-	bottom lazygit lazydocker luarocks juliaup
+	bottom lazygit lazydocker luarocks juliaup zellij
 
 # Install brew casks
 brew install --cask temurin 1password alfred appcleaner calibre font-cascadia-code-pl font-caskaydia-cove-nerd-font \
@@ -63,6 +63,10 @@ ln -sf ~/mac_dotfiles/.tmux.conf ~/.tmux.conf
 ## Tmux powerline
 ln -sf ~/mac_dotfiles/tmux-powerline/config.sh ~/.config/tmux-powerline/config.sh
 ln -sf ~/mac_dotfiles/tmux-powerline/themes/simple.sh ~/.config/tmux-powerline/themes/simple.sh
+
+# Zellij
+mkdir -p ~/.config/zellij
+ln -sf ~/mac_dotfiles/config.kdl ~/.config/zellij/config.kdl
 
 # Golang
 mkdir -p ~/Dev/go
