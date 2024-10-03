@@ -36,8 +36,13 @@ alias zln='zellij -s'
 alias zld='zellij -s (basename (pwd))'
 alias zll='zellij ls'
 alias zlk='zellij k'
+alias zlds='zellij d'
+alias zldsa='zellij da'
 alias zlka='zellij ka'
 alias zla='zellij a'
+alias zlc='zellij --layout compact'
+alias zlcn='zellij --layout compact -s'
+alias zlcd='zellij --layout compact -s (basename (pwd))'
 
 # Wezterm update
 alias upwt='brew upgrade --cask wezterm@nightly --force --no-quarantine --greedy-latest'
