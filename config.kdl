@@ -1,6 +1,10 @@
-keybinds {
+keybinds clear-defaults=true {
     locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Ctrl e" { SwitchToMode "normal"; }
+    }
+    normal {
+        bind "q" { Quit; }
+        bind "Ctrl e" { SwitchToMode "locked"; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -22,6 +26,8 @@ keybinds {
         bind "x" { CloseFocus; SwitchToMode "locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "locked"; }
         bind "tab" { SwitchFocus; }
+        bind "[" { PreviousSwapLayout; }
+        bind "]" { NextSwapLayout; }
     }
     tab {
         bind "left" { GoToPreviousTab; }
@@ -128,6 +134,40 @@ keybinds {
             SwitchToMode "locked"
         }
     }
+    tmux {
+        bind "[" { SwitchToMode "Scroll"; }
+        bind "Ctrl a" { Write 2; SwitchToMode "locked"; }
+        bind "\"" { NewPane "Down"; SwitchToMode "locked"; }
+        bind "_" { NewPane "Down"; SwitchToMode "locked"; }
+        bind "%" { NewPane "Right"; SwitchToMode "locked"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "c" { NewTab; SwitchToMode "locked"; } 
+        bind "," { SwitchToMode "renametab"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "locked"; }
+        bind "n" { GoToNextTab; SwitchToMode "locked"; }
+        bind "Left" { MoveFocus "Left"; SwitchToMode "locked"; }
+        bind "Right" { MoveFocus "Right"; SwitchToMode "locked"; }
+        bind "Down" { MoveFocus "Down"; SwitchToMode "locked"; }
+        bind "Up" { MoveFocus "Up"; SwitchToMode "locked"; }
+        bind "h" { MoveFocus "Left"; SwitchToMode "locked"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "locked"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "locked"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "locked"; }
+        bind "o" { FocusNextPane; }
+        bind "d" { Detach; }
+        bind "q" { Quit; }
+        bind "Space" { NextSwapLayout; }
+        bind "x" { CloseFocus; SwitchToMode "locked"; }
+        bind "1" { GoToTab 1; SwitchToMode "locked"; }
+        bind "2" { GoToTab 2; SwitchToMode "locked"; }
+        bind "3" { GoToTab 3; SwitchToMode "locked"; }
+        bind "4" { GoToTab 4; SwitchToMode "locked"; }
+        bind "5" { GoToTab 5; SwitchToMode "locked"; }
+        bind "6" { GoToTab 6; SwitchToMode "locked"; }
+        bind "7" { GoToTab 7; SwitchToMode "locked"; }
+        bind "8" { GoToTab 8; SwitchToMode "locked"; }
+        bind "9" { GoToTab 9; SwitchToMode "locked"; }
+    }
     shared_among "normal" "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
@@ -146,12 +186,18 @@ keybinds {
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
+        bind "Alt Ctrl f" {
+            LaunchPlugin "filepicker" {
+                // floating true // uncomment this to have the filepicker opened in a floating window
+                close_on_selection true // comment this out to have the filepicker remain open even after selecting a file
+            };
+        }
     }
     shared_except "tmux" {
         bind "Ctrl a" { SwitchToMode "tmux"; }
     }
-    shared_except "locked" "renametab" "renamepane" {
-        bind "Ctrl g" { SwitchToMode "locked"; }
+    shared_except "locked" "renametab" "renamepane" "normal" {
+        bind "Ctrl e" { SwitchToMode "locked"; }
         bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "entersearch" {
@@ -209,40 +255,6 @@ keybinds {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
-    tmux {
-        bind "[" { SwitchToMode "Scroll"; }
-        bind "Ctrl a" { Write 2; SwitchToMode "locked"; }
-        bind "\"" { NewPane "Down"; SwitchToMode "locked"; }
-        bind "_" { NewPane "Down"; SwitchToMode "locked"; }
-        bind "%" { NewPane "Right"; SwitchToMode "locked"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "c" { NewTab; SwitchToMode "locked"; }
-        bind "," { SwitchToMode "renametab"; }
-        bind "p" { GoToPreviousTab; SwitchToMode "locked"; }
-        bind "n" { GoToNextTab; SwitchToMode "locked"; }
-        bind "Left" { MoveFocus "Left"; SwitchToMode "locked"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "locked"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "locked"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "locked"; }
-        bind "h" { MoveFocus "Left"; SwitchToMode "locked"; }
-        bind "l" { MoveFocus "Right"; SwitchToMode "locked"; }
-        bind "j" { MoveFocus "Down"; SwitchToMode "locked"; }
-        bind "k" { MoveFocus "Up"; SwitchToMode "locked"; }
-        bind "o" { FocusNextPane; }
-        bind "d" { Detach; }
-        bind "q" { Quit; }
-        bind "Space" { NextSwapLayout; }
-        bind "x" { CloseFocus; SwitchToMode "locked"; }
-        bind "1" { GoToTab 1; SwitchToMode "locked"; }
-        bind "2" { GoToTab 2; SwitchToMode "locked"; }
-        bind "3" { GoToTab 3; SwitchToMode "locked"; }
-        bind "4" { GoToTab 4; SwitchToMode "locked"; }
-        bind "5" { GoToTab 5; SwitchToMode "locked"; }
-        bind "6" { GoToTab 6; SwitchToMode "locked"; }
-        bind "7" { GoToTab 7; SwitchToMode "locked"; }
-        bind "8" { GoToTab 8; SwitchToMode "locked"; }
-        bind "9" { GoToTab 9; SwitchToMode "locked"; }
-    }
 }
 
 // Plugin aliases - can be used to change the implementation of Zellij
@@ -255,7 +267,9 @@ plugins {
     }
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
-    status-bar location="zellij:status-bar"
+    status-bar location="zellij:status-bar" {
+        supermode true
+    }
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
