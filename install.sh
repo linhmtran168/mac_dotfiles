@@ -36,8 +36,14 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 ## tide
 fisher install IlanCosman/tide@v6
 
-# Wezterm
-mkdir -p $HOME/.config/wezterm/ && git clone https://github.com/frdwin/Everforest-Wezterm $HOME/.config/wezterm/colors
+# # Wezterm
+# mkdir -p $HOME/.config/wezterm/ && git clone https://github.com/frdwin/Everforest-Wezterm $HOME/.config/wezterm/colors
+# Ghostty
+# Simple config is as below
+# font-family = "Cascadia Code NF"
+# theme = "gruvbox-material"
+brew install --cask ghostty
+
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global ~/.gitignore_global
 cp ~/mac_dotfiles/.gitconfig ~/.gitconfig # must manually change email in git config
