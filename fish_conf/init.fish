@@ -10,11 +10,29 @@ set -xg MONO_GAC_PREFIX "/usr/local"
 set -xg MODULAR_PATH $HOME/.modular
 # Chrome
 set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
 # set -xg LIBRARY_PATH $LIBRARY_PATH /opt/homebrew/opt/zstd/lib
+
 # Docker
 set -xg COMPOSE_BAKE true
-# Set path
-set --universal fish_user_paths $fish_user_paths $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin $MODULAR_PATH/pkg/packages.modular.com_mojo/bin /opt/homebrew/sbin /opt/homebrew/bin
+
+# Set required paths
+fish_add_path --global --move --path $HOME/.local/bin $GOPATH/bin
+
+# Brew
+set --global --export HOMEBREW_PREFIX "/opt/homebrew";
+set --global --export HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+set --global --export HOMEBREW_REPOSITORY "/opt/homebrew";
+fish_add_path --global --move --path "/opt/homebrew/bin" "/opt/homebrew/sbin";
+if test -n "$MANPATH[1]"; set --global --export MANPATH '' $MANPATH; end;
+if not contains "/opt/homebrew/share/info" $INFOPATH; set --global --export INFOPATH "/opt/homebrew/share/info" $INFOPATH; end
+
+# Active mise to active tool's path
+if status is-interactive
+  mise activate fish | source
+else
+  mise activate fish --shims | source
+end
 
 ## Key bindings
 # Vi mode
@@ -58,13 +76,6 @@ source ~/.config/op/plugins.sh
 # Direnv
 eval (direnv hook fish)
 
-# Mise
-if status is-interactive
-  mise activate fish | source
-else
-  mise activate fish --shims | source
-end
-
 # Base16
 if status --is-interactive
   set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
@@ -86,6 +97,14 @@ function tg_conda
     set -gx PATH $_OLD_PATH
     set -e PYTHON_DIST
     echo "Back to system Python"
+  end
+end
+
+# Helper function
+function remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
   end
 end
 
