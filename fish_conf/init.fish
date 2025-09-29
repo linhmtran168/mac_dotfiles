@@ -16,6 +16,9 @@ set -xg CHROME_BIN '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 # Docker
 set -xg COMPOSE_BAKE true
 
+# Tune MSBuild for .NET
+set -xg MSBUILDDISABLENODEREUSE 1
+
 # Set required paths
 fish_add_path --global --move --path $HOME/.local/bin $GOPATH/bin
 
