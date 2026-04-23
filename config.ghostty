@@ -1,0 +1,92 @@
+# ==========================================
+# 🎨 THEME & TYPOGRAPHY
+# ==========================================
+theme = "Everforest Dark Hard"
+
+# font-family = "Cascadia Code NF"
+font-family = "Monaspace Neon NF"
+font-family-italic = "Monaspace Radon NF"
+font-family-bold = "Monaspace Neon NF"
+font-family-bold-italic = "Monaspace Radon NF"
+font-size = 12.2
+
+# Breathing room for Neovim split borders
+adjust-cell-height = 10%
+
+# OpenType features — explicit +/- prefix for clarity
+font-feature = +zero        # dotted zero
+font-feature = +cv11        # alternate *
+# Uncomment to kill ligatures (cleaner diffs / LSP hover in Neovim):
+# font-feature = -liga
+# font-feature = -calt
+
+# ==========================================
+# 🪟 WINDOW & UI
+# ==========================================
+macos-titlebar-style = hidden
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
+window-save-state = always
+window-inherit-working-directory = true
+
+background-opacity = 0.93
+background-blur-radius = 20
+
+mouse-hide-while-typing = true
+
+# Warn before closing a surface with a running process.
+# Default already covers this, but being explicit is cheap.
+confirm-close-surface = always
+
+# ==========================================
+# 🛠️ NEOVIM / MACOS FIXES
+# ==========================================
+# Option acts as Alt so Neovim gets Meta-bindings instead of ∆˙¬ noise.
+# Use `left` instead of `true` if you need right-Option for typing accents.
+macos-option-as-alt = true
+
+# Keep paste protection ON — it only triggers on pastes containing
+# newlines/control sequences that would auto-execute. Cheap insurance.
+clipboard-paste-protection = true
+
+# "clipboard" = write selection to the actual system pasteboard,
+# not just Ghostty's internal selection buffer.
+copy-on-select = clipboard
+
+# ==========================================
+# 🐚 SHELL INTEGRATION
+# ==========================================
+shell-integration = detect
+# cursor: bar-at-prompt • sudo: preserves env over sudo
+# title: auto-updates window title • ssh-env: propagates TERM/colors over ssh
+shell-integration-features = cursor,sudo,title,ssh-env
+
+# Rails logs / test output eat scrollback fast. 100M bytes ≈ plenty.
+scrollback-limit = 100000000
+
+# ==========================================
+# 🚀 QUICK TERMINAL (scratchpad)
+# ==========================================
+quick-terminal-position = top
+# For position=top, the primary axis is HEIGHT, secondary is WIDTH.
+# 40% tall, 80% wide — short-and-wide dropdown.
+quick-terminal-size = 40%,80%
+quick-terminal-animation-duration = 0.1
+keybind = global:super+grave_accent=toggle_quick_terminal
+
+# ==========================================
+# ⌨️ KEYBINDS
+# ==========================================
+# Copy/paste with `performable:` — if there's nothing to copy/paste,
+# the keystroke passes through to Neovim/Zellij instead of being eaten.
+keybind = performable:super+c=copy_to_clipboard
+keybind = performable:super+v=paste_from_clipboard
+
+# Shift+Enter → Alt+Enter bytes (\x1b\r).
+# Lets multi-line TUIs (Claude Code, Aider, chat CLIs) insert a newline
+# instead of submitting. Arrives at Neovim's :terminal as <M-CR> / <A-CR>.
+keybind = shift+enter=text:\x1b\r
+
+
+
