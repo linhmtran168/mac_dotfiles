@@ -1,0 +1,178 @@
+// ==========================================
+// ⌨️ KEYBINDINGS (Tmux-centric)
+// ==========================================
+keybinds clear-defaults=true {
+
+    // 🔒 LOCKED MODE (Default State)
+    // Zellij stays out of the way until you hit Ctrl+A.
+    // Ctrl+hjkl is also available globally for seamless Neovim↔Zellij nav
+    // (requires smart-splits.nvim in Neovim — see notes below).
+    locked {
+        bind "Ctrl a" { SwitchToMode "tmux"; }
+    }
+
+    // 🟢 TMUX MODE (The Prefix Engine)
+    // Activated by Ctrl+A. After any command, drops back to locked mode.
+    tmux {
+        // Double-tap Ctrl+A sends literal Ctrl+A (byte 0x01) to the shell.
+        // Needed for readline/Fish beginning-of-line.
+        bind "Ctrl a" { Write 1; SwitchToMode "locked"; }
+        bind "esc" { SwitchToMode "locked"; }
+
+        // Window (Tab) Management
+        bind "c" { NewTab; SwitchToMode "locked"; }
+        bind "n" { GoToNextTab; SwitchToMode "locked"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "locked"; }
+        bind "1" { GoToTab 1; SwitchToMode "locked"; }
+        bind "2" { GoToTab 2; SwitchToMode "locked"; }
+        bind "3" { GoToTab 3; SwitchToMode "locked"; }
+        bind "4" { GoToTab 4; SwitchToMode "locked"; }
+        bind "5" { GoToTab 5; SwitchToMode "locked"; }
+        bind "6" { GoToTab 6; SwitchToMode "locked"; }
+        bind "7" { GoToTab 7; SwitchToMode "locked"; }
+        bind "8" { GoToTab 8; SwitchToMode "locked"; }
+        bind "9" { GoToTab 9; SwitchToMode "locked"; }
+        bind "," { SwitchToMode "renametab"; }
+
+        // Pane Management
+        bind "\"" "_" { NewPane "down"; SwitchToMode "locked"; }
+        bind "%" "|" { NewPane "right"; SwitchToMode "locked"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "x" { CloseFocus; SwitchToMode "locked"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        bind "f" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
+        bind "." { SwitchToMode "renamepane"; }
+
+        // Pane Navigation (inside prefix — Ctrl+hjkl handles the global case)
+        bind "h" "Left" { MoveFocus "left"; SwitchToMode "locked"; }
+        bind "l" "Right" { MoveFocus "right"; SwitchToMode "locked"; }
+        bind "j" "Down" { MoveFocus "down"; SwitchToMode "locked"; }
+        bind "k" "Up" { MoveFocus "up"; SwitchToMode "locked"; }
+        bind "o" { FocusNextPane; }
+
+        // Session & Utilities
+        bind "d" { Detach; }
+        bind "q" { Quit; }
+        bind "[" { SwitchToMode "scroll"; }
+        bind "r" { SwitchToMode "resize"; }
+        bind "s" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+            }
+            SwitchToMode "locked"
+        }
+    }
+
+    // 🌐 SHARED BINDS (outside tmux prefix)
+    // Works in every mode except locked (Neovim gets Ctrl+hjkl raw)
+    // and tmux (which has its own nav).
+    // Requires smart-splits.nvim in Neovim for seamless edge-crossing.
+    shared_except "locked" "tmux" "renametab" "renamepane" "entersearch" "search" {
+        bind "Ctrl h" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+    }
+
+    // ↕️ RESIZE MODE (Prefix → r)
+    resize {
+        bind "esc" "enter" { SwitchToMode "locked"; }
+        bind "h" "Left" { Resize "Increase left"; }
+        bind "j" "Down" { Resize "Increase down"; }
+        bind "k" "Up" { Resize "Increase up"; }
+        bind "l" "Right" { Resize "Increase right"; }
+        bind "H" { Resize "Decrease left"; }
+        bind "J" { Resize "Decrease down"; }
+        bind "K" { Resize "Decrease up"; }
+        bind "L" { Resize "Decrease right"; }
+        bind "=" "+" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+    }
+
+    // 📜 SCROLL MODE (Prefix → [ )
+    scroll {
+        bind "esc" { SwitchToMode "locked"; }
+        bind "e" { EditScrollback; SwitchToMode "locked"; }
+        bind "q" "Ctrl c" { ScrollToBottom; SwitchToMode "locked"; }
+        bind "j" "down" { ScrollDown; }
+        bind "k" "up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "space" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "g" { ScrollToTop; }
+        bind "G" { ScrollToBottom; SwitchToMode "locked"; }
+        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+    }
+
+    // 🔍 SEARCH MODES
+    entersearch {
+        bind "Ctrl c" "esc" { SwitchToMode "scroll"; }
+        bind "enter" { SwitchToMode "search"; }
+    }
+    search {
+        bind "esc" "Ctrl c" { SwitchToMode "scroll"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "n" { Search "down"; }
+        bind "p" "N" { Search "up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "WholeWord"; }
+    }
+
+    // ✏️ RENAME TABS/PANES
+    renametab {
+        bind "esc" "Ctrl c" { UndoRenameTab; SwitchToMode "locked"; }
+        bind "enter" { SwitchToMode "locked"; }
+    }
+    renamepane {
+        bind "esc" "Ctrl c" { UndoRenamePane; SwitchToMode "locked"; }
+        bind "enter" { SwitchToMode "locked"; }
+    }
+}
+
+// ==========================================
+// ⚙️ CORE SETTINGS
+// ==========================================
+theme "everforest-dark"
+default_layout "default"
+default_mode "locked"
+default_shell "fish"
+
+// Clipboard — target the macOS system pasteboard explicitly.
+copy_command "pbcopy"
+copy_clipboard "system"
+copy_on_select false  // let Ghostty's copy-on-select own this
+
+// Open pane scrollback in Neovim via prefix+[ e
+scrollback_editor "/opt/homebrew/bin/nvim"
+
+// Scrollback: match Ghostty's generosity (default 10k truncates Rails logs fast)
+scroll_buffer_size 100000
+
+// Session persistence — restores pane contents across reboots.
+// Pairs with Ghostty's window-save-state = always.
+session_serialization true
+pane_viewport_serialization true
+
+// Quit cleanly on force-close instead of leaving orphan sessions.
+on_force_close "quit"
+
+// ==========================================
+// 🎨 UI
+// ==========================================
+simplified_ui true
+// Off: saves 2 rows/cols per pane; Neovim's winbar/statusline handles identity.
+// Flip to true if you often run multiple shell panes side-by-side.
+pane_frames true
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name false
+    }
+}
+
+// Mouse on, but hold Shift (Option on macOS in Ghostty) while selecting
+// to bypass Zellij's capture and let Ghostty's copy-on-select fire instead.
+mouse_mode true
+

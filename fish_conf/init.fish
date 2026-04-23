@@ -19,6 +19,10 @@ set -xg COMPOSE_BAKE true
 # Tune MSBuild for .NET
 set -xg MSBUILDDISABLENODEREUSE 1
 
+# smart-splits.nvim ↔ Zellij
+set -gx ZELLIJ_AUTO_ATTACH true
+set -gx ZELLIJ_AUTO_EXIT false
+
 # Set required paths
 fish_add_path --global --move --path $HOME/.local/bin $GOPATH/bin
 
