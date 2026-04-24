@@ -2,7 +2,54 @@ layout {
     default_tab_template {
         children
         pane size=1 borderless=true {
-            plugin location="zellij:compact-bar"
+            plugin location="file:~/.config/zellij/zjstatus.wasm" {
+
+                // ==========================================
+                // 🎨 LAYOUT
+                // Note the restored `` and `` characters to create the angled ribbons
+                // ==========================================
+                format_left   "{mode}#[fg=#D3C6AA,bg=#343F44,bold]  {session} #[fg=#343F44,bg=#272E33]"
+                format_center "{tabs}"
+                format_right  "#[fg=#343F44,bg=#272E33]#[fg=#D3C6AA,bg=#343F44] {datetime} "
+                format_space  "#[bg=#272E33]"
+
+                border_enabled "false"
+
+                // ==========================================
+                // 🚦 MODES
+                // Restored the trailing `` so the colors flow into the session block
+                // ==========================================
+                mode_locked       "#[fg=#272E33,bg=#E67E80,bold]  LOCKED #[fg=#E67E80,bg=#343F44]"
+                mode_tmux         "#[fg=#272E33,bg=#DBBC7F,bold]  TMUX #[fg=#DBBC7F,bg=#343F44]"
+                mode_resize       "#[fg=#272E33,bg=#E69875,bold] 󰩨 RESIZE #[fg=#E69875,bg=#343F44]"
+                mode_scroll       "#[fg=#272E33,bg=#83C092,bold] 󰆍 SCROLL #[fg=#83C092,bg=#343F44]"
+                mode_search       "#[fg=#272E33,bg=#7FBBB3,bold] 󰜏 SEARCH #[fg=#7FBBB3,bg=#343F44]"
+                mode_entersearch  "#[fg=#272E33,bg=#7FBBB3,bold] 󰜏 SEARCH #[fg=#7FBBB3,bg=#343F44]"
+                mode_renametab    "#[fg=#272E33,bg=#D699B6,bold] 󰑕 RENAME TAB #[fg=#D699B6,bg=#343F44]"
+                mode_renamepane   "#[fg=#272E33,bg=#D699B6,bold] 󰑕 RENAME PANE #[fg=#D699B6,bg=#343F44]"
+
+                // ==========================================
+                // 🗂️ TABS
+                // Restored `` and `` to create the rounded capsule/pill effect.
+                // Added space padding around `{name}` so it doesn't touch the edges.
+                // ==========================================
+                tab_active              "#[fg=#A6B465,bg=#272E33]#[fg=#272E33,bg=#A6B465,bold,italic] 󰓩 {name} #[fg=#A6B465,bg=#272E33]"
+                tab_active_fullscreen   "#[fg=#DBBC7F,bg=#272E33]#[fg=#272E33,bg=#DBBC7F,bold,italic] 󰊓 {name} #[fg=#DBBC7F,bg=#272E33]"
+                tab_active_sync         "#[fg=#E69875,bg=#272E33]#[fg=#272E33,bg=#E69875,bold,italic] 󰓩 {name} 󰓦 #[fg=#E69875,bg=#272E33]"
+                
+                // Inactive tabs kept clean and square to make the active pill stand out
+                tab_normal              "#[fg=#859289,bg=#272E33] {name} "
+                tab_normal_fullscreen   "#[fg=#859289,bg=#272E33] 󰊓 {name} "
+                tab_normal_sync         "#[fg=#859289,bg=#272E33] {name} 󰓦 "
+                tab_separator           "  "
+
+                // ==========================================
+                // 🛠️ MODULES
+                // ==========================================
+                datetime          "{format}"
+                datetime_format   "  %H:%M    %d %b"
+                datetime_timezone "Asia/Ho_Chi_Minh"
+            }
         }
     }
 }

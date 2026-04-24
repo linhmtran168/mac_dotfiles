@@ -119,6 +119,7 @@ end
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 fzf --fish | source
 source $HOME/mac_dotfiles/fish_conf/fzf.fish
+source $HOME/mac_dotfiles/fish_conf/zjstatus.fish
 bind -M insert \c] fzf-src # -M for insert mode
 
 # Zoxide

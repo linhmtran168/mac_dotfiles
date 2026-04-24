@@ -76,16 +76,11 @@ quick-terminal-position = top
 # 40% tall, 80% wide — short-and-wide dropdown.
 quick-terminal-size = 40%,80%
 quick-terminal-animation-duration = 0.1
-keybind = global:super+grave_accent=toggle_quick_terminal
+keybind = global:super+shift+grave_accent=toggle_quick_terminal
 
 # ==========================================
 # ⌨️ KEYBINDS
 # ==========================================
-# Copy/paste with `performable:` — if there's nothing to copy/paste,
-# the keystroke passes through to Neovim/Zellij instead of being eaten.
-keybind = performable:super+c=copy_to_clipboard
-keybind = performable:super+v=paste_from_clipboard
-
 # Shift+Enter → Alt+Enter bytes (\x1b\r).
 # Lets multi-line TUIs (Claude Code, Aider, chat CLIs) insert a newline
 # instead of submitting. Arrives at Neovim's :terminal as <M-CR> / <A-CR>.

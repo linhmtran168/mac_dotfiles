@@ -142,7 +142,7 @@ default_shell "fish"
 // Clipboard — target the macOS system pasteboard explicitly.
 copy_command "pbcopy"
 copy_clipboard "system"
-copy_on_select false  // let Ghostty's copy-on-select own this
+copy_on_select true
 
 // Open pane scrollback in Neovim via prefix+[ e
 scrollback_editor "/opt/homebrew/bin/nvim"
