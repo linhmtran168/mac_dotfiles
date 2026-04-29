@@ -67,6 +67,7 @@ alias tmk='tmux kill-session -t'
 alias tmkna='tmux list-sessions | grep -v attached | awk \'BEGIN{FS=":"}{print $1}\' | xargs -n 1 tmux kill-session -t'
 
 # Zellij
+alias zl='zellij'
 alias zln='zellij -s'
 alias zld='zellij -s (basename (pwd))'
 alias zll='zellij ls'

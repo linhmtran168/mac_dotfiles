@@ -14,14 +14,18 @@ font-size = 12.2
 adjust-cell-height = 10%
 
 # OpenType features — explicit +/- prefix for clarity
-font-feature = +zero        # dotted zero
-font-feature = +cv11        # alternate *
+# dotted zero
+font-feature = +zero
+# alternate *
+font-feature = +cv11
 
 # Uncomment to kill ligatures (cleaner diffs / LSP hover in Neovim):
 # font-feature = -liga
 # font-feature = -calt
-font-feature = +calt        # Critical for Monaspace Texture Healing
-font-feature = +liga        # Keep standard ligatures
+# Critical for Monaspace Texture Healing
+font-feature = +calt
+# Keep standard ligatures
+font-feature = +liga
 
 # ==========================================
 # 🪟 WINDOW & UI
@@ -40,7 +44,7 @@ mouse-hide-while-typing = true
 
 # Warn before closing a surface with a running process.
 # Default already covers this, but being explicit is cheap.
-confirm-close-surface = always
+confirm-close-surface = true
 
 # ==========================================
 # 🛠️ NEOVIM / MACOS FIXES
@@ -60,10 +64,10 @@ copy-on-select = clipboard
 # ==========================================
 # 🐚 SHELL INTEGRATION
 # ==========================================
-shell-integration = detect
+shell-integration = fish
 # cursor: bar-at-prompt • sudo: preserves env over sudo
 # title: auto-updates window title • ssh-env: propagates TERM/colors over ssh
-shell-integration-features = cursor,sudo,title,ssh-env
+shell-integration-features = cursor,sudo,title,ssh-env,path
 
 # Rails logs / test output eat scrollback fast. 100M bytes ≈ plenty.
 scrollback-limit = 100000000
