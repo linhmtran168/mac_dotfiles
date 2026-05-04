@@ -1,22 +1,21 @@
 [user]
-	name = Linh Tran
-	email = linh.mtran168@live.com
+  name = Linh Tran
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore_global
+  editor = /usr/local/bin/nvim
   pager = delta
 [alias]
-	lg = log --all --graph --decorate --oneline
+  lg = log --all --graph --decorate --oneline
 [color]
-	ui = true
+  ui = true
 [push]
-	default = simple
+  default = simple
 [pull]
   rebase = false
 [ghq]
-	root = ~/Dev
+  root = ~/Dev
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [ghq]
   root = ~/Dev
 [credential]
@@ -44,3 +43,4 @@
 ; Custom include
 ; [includeIf "gitdir:~/Dev/github.com/linhmtran168/"]
 ;   path = ~/.personal.gitconfig
+;

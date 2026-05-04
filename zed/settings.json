@@ -1,0 +1,84 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "git_panel": {
+    "file_icons": true,
+    "tree_view": true,
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "opencode": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "icon_theme": "VSCode Great Icons Theme",
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5.2-codex",
+      },
+    ],
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5.2-codex",
+    },
+    "default_profile": "write",
+    "model_parameters": [],
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5",
+    },
+  },
+  "autosave": "on_focus_change",
+  "theme": "Everforest Dark Soft",
+  "telemetry": {
+    "metrics": false,
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 12.5,
+  "buffer_font_family": "Monaspace Neon NF",
+  "languages": {
+    "Ruby": {
+      "language_servers": [
+        "ruby-lsp",
+        "!rubocop",
+        "!solargraph",
+        "!sorbet",
+        "!steep",
+        "!kanayago",
+        "...",
+      ],
+    },
+    "YAML": {
+      "formatter": "language_server",
+    },
+  },
+}
