@@ -22,14 +22,10 @@
   "agent_servers": {
     "github-copilot-cli": {
       "favorite_config_option_values": {
-        "model": [
-          "gpt-5.5",
-          "gpt-5-mini",
-          "claude-sonnet-4.6"
-        ]
+        "model": ["gpt-5.5", "gpt-5-mini", "claude-sonnet-4.6"],
       },
       "default_config_options": {
-        "model": "gpt-5.5"
+        "model": "gpt-5.5",
       },
       "type": "registry",
     },
@@ -73,8 +69,8 @@
     "metrics": false,
   },
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 12.5,
+  "ui_font_size": 15.3,
+  "buffer_font_size": 12.3,
   "buffer_font_family": "Monaspace Neon NF",
   "languages": {
     "Ruby": {

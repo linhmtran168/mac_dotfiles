@@ -5,7 +5,6 @@ scan_timeout = 30
 palette = "everforest_dark"
 
 format = """
-$os\
 $username\
 $hostname\
 $directory\
@@ -38,14 +37,6 @@ aqua = "#83c092"
 blue = "#7fbbb3"
 purple = "#d699b6"
 
-[os]
-disabled = false
-style = "fg:fg_dim"
-format = "[$symbol]($style) "
-
-[os.symbols]
-Macos = ""
-
 [username]
 show_always = false
 style_user = "fg:fg_dim"
@@ -68,10 +59,11 @@ fish_style_pwd_dir_length = 1
 format = "[](fg:bg1)[ $path$read_only]($style)[](fg:bg1) "
 
 [directory.substitutions]
+"~/Dev/github.com" = " github"
 "~/Dev" = "󰲋 Dev"
-"~/Dev/github.com" = " Github"
+"~/Desktop" = " Desktop"
+"~/Documents" = " Documents"
 "~/Downloads" = " Downloads"
-"~/mac_dotfiles" = " mac_dotfiles"
 "~" = ""
 
 [git_branch]
