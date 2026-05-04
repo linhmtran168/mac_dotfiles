@@ -126,3 +126,6 @@ bind -M insert \c] fzf-src # -M for insert mode
 # Zoxide
 zoxide init fish | source
 set -xg __zoxide_z_prefix 'z!'
+
+# Starship
+starship init fish | source

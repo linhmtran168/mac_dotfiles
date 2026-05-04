@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "diff_view_style": "split",
   "git_panel": {
     "file_icons": true,
     "tree_view": true,
@@ -20,6 +21,16 @@
   },
   "agent_servers": {
     "github-copilot-cli": {
+      "favorite_config_option_values": {
+        "model": [
+          "gpt-5.5",
+          "gpt-5-mini",
+          "claude-sonnet-4.6"
+        ]
+      },
+      "default_config_options": {
+        "model": "gpt-5.5"
+      },
       "type": "registry",
     },
     "opencode": {

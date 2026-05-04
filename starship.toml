@@ -1,80 +1,215 @@
+# Everforest Dark prompt tuned for Nerd Font terminals and fast redraws.
+add_newline = true
+command_timeout = 500
+scan_timeout = 30
+palette = "everforest_dark"
+
 format = """
+$os\
 $username\
 $hostname\
-$localip\
-$shlvl\
-$kubernetes\
 $directory\
 $git_branch\
-$git_commit\
 $git_state\
-$git_metrics\
-$git_status\
-$docker_context\
-$package\
-$c\
-$cmake\
-$golang\
-$helm\
-$java\
-$julia\
+$custom\
 $nodejs\
-$php\
-$pulumi\
 $python\
 $ruby\
 $rust\
+$golang\
+$java\
 $terraform\
-$zig\
-$buf\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$azure\
-$env_var\
-$custom\
-$sudo\
-$cmd_duration\
 $line_break\
-$jobs\
-$battery\
-$status\
-$os\
-$container\
-$shell\
 $character"""
 
-right_format = """$time"""
+right_format = """$cmd_duration$jobs$status$time"""
+
+[palettes.everforest_dark]
+bg0 = "#272e33"
+bg1 = "#2e383c"
+bg3 = "#414b50"
+fg = "#d3c6aa"
+fg_dim = "#9da9a0"
+red = "#e67e80"
+orange = "#e69875"
+yellow = "#dbbc7f"
+green = "#a7c080"
+aqua = "#83c092"
+blue = "#7fbbb3"
+purple = "#d699b6"
+
+[os]
+disabled = false
+style = "fg:fg_dim"
+format = "[$symbol]($style) "
+
+[os.symbols]
+Macos = ""
+
+[username]
+show_always = false
+style_user = "fg:fg_dim"
+style_root = "fg:red bold"
+format = "[$user]($style) "
+
+[hostname]
+ssh_only = true
+style = "fg:yellow bold"
+format = "on [$hostname]($style) "
+
+[directory]
+style = "fg:fg bg:bg1 bold"
+read_only = " "
+read_only_style = "fg:red bg:bg1 bold"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+format = "[](fg:bg1)[ $path$read_only]($style)[](fg:bg1) "
+
+[directory.substitutions]
+"~/Dev" = "󰲋 Dev"
+"~/Dev/github.com" = " Github"
+"~/Downloads" = " Downloads"
+"~/mac_dotfiles" = " mac_dotfiles"
+"~" = ""
+
+[git_branch]
+symbol = ""
+style = "fg:aqua bg:bg1 bold"
+truncation_length = 32
+format = "[](fg:bg1)[$symbol $branch]($style)[](fg:bg1) "
+
+[git_state]
+style = "fg:orange bg:bg1 bold"
+format = "[](fg:bg1)[$state( $progress_current/$progress_total)]($style)[](fg:bg1) "
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
 
 [git_status]
-conflicted = '🏳'
-ahead = "🏎💨${count}"
-behind = '😰${count}'
-diverged = '😵⇡${ahead_count}⇣${behind_count}'
-up_to_date = '✓'
-untracked = '🤷'
-stashed = '📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
+style = "fg:yellow bg:bg1 bold"
+format = "([](fg:bg1)[$all_status$ahead_behind]($style)[](fg:bg1) )"
+ignore_submodules = true
+conflicted = "󰳤 ${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = " ${count} "
+stashed = "󰏗 ${count} "
+modified = "󰷉 ${count} "
+staged = "+ ${count} "
+renamed = "󰑕 ${count} "
+deleted = "− ${count} "
+typechanged = "󰏫 ${count} "
+up_to_date = ""
 
-[kubernetes]
-format = "on [⛵ $context\\($namespace\\)](cyan bold) in "
+[custom.git_status_trimmed]
+command = "starship module git_status | sed $'s/^[[:space:]]*//; s/[[:space:]]*\\\\x1b\\\\[0m/\\\\x1b[0m/g; s/[[:space:]]*$//'"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+unsafe_no_escape = true
+
+[nodejs]
+symbol = ""
+style = "fg:green bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = []
+
+
+[python]
+symbol = ""
+style = "fg:yellow bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version($virtualenv)]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = [
+  "pyproject.toml",
+  "requirements.txt",
+  ".python-version",
+  "Pipfile",
+  "tox.ini",
+  "setup.py",
+]
+detect_folders = []
+
+[ruby]
+symbol = ""
+style = "fg:red bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = ["Gemfile", ".ruby-version"]
+detect_folders = []
+
+[rust]
+symbol = ""
+style = "fg:orange bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = ["Cargo.toml"]
+detect_folders = []
+
+[golang]
+symbol = ""
+style = "fg:aqua bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = ["go.mod", "go.work", ".go-version"]
+detect_folders = []
+
+[java]
+symbol = ""
+style = "fg:purple bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = [
+  "pom.xml",
+  "build.gradle",
+  "build.gradle.kts",
+  "build.sbt",
+  ".java-version",
+  ".sdkmanrc",
+]
+detect_folders = []
+
+[terraform]
+symbol = "󱁢"
+style = "fg:purple bg:bg1 bold"
+format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+detect_extensions = []
+detect_files = ["main.tf", "versions.tf", ".terraform-version"]
+detect_folders = [".terraform"]
+
+[cmd_duration]
+min_time = 500
+style = "fg:orange"
+format = "[󰔛 $duration]($style) "
+
+[jobs]
+symbol = ""
+style = "fg:purple"
+format = "[$symbol $number]($style) "
+
+[status]
 disabled = false
-[kubernetes.context_aliases]
-"gke_freenance-dev_asia-northeast1-a_freenance-dev-cluster" = "frnc-dev"
-
-[conda]
-ignore_base = false
-
-[gcloud]
-format = "on [$symbol $active]($style) "
-
-[battery]
-disabled = true
+recognize_signal_code = true
+map_symbol = true
+style = "fg:red bold"
+format = "[ $status]($style) "
 
 [time]
 disabled = false
+time_format = "%H:%M"
+style = "fg:fg_dim"
+format = "[󰥔 $time]($style)"
 
+[character]
+success_symbol = "[❯](bold fg:green)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:yellow)"
