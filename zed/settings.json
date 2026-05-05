@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "cli_default_open_behavior": "new_window",
   "diff_view_style": "split",
   "git_panel": {
     "file_icons": true,
@@ -64,7 +65,7 @@
     },
   },
   "autosave": "on_focus_change",
-  "theme": "Everforest Dark Soft",
+  "theme": "Everforest Dark Medium",
   "telemetry": {
     "metrics": false,
   },

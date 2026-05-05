@@ -5,12 +5,13 @@ scan_timeout = 30
 palette = "everforest_dark"
 
 format = """
+${custom.symbol}\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_state\
-$custom\
+${custom.git_status_trimmed}\
 $nodejs\
 $python\
 $ruby\
@@ -36,6 +37,13 @@ green = "#a7c080"
 aqua = "#83c092"
 blue = "#7fbbb3"
 purple = "#d699b6"
+
+[custom.symbol]
+command = "printf "
+when = true
+shell = ["bash", "--noprofile", "--norc"]
+style = "fg:yellow bold"
+format = "[$output]($style) "
 
 [username]
 show_always = false
