@@ -1,4 +1,6 @@
 # Everforest Dark prompt tuned for Nerd Font terminals and fast redraws.
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = true
 command_timeout = 500
 scan_timeout = 30
@@ -25,18 +27,26 @@ $character"""
 right_format = """$cmd_duration$jobs$status$time"""
 
 [palettes.everforest_dark]
+crust = "#1e2326"
 bg0 = "#272e33"
 bg1 = "#2e383c"
+bg2 = "#374145"
 bg3 = "#414b50"
+bg4 = "#495156"
 fg = "#d3c6aa"
 fg_dim = "#9da9a0"
 red = "#e67e80"
 orange = "#e69875"
+peach = "#e69875"
 yellow = "#dbbc7f"
 green = "#a7c080"
 aqua = "#83c092"
+teal = "#83c092"
 blue = "#7fbbb3"
+sapphire = "#7fbbb3"
 purple = "#d699b6"
+lavender = "#d699b6"
+magenta = "#d699b6"
 
 [custom.symbol]
 command = "printf "
@@ -93,7 +103,7 @@ am_or_rebase = "AM/REBASE"
 
 [git_status]
 style = "fg:yellow bg:bg1 bold"
-format = "([](fg:bg1)[$all_status$ahead_behind]($style)[](fg:bg1) )"
+format = "([](fg:bg1)[$all_status$ahead_behind]($style)[](fg:bg1))"
 ignore_submodules = true
 conflicted = "󰳤 ${count} "
 ahead = "⇡${count} "
@@ -109,7 +119,7 @@ typechanged = "󰏫 ${count} "
 up_to_date = ""
 
 [custom.git_status_trimmed]
-command = "starship module git_status | sed $'s/^[[:space:]]*//; s/[[:space:]]*\\\\x1b\\\\[0m/\\\\x1b[0m/g; s/[[:space:]]*$//'"
+command = "starship module git_status | sed $'s/^[[:space:]]*//; s/[[:space:]]*\\\\x1b\\\\[0m/\\\\x1b[0m/g; s/[[:space:]]*$//; /./s/$/ /'"
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 shell = ["bash", "--noprofile", "--norc"]
 format = "$output"
@@ -213,3 +223,6 @@ format = "[󰥔 $time]($style)"
 success_symbol = "[❯](bold fg:green)"
 error_symbol = "[❯](bold fg:red)"
 vimcmd_symbol = "[❮](bold fg:yellow)"
+vimcmd_replace_one_symbol = "[❮](bold fg:peach)"
+vimcmd_replace_symbol = "[❮](bold fg:peach)"
+vimcmd_visual_symbol = "[❮](bold fg:purple)"
