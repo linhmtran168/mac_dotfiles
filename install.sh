@@ -14,7 +14,7 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 brew install fish python vim nvim tmux cmake dust bat sd hyperfine fd fzf xh \
   ghq golang helm hadolint htop minikube ripgrep sd tokei \
   tealdeer cheat curlie git-delta duf procs broot terraform kubernetes-cli direnv zoxide \
-  bottom lazygit lazydocker lsd zellij eza
+  bottom lazygit lazydocker lsd zellij eza tree-sitter-cli starship
 
 # Install brew casks
 brew install --cask temurin 1password alfred appcleaner calibre font-cascadia-code-nf font-monaspace-nf \
@@ -33,10 +33,10 @@ brew install homebrew/cask/docker
 chsh -s /opt/homebrew/bin/fish
 ## fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-## tide
-fisher install IlanCosman/tide@v6
 ## Fish config
 ln -sf ~/mac_dotfiles/fish_conf/init.fish ~/.config/fish/conf.d/init.fish
+## Link starship config
+ln -sf ~/mac_dotfiles/starship.toml ~/.config/starship.toml
 
 # Symlink config file for git and fish
 ln -sf ~/mac_dotfiles/.gitignore_global ~/.gitignore_global
@@ -71,3 +71,11 @@ curl https://mise.run | sh
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
+
+# AI
+# Claude
+curl -fsSL https://claude.ai/install.sh | bash
+# Codex
+brew install codex
+# Opencode
+brew install anomalyco/tap/opencode
