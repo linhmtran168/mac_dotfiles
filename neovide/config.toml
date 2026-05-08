@@ -1,3 +1,5 @@
 [font]
-normal = ["Cascadia Code NF"]
+normal = ["Monaspace Neon NF"]
+italic = ["Monaspace Radon NF"]
+bold_italic = ["Monaspace Radon NF"]
 size = 13
