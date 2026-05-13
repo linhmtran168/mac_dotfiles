@@ -7,13 +7,17 @@ scan_timeout = 30
 palette = "everforest_dark"
 
 format = """
+[░▒▓](fg:segment_icon)\
 ${custom.symbol}\
-$username\
 $hostname\
+[](fg:segment_icon bg:segment_path)\
 $directory\
+[](fg:segment_path bg:segment_git)\
 $git_branch\
+[](fg:segment_git bg:segment_status)\
 $git_state\
-${custom.git_status_trimmed}\
+$git_status\
+[](fg:segment_status bg:segment_runtime)\
 $nodejs\
 $python\
 $ruby\
@@ -21,6 +25,7 @@ $rust\
 $golang\
 $java\
 $terraform\
+[](fg:segment_runtime)\
 $line_break\
 $character"""
 
@@ -47,13 +52,19 @@ sapphire = "#7fbbb3"
 purple = "#d699b6"
 lavender = "#d699b6"
 magenta = "#d699b6"
+segment_icon = "#273f46"
+segment_context = "#2e383c"
+segment_path = "#3a463b"
+segment_git = "#263f43"
+segment_status = "#4a3b2d"
+segment_runtime = "#303f4a"
 
 [custom.symbol]
 command = "printf "
 when = true
 shell = ["bash", "--noprofile", "--norc"]
-style = "fg:yellow bold"
-format = "[$output]($style) "
+style = "fg:yellow bg:segment_icon bold"
+format = "[$output ]($style)"
 
 [username]
 show_always = false
@@ -63,18 +74,18 @@ format = "[$user]($style) "
 
 [hostname]
 ssh_only = true
-style = "fg:yellow bold"
-format = "on [$hostname]($style) "
+style = "fg:yellow bg:segment_icon bold"
+format = "[ on $hostname ]($style)"
 
 [directory]
-style = "fg:fg bg:bg1 bold"
+style = "fg:fg bg:segment_path bold"
 read_only = " "
-read_only_style = "fg:red bg:bg1 bold"
+read_only_style = "fg:red bg:segment_path bold"
 truncation_length = 3
 truncate_to_repo = true
 truncation_symbol = ""
 fish_style_pwd_dir_length = 1
-format = "[](fg:bg1)[ $path$read_only]($style)[](fg:bg1) "
+format = "[  $path$read_only ]($style)"
 
 [directory.substitutions]
 "~/Dev/github.com" = " github"
@@ -86,13 +97,13 @@ format = "[](fg:bg1)[ $path$read_only]($style)[](fg:bg1) "
 
 [git_branch]
 symbol = ""
-style = "fg:aqua bg:bg1 bold"
+style = "fg:aqua bg:segment_git bold"
 truncation_length = 32
-format = "[](fg:bg1)[$symbol $branch]($style)[](fg:bg1) "
+format = "[ $symbol $branch ]($style)"
 
 [git_state]
-style = "fg:orange bg:bg1 bold"
-format = "[](fg:bg1)[$state( $progress_current/$progress_total)]($style)[](fg:bg1) "
+style = "fg:orange bg:segment_status bold"
+format = "[ $state( $progress_current/$progress_total) ]($style)"
 rebase = "REBASING"
 merge = "MERGING"
 revert = "REVERTING"
@@ -102,8 +113,8 @@ am = "AM"
 am_or_rebase = "AM/REBASE"
 
 [git_status]
-style = "fg:yellow bg:bg1 bold"
-format = "([](fg:bg1)[$all_status$ahead_behind]($style)[](fg:bg1))"
+style = "fg:yellow bg:segment_status bold"
+format = "([ $all_status$ahead_behind]($style))"
 ignore_submodules = true
 conflicted = "󰳤 ${count} "
 ahead = "⇡${count} "
@@ -118,26 +129,18 @@ deleted = "− ${count} "
 typechanged = "󰏫 ${count} "
 up_to_date = ""
 
-[custom.git_status_trimmed]
-command = "starship module git_status | sed $'s/^[[:space:]]*//; s/[[:space:]]*\\\\x1b\\\\[0m/\\\\x1b[0m/g; s/[[:space:]]*$//; /./s/$/ /'"
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
-shell = ["bash", "--noprofile", "--norc"]
-format = "$output"
-unsafe_no_escape = true
-
 [nodejs]
 symbol = ""
-style = "fg:green bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:green bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = ["package.json", ".node-version", ".nvmrc"]
-detect_folders = []
-
+detect_folders = ["node_modules"]
 
 [python]
 symbol = ""
-style = "fg:yellow bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version($virtualenv)]($style)[](fg:bg1) "
+style = "fg:yellow bg:segment_runtime bold"
+format = "[ $symbol $version($virtualenv) ]($style)"
 detect_extensions = []
 detect_files = [
   "pyproject.toml",
@@ -151,32 +154,32 @@ detect_folders = []
 
 [ruby]
 symbol = ""
-style = "fg:red bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:red bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = ["Gemfile", ".ruby-version"]
 detect_folders = []
 
 [rust]
 symbol = ""
-style = "fg:orange bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:orange bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = ["Cargo.toml"]
 detect_folders = []
 
 [golang]
 symbol = ""
-style = "fg:aqua bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:aqua bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = ["go.mod", "go.work", ".go-version"]
 detect_folders = []
 
 [java]
 symbol = ""
-style = "fg:purple bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:purple bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = [
   "pom.xml",
@@ -190,8 +193,8 @@ detect_folders = []
 
 [terraform]
 symbol = "󱁢"
-style = "fg:purple bg:bg1 bold"
-format = "[](fg:bg1)[$symbol $version]($style)[](fg:bg1) "
+style = "fg:purple bg:segment_runtime bold"
+format = "[ $symbol $version ]($style)"
 detect_extensions = []
 detect_files = ["main.tf", "versions.tf", ".terraform-version"]
 detect_folders = [".terraform"]
