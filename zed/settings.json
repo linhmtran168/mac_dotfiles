@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "file_finder": {
+    "modal_max_width": "large"
+  },
   "cli_default_open_behavior": "new_window",
   "diff_view_style": "split",
   "minimap": {
@@ -77,7 +80,7 @@
     },
   },
   "autosave": "on_focus_change",
-  "theme": "Everforest Dark Medium",
+  "theme": "Everforest Dark Soft",
   "telemetry": {
     "metrics": false,
   },

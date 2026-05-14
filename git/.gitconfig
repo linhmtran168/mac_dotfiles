@@ -4,6 +4,8 @@
   excludesfile = ~/.gitignore_global
   editor = /usr/local/bin/nvim
   pager = delta
+  fsmonitor = true
+  untrackedCache = true
 [alias]
   lg = log --all --graph --decorate --oneline
 [color]

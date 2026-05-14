@@ -8,7 +8,7 @@ palette = "everforest_dark"
 
 format = """
 [░▒▓](fg:segment_icon)\
-${custom.symbol}\
+[ ](fg:blue bg:segment_icon bold)\
 $hostname\
 [](fg:segment_icon bg:segment_path)\
 $directory\
@@ -46,25 +46,13 @@ peach = "#e69875"
 yellow = "#dbbc7f"
 green = "#a7c080"
 aqua = "#83c092"
-teal = "#83c092"
 blue = "#7fbbb3"
-sapphire = "#7fbbb3"
 purple = "#d699b6"
-lavender = "#d699b6"
-magenta = "#d699b6"
 segment_icon = "#273f46"
-segment_context = "#2e383c"
 segment_path = "#3a463b"
 segment_git = "#263f43"
 segment_status = "#4a3b2d"
 segment_runtime = "#303f4a"
-
-[custom.symbol]
-command = "printf "
-when = true
-shell = ["bash", "--noprofile", "--norc"]
-style = "fg:yellow bg:segment_icon bold"
-format = "[$output ]($style)"
 
 [username]
 show_always = false

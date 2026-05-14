@@ -43,13 +43,6 @@ if not contains /opt/homebrew/share/info $INFOPATH
     set --global --export INFOPATH /opt/homebrew/share/info $INFOPATH
 end
 
-# Active mise to active tool's path
-if status is-interactive
-    mise activate fish | source
-else
-    mise activate fish --shims | source
-end
-
 ## Key bindings
 # Vi mode
 fish_vi_key_bindings
@@ -94,13 +87,13 @@ source ~/.config/op/plugins.sh
 eval (direnv hook fish)
 
 # Base16
-if status --is-interactive
-    set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
-    if test -s "$BASE16_SHELL_PATH"
-        set -g BASE16_CONFIG_PATH "$HOME/.config/tinted-theming"
-        source "$BASE16_SHELL_PATH/profile_helper.fish"
-    end
-end
+# if status --is-interactive
+#     set BASE16_SHELL_PATH "$HOME/.config/base16-shell"
+#     if test -s "$BASE16_SHELL_PATH"
+#         set -g BASE16_CONFIG_PATH "$HOME/.config/tinted-theming"
+#         source "$BASE16_SHELL_PATH/profile_helper.fish"
+#     end
+# end
 
 # Claude Sonnet
 alias claudesn='claude --model sonnet'

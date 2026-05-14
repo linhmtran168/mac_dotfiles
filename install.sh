@@ -14,7 +14,7 @@ git clone git@github.com:linhmtran168/mac_dotfiles.git
 brew install fish python vim nvim tmux cmake dust bat sd hyperfine fd fzf xh \
   ghq golang helm hadolint htop minikube ripgrep sd tokei \
   tealdeer cheat curlie git-delta duf procs broot terraform kubernetes-cli direnv zoxide \
-  bottom lazygit lazydocker lsd zellij eza tree-sitter-cli starship
+  bottom lazygit lazydocker lsd zellij eza tree-sitter-cli starship mise
 
 # Install brew casks
 brew install --cask temurin 1password alfred appcleaner calibre font-cascadia-code-nf font-monaspace-nf \
@@ -65,9 +65,6 @@ mkdir -p ~/Dev/go
 # Ghostty
 brew install --cask ghostty
 ln -sf ~/mac_dotfiles/config.ghostty ~/.config/ghostty/config.ghostty
-
-# Mise
-curl https://mise.run | sh
 
 # Rust
 curl https://sh.rustup.rs -sSf | sh
