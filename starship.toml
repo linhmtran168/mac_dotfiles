@@ -105,9 +105,9 @@ style = "fg:yellow bg:segment_status bold"
 format = "([ $all_status$ahead_behind]($style))"
 ignore_submodules = true
 conflicted = "󰳤 ${count} "
-ahead = "⇡${count} "
-behind = "⇣${count} "
-diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+ahead = "⇡ ${count} "
+behind = "⇣ ${count} "
+diverged = "⇕ ⇡${ahead_count}⇣${behind_count} "
 untracked = " ${count} "
 stashed = "󰏗 ${count} "
 modified = "󰷉 ${count} "
@@ -165,6 +165,7 @@ detect_files = ["go.mod", "go.work", ".go-version"]
 detect_folders = []
 
 [java]
+disabled = true
 symbol = ""
 style = "fg:purple bg:segment_runtime bold"
 format = "[ $symbol $version ]($style)"

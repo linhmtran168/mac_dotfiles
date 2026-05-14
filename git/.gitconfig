@@ -4,7 +4,7 @@
   excludesfile = ~/.gitignore_global
   editor = /usr/local/bin/nvim
   pager = delta
-  fsmonitor = true
+  ; fsmonitor = true # Should only be enabled per-repository
   untrackedCache = true
 [alias]
   lg = log --all --graph --decorate --oneline
