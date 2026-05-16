@@ -23,8 +23,15 @@ set -xg MSBUILDDISABLENODEREUSE 1
 set -gx ZELLIJ_AUTO_ATTACH true
 set -gx ZELLIJ_AUTO_EXIT false
 
+# Tide pwd substitution
+set -g tide_pwd_substitutions \
+    "~/Dev/github.com/linhmtran168" " linhmtran168" \
+    "~/Dev/github.com" " github" \
+    "~/Dev" "󰲋 Dev" \
+    $tide_pwd_substitutions
+
 # Set required paths
-fish_add_path --global --move --path $HOME/.local/bin $GOPATH/bin
+fish_add_path --global --move --path $HOME/.local/bin $GOPATH/bin $HOME/.dotnet/tools
 
 # Brew
 set --global --export HOMEBREW_PREFIX /opt/homebrew
@@ -121,4 +128,4 @@ zoxide init fish | source
 set -xg __zoxide_z_prefix 'z!'
 
 # Starship
-starship init fish | source
+# starship init fish | source

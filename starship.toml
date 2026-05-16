@@ -211,6 +211,9 @@ time_format = "%H:%M"
 style = "fg:fg_dim"
 format = "[󰥔 $time]($style)"
 
+[line_break]
+disabled = false
+
 [character]
 success_symbol = "[❯](bold fg:green)"
 error_symbol = "[❯](bold fg:red)"
